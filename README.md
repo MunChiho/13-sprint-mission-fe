@@ -5,7 +5,7 @@
 판다마켓은 이웃과 함께하는 따뜻한 중고거래 커뮤니티 플랫폼입니다.
 단순한 거래를 넘어 사용자들이 소통하고 정보를 나누는 공간을 지향합니다. 🥳
 
-🔗 **[서비스 바로가기](배포링크주소 추가 예정)**
+🔗 **[서비스 바로가기](https://13-sprint-mission-fe-hj.netlify.app/)**
 
 ![PandaMarket](https://github.com/user-attachments/assets/3784b99f-73c9-4349-a9a9-92b2a7563574)  
 _위 이미지는 판다마켓의 대표 이미지입니다._ 📸
