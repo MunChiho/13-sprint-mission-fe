@@ -10,7 +10,6 @@ body {
 }
 
 :root {
-  --btn-hover-color: #007bff;
   --inputfield-border-color: #3692ff;
 }
 
@@ -94,7 +93,7 @@ body {
   cursor: pointer;
 }
 
-.input-field:focus {
+.input-field:hover {
   border-color: var(--inputfield-border-color); /* 테두리를 파란색으로 */
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* 파란 빛 번짐 효과 */
   background-color: #f0f8ff; /* 배경을 아주 연한 파란색으로 */
@@ -132,7 +131,7 @@ body {
 }
 
 .btn-submit:hover {
-  background-color: var(--btn-hover-color);
+  background-color: var(--inputfield-border-color);
 }
 
 .simple-login {
