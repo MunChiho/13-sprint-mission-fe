@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="assets/base.css" />
+    <link rel="stylesheet" href="assets/auth.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <div class="auth-page">
+      <div class="auth-page__inner">
+        <div class="auth-page__content">
+          <header class="auth-page__header">
+            <a href="/" class="auth-page__logo-link">
+              <img
+                src="/assets/images/logo.svg"
+                alt="판다마켓 로고"
+                class="auth-page__logo"
+              />
+              <span class="auth-page__title">판다마켓</span>
+            </a>
+          </header>
+          <main class="auth-page__main">
+            <form action="" method="get" class="register-form">
+              <div class="register-form__field">
+                <label for="useremail" class="register-form__label"
+                  >이메일</label
+                >
+                <input
+                  type="text"
+                  id="useremail"
+                  class="register-form__input"
+                  name="useremail"
+                  placeholder="이메일을 입력해주세요"
+                  required
+                />
+              </div>
+              <div class="register-form__field">
+                <label for="nickname" class="register-form__label"
+                  >닉네임</label
+                >
+                <input
+                  type="text"
+                  id="nickname"
+                  class="register-form__input"
+                  name="nickname"
+                  placeholder="닉네임을 입력해주세요"
+                  required
+                />
+              </div>
+              <div class="register-form__field">
+                <label for="password" class="register-form__label"
+                  >비밀번호</label
+                >
+                <input
+                  type="password"
+                  id="password"
+                  class="register-form__input"
+                  name="password"
+                  placeholder="비밀번호를 입력해주세요"
+                  required
+                />
+                <button type="button" class="visibility-toggle">
+                  <img
+                    src="assets/images/btn_visibillty-off.svg"
+                    alt="비밀번호 숨기기"
+                  />
+                </button>
+              </div>
+              <div class="register-form__field">
+                <label for="password-confirm" class="register-form__label"
+                  >비밀번호 확인</label
+                >
+                <input
+                  type="password"
+                  id="password-confirm"
+                  class="register-form__input"
+                  name="password-confirm"
+                  placeholder="비밀번호를 다시 한 번 입력해주세요"
+                  required
+                />
+                <button type="button" class="visibility-toggle">
+                  <img
+                    src="assets/images/btn_visibillty-off.svg"
+                    alt="비밀번호 숨기기"
+                  />
+                </button>
+              </div>
+              <button type="submit" class="register-form__submit">
+                회원가입
+              </button>
+            </form>
+            <div class="auth-page__social">
+              <p class="auth-page__social-text">간편 로그인하기</p>
+              <ul class="auth-page__social-list">
+                <li class="auth-page__social-icon">
+                  <a
+                    class="auth-page__socal-link"
+                    target="_blank"
+                    href="https://www.google.com"
+                  >
+                    <img src="assets/images/google-icon.png" />
+                  </a>
+                </li>
+                <li class="auth-page__social-icon">
+                  <a
+                    class="auth-page__socal-link"
+                    target="_blank"
+                    href="https://www.kakaocorp.com/page"
+                  >
+                    <img src="assets/images/kakao-icon.png" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="auth-page__signup">
+              <span class="auth-page__signup-text">이미 회원이신가요?</span>
+              <a class="auth-page__signup-link" href="/login">로그인</a>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

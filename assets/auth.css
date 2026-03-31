@@ -1,0 +1,212 @@
+.auth-page__inner {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-page__content {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.auth-page__header {
+  width: 100%;
+}
+
+.auth-page__logo-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  padding: 14px 0;
+}
+
+.auth-page__logo {
+  width: 104px;
+  height: 104px;
+}
+
+.auth-page__title {
+  color: var(--brand-blue, #3692ff);
+  font-size: 66px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.auth-page__main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.login-form,
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.login-form__field,
+.register-form__field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-form__input,
+.register-form__input {
+}
+
+.login-form__input:focus,
+.register-form__input:focus {
+  outline: none;
+  border: 1px solid #3692ff;
+}
+
+.login-form:has(.login-form__input:focus) .login-form__submit {
+  background: var(--Primary-100, #3692ff);
+}
+
+.register-form:has(.register-form__input:focus) .register-form__submit {
+  background: var(--Primary-100, #3692ff);
+}
+
+.login-form__label,
+.register-form__label {
+  color: var(--Secondary-800, #1f2937);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.login-form__input,
+.register-form__input {
+  display: flex;
+  width: 640px;
+  height: 56px;
+  padding: 16px 24px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--Cool-Gray-100, #f3f4f6);
+  border: none;
+  outline: none;
+  color: var(--Cool-Gray-800, #1f2937);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.auth-page input::-webkit-input-placeholder {
+  color: var(--Secondary-400, #9ca3af);
+  /* pretendard/lg-16px-regular */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 162.5% */
+}
+
+.visibility-toggle {
+  position: absolute;
+  right: 24px;
+  bottom: 16px;
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.login-form__submit,
+.register-form__submit {
+  color: var(--Cool-Gray-100, #f3f4f6);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+  border-radius: 40px;
+  background: var(--Secondary-400, #9ca3af);
+  padding: 16px 124px;
+  border: none;
+  outline: none;
+}
+
+.login-form__submit:focus,
+.register-form__submit:focus {
+  background: var(--Primary-100, #3692ff);
+}
+
+.auth-page__social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 23px;
+  background: #e6f2ff;
+  border-radius: 8px;
+}
+
+.auth-page__social-text {
+  color: var(--Secondary-800, #1f2937);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.auth-page__social-list {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.auth-page__social-icon {
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.auth-page__signup {
+  width: 100%;
+  text-align: center;
+  color: var(--Secondary-800, #1f2937);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.auth-page__signup-link {
+  color: var(--Primary-100, #3692ff);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
