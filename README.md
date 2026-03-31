@@ -24,6 +24,14 @@
 ┣ 📂 sns
 ┣ 📜 login.html
 ┣ 📜 signup.html
+┣ 📜 faq.html
+┣ 📜 items.html
+┣ 📜 privacy.html
 ┣ 📜 reset.css
-┣ 📜 style.css
+┣ 📜 style_1.css
+┣ 📜 style_2.css
 ┗ 📜 README.md
+
+## netlify 배포 주소
+
+https://comforting-tartufo-5b0e76.netlify.app/
