@@ -1,9 +1,12 @@
-/*#region 로그인 페이지 CSS*/
+/*로그인/회원가입 페이지 CSS*/
 * {
   box-sizing: border-box;
   text-decoration: none;
 }
-.login-body {
+input:focus {
+  border: 1px solid #3692ff;
+}
+.auth-page {
   max-width: 40rem;
   display: flex;
   margin: 14.4rem auto 17.8rem;
@@ -14,7 +17,8 @@
   flex-shrink: 0;
 }
 
-.login-logo {
+/*#region header 부분 스타일*/
+.brand-logo {
   display: inline-flex;
   justify-content: center;
   align-items: flex-end;
@@ -22,13 +26,13 @@
   width: 24.75rem;
   height: 8.25rem;
 }
-.login-logo img {
+.brand-logo img {
   width: 6.47056rem;
   height: 6.4925rem;
 
   margin: 0.81rem 0 0.95rem 0;
 }
-.login-text {
+.brand-name {
   color: var(--brand-blue, #3692ff);
   font-family: "ROKAF Sans";
   font-size: 4.1465rem;
@@ -38,22 +42,23 @@
 
   padding: 1.5em 0.26rem 1.13rem;
 }
+/*#endregion*/
 
-.login-action {
+/*#region 이메일,비밀번호 입력 부분 스타일*/
+.auth-form-container {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
-.pwd-field,
-.email-field {
+
+.form-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
 }
 
-.pwd-label,
-.email-label {
+.form-label {
   color: var(--Secondary-800, #1f2937);
 
   /* pretendard/2lg-18px-bold */
@@ -63,8 +68,7 @@
   font-weight: 700;
   line-height: 1.625rem; /* 144.444% */
 }
-.pwd-input,
-.email-input {
+.form-input {
   display: flex;
   width: 40rem;
   height: 3.5rem;
@@ -88,18 +92,20 @@
   border: none;
   outline: none;
 }
-.pwd {
+.password-wrapper {
   position: relative;
   top: 0;
   left: 0;
 }
-.pwd-field img {
+.password-wrapper img {
   position: absolute;
   right: 3%;
   top: 30%;
 }
+/*#endregion*/
 
-.login-btn2 {
+/*#region 로그인버튼 스타일*/
+.login-submit {
   display: flex;
   width: 40rem;
   height: 3.5rem;
@@ -123,7 +129,9 @@
   font-weight: 600;
   line-height: 2rem; /* 160% */
 }
+/*#endregion*/
 
+/*#region 간편로그인 부분 스타일*/
 .social-login {
   display: flex;
   width: 40rem;
@@ -156,8 +164,10 @@
   width: 2.625rem;
   height: 2.625rem;
 }
+/*#endregion*/
 
-.login-helper {
+/*#region 하단 로그인/가입 링크로 연결 부분*/
+.auth-helper-link {
   text-align: center;
   color: var(--Secondary-800, #1f2937);
 
@@ -168,7 +178,7 @@
   font-weight: 500;
   line-height: 1.5rem; /* 171.429% */
 }
-.login-helper a {
+.auth-helper-link a {
   text-decoration: underline;
 
   color: var(--Primary-100, #3692ff);
@@ -183,9 +193,5 @@
   text-decoration-thickness: auto;
   text-underline-offset: auto;
   text-underline-position: from-font;
-}
-
-input:focus {
-  border: 1px solid #3692ff;
 }
 /*#endregion */
