@@ -1,8 +1,23 @@
 * {
   box-sizing: border-box;
-  font-family: Pretendard;
+  font-family: Pretendard Std Variable;
   margin: 0;
   padding: 0;
+}
+
+:root {
+  --primary-100: #3692ff;
+  --primary-200: #1967d6;
+  --primary-300: #1251aa;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
 }
 
 a {
@@ -59,7 +74,7 @@ label {
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
-  color: var(--Secondary-800, #1f2937);
+  color: var(--gray800);
 }
 
 input {
@@ -68,16 +83,16 @@ input {
   gap: 10px;
   padding: 16px 24px;
   border-radius: 12px;
-  background: var(--Cool-Gray-100, #f3f4f6);
+  background: var(--gray100);
   border: none;
 }
 
 input:focus {
-  outline: 1px solid #3692ff;
+  outline: 1px solid var(--primary-100);
 }
 
 input::placeholder {
-  color: #9ca3af;
+  color: var(--gray400);
 }
 
 .input-pw {
@@ -98,14 +113,14 @@ button {
   justify-content: center;
   align-items: center;
   border-radius: 40px;
-  background: var(--Secondary-400, #9ca3af);
+  background: var(--gray400);
   border: none;
   font-size: 20px;
-  color: var(--Cool-Gray-100, #f3f4f6);
+  color: var(--gray100);
 }
 
 button:hover {
-  background: var(--Primary-100, #3692ff);
+  background: var(--primary-100);
 }
 
 /* 간편 로그인 */
@@ -149,10 +164,10 @@ button:hover {
 }
 
 p {
-  color: #1f2937;
+  color: var(--gray800);
 }
 
 .last-box a {
   text-decoration: underline;
-  color: #3692ff;
+  color: var(--primary-100);
 }
