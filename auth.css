@@ -69,11 +69,9 @@ input:focus {
   line-height: 1.625rem; /* 144.444% */
 }
 .form-input {
-  display: flex;
   width: 40rem;
   height: 3.5rem;
   padding: 1rem 1.5rem;
-  align-items: center;
   gap: 0.625rem;
 
   color: var(--Secondary-400, #9ca3af);
@@ -91,6 +89,9 @@ input:focus {
   background: var(--Cool-Gray-100, #f3f4f6);
   border: none;
   outline: none;
+}
+.form-input-pwd {
+  padding-right: 3.5rem;
 }
 .password-wrapper {
   position: relative;
