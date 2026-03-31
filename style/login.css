@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  font-family: Pretendard;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+/* 상단 로고 */
+main {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: #fcfcfc;
+}
+
+.section {
+  display: flex;
+  width: 640px;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo-box {
+  width: 396px;
+  height: 132px;
+  margin-bottom: 20px;
+}
+
+.logo-box img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* 메인 */
+.main-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+}
+
+/* input box */
+.type-box {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  align-self: stretch;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: var(--Secondary-800, #1f2937);
+}
+
+input {
+  width: 640px;
+  height: 56px;
+  gap: 10px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: var(--Cool-Gray-100, #f3f4f6);
+  border: none;
+}
+
+input:focus {
+  outline: 1px solid #3692ff;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+.input-pw {
+  position: relative;
+}
+
+.input-pw .eyes {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+}
+
+/* 로그인 버튼 */
+button {
+  display: flex;
+  width: 640px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  background: var(--Secondary-400, #9ca3af);
+  border: none;
+  font-size: 20px;
+  color: var(--Cool-Gray-100, #f3f4f6);
+}
+
+button:hover {
+  background: var(--Primary-100, #3692ff);
+}
+
+/* 간편 로그인 */
+.easy-log {
+  display: flex;
+  width: 640px;
+  height: 74px;
+  padding: 16px 23px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 8px;
+  background: #e6f2ff;
+}
+
+.easy-box {
+  display: flex;
+  width: 594px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sns-icons {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.sns-icons img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+}
+
+/* 하단 */
+.last-box {
+  display: felx;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+p {
+  color: #1f2937;
+}
+
+.last-box a {
+  text-decoration: underline;
+  color: #3692ff;
+}
