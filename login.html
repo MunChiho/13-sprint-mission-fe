@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-std-dynamic-subset.min.css"
+    />
+  </head>
+  <body class="login-body">
+    <header>
+      <div>
+        <a class="login-logo" href="/"
+          ><img src="./판다 얼굴.svg" alt="logo" />
+          <p class="login-text">판다마켓</p></a
+        >
+      </div>
+    </header>
+    <main>
+      <form action="">
+        <section class="login-action">
+          <div class="email-field">
+            <label for="email" class="email-label">이메일</label>
+            <input
+              id="email"
+              class="email-input"
+              placeholder="이메일을 입력해주세요"
+              type="email"
+              required
+            />
+          </div>
+
+          <div class="pwd-field">
+            <label for="pwd" class="pwd-label">비밀번호</label>
+            <div class="pwd">
+              <input
+                type="password"
+                id="pwd"
+                class="pwd-input"
+                placeholder="비밀번호를 입력해주세요"
+                required
+              />
+              <img src="./btn_visibility.png" alt="" />
+            </div>
+          </div>
+
+          <button class="login-btn2" type="submit">로그인</button>
+          <div class="social-login">
+            <p>간편로그인 하기</p>
+            <nav>
+              <ul class="social-link">
+                <li>
+                  <a href="https://www.google.com/"
+                    ><img src="./구글.png" alt="구글"
+                  /></a>
+                </li>
+                <li>
+                  <a href="https://www.kakaocorp.com/page/"
+                    ><img src="./카카오.png" alt="카카오"
+                  /></a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <p class="login-helper">
+            판다마켓이 처음이신가요? <a href="#">회원가입</a>
+          </p>
+        </section>
+      </form>
+    </main>
+  </body>
+</html>
