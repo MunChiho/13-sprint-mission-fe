@@ -1,0 +1,118 @@
+/* Main Page Style Page */
+
+/*
+  @ .hero-section
+  - 해당 섹션 스타일은 #top-hero-section와 #bottom-hero-section가 공통으로 사용.
+  - This section is shared by #top-hero-section and #bottom-hero-section.
+*/
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.4375rem;
+  height: 33.75rem;
+  background-color: #cfe5ff;
+}
+.hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 68.75rem;
+}
+.hero-textbox {
+  margin-bottom: 6.25rem;
+  margin-right: 0.44rem;
+}
+.hero-text {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 140%; /* 56px */
+  color: var(--Secondary-700);
+}
+.button-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  padding: 0.625rem;
+  border-radius: 2.5rem;
+  background: var(--Primary-100);
+}
+.hero-image {
+  width: 67.82%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* #bottom-hero exception handling */
+#bottom-hero .hero-textbox {
+  margin-bottom: 10.78rem;
+}
+#bottom-hero .hero-text {
+  margin-bottom: 0;
+}
+
+/*
+  @ .article-section
+  - 해당 섹션 스타일은 #hot-item-section, #search-section, #register-section가 공통으로 사용.
+  - This section is shared by #hot-item-section, #search-section, and #register-section.
+*/
+.article-section {
+  display: flex;
+  justify-content: center;
+  padding: 8.62rem 0;
+  background-color: #fff;
+}
+.article-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  max-width: 61.75rem;
+  border-radius: 0.75rem;
+  background: #fcfcfc;
+}
+.article-image {
+  width: 59.51%;
+  height: 100%;
+  object-fit: cover;
+}
+.article-textbox {
+  max-width: 18.375rem;
+  margin-right: 2rem;
+}
+.article-label {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.625rem; /* 144.444% */
+  color: var(--Primary-100);
+}
+.article-title {
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 140%; /* 56px */
+  letter-spacing: 0.05rem;
+  color: var(--Secondary-700);
+}
+.article-desc {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2rem; /* 133.333% */
+  color: var(--Secondary-700);
+}
+
+/* #search-section exception handling */
+#search-section .article-inner {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+#search-section .article-textbox {
+  margin-right: 0;
+  margin-left: 2rem;
+}
