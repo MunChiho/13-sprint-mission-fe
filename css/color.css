@@ -7,20 +7,16 @@
   --primary-200: #1967d6;
   --primary-300: #1251aa;
 
-  /* Secondary */
-  --secondary-900: #111827;
-  --secondary-800: #1f2937;
-  --secondary-700: #374151;
-  --secondary-600: #4b5563;
-  --secondary-500: #6b7280;
-  --secondary-400: #9ca3af;
-  --secondary-200: #e5e7eb;
-  --secondary-100: #f3f4f6;
-  --secondary-50: #f9fafb;
-
-  /* cool-gray */
-  --coolgray-100: #f3f4f6;
-  --coolgray-800: #1f2937;
+  /* gray */
+  --gray-900: #111827;
+  --gray-800: #1f2937;
+  --gray-700: #374151;
+  --gray-600: #4b5563;
+  --gray-500: #6b7280;
+  --gray-400: #9ca3af;
+  --gray-200: #e5e7eb;
+  --gray-100: #f3f4f6;
+  --gray-50: #f9fafb;
 
   /* Error */
   --error-red: #f74747;

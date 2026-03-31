@@ -31,7 +31,6 @@ video,
 canvas,
 svg {
   display: block;
-  max-width: 100%;
   height: auto;
 }
 
@@ -69,8 +68,8 @@ table {
 
 /* 7. 접근성/기본 포커스 */
 :focus-visible {
-  outline: 2px solid #0066cc;
-  outline-offset: 2px;
+  outline: 0.125rem solid #0066cc;
+  outline-offset: 0.125rem;
 }
 
 /* 여기서부터 작성 */
@@ -87,17 +86,17 @@ body {
 .title-header {
   display: flex;
   align-items: center;
-  gap: 22.24px;
+  gap: 1.39rem;
   justify-content: center;
-  margin-top: 231px;
+  margin-top: 14.438rem;
 }
 
 .title-header p {
   color: var(--primary-100);
-  font-family: var(--font-rokaf);
+  font-family: var(--rokaf);
   font-weight: 700;
   line-height: 100%;
-  font-size: 66.34px;
+  font-size: 4.146rem;
 }
 
 /* main  */
@@ -107,48 +106,62 @@ body {
 .login-container {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 2.5rem;
   justify-content: start;
   align-items: start;
-  gap: 24px;
+  gap: 1.5rem;
 }
 
 .inner-container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
 }
 
 /* pwd */
 
-.login-label {
-  color: var(--secondary-800);
+.auth-label {
+  color: var(--gray-800);
   font-family: var(--font-pretendard);
   font-weight: 700;
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
 }
 
-.login-input {
-  padding: 15px 24px;
-  border-radius: 12px;
-  background-color: var(--coolgray-100);
-  width: 640px;
-  height: 54px;
-  color: var(--secondary-800);
+.auth-input {
+  padding: 0.938rem 1.5rem;
+  border-radius: 0.75rem;
+  background-color: var(--gray-100);
+  width: 40rem;
+  height: 3.375rem;
+  color: var(--gray-800);
   font-family: var(--font-pretendard);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 1rem;
+  line-height: 1.625rem;
 }
 
-.login-input:focus {
+.pwd-input {
+  position: relative;
+}
+
+.pwd-toggle-btn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.auth-input:focus {
   outline: none;
   border: 1px solid var(--primary-100);
-  color: var(--coolgray-800);
+  color: var(--gray-800);
   font-family: var(--font-pretendard);
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 /* 닉네임 */
@@ -156,15 +169,28 @@ body {
 /* 로그인 버튼 */
 
 .login-btn {
-  border-radius: 40px;
-  width: 640px;
-  height: 56px;
+  border-radius: 2.5rem;
+  width: 40rem;
+  height: 3.5rem;
   font-family: var(--font-pretendard);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
-  line-height: 32px;
-  color: var(--coolgray-100);
-  background-color: var(--secondary-400);
+  line-height: 2rem;
+  color: var(--gray-100);
+  background-color: var(--gray-400);
+}
+
+/* 회원가입 버튼 */
+.register-btn {
+  border-radius: 2.5rem;
+  width: 40rem;
+  height: 3.5rem;
+  font-family: var(--font-pretendard);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  color: white;
+  background-color: var(--gray-400);
 }
 
 /* 소셜 로그인 */
@@ -173,26 +199,26 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-radius: 8px;
-  gap: 10px;
-  width: 640px;
-  height: 74px;
-  padding: 16px 23px;
+  border-radius: 0.5rem;
+  gap: 0.625rem;
+  width: 40rem;
+  height: 4.625rem;
+  padding: 1rem 1.438rem;
   background-color: var(--sns-background-color);
 }
 
 .sns-container p {
-  color: var(--secondary-800);
+  color: var(--gray-800);
   font-family: var(--font-pretendard);
   font-weight: 500;
   font-size: 1rem;
-  line-height: 26px;
+  line-height: 1.625rem;
 }
 
 .sns-icons {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 1rem;
 }
 
 /* 회원가입 */
@@ -203,14 +229,13 @@ body {
   margin: 0 auto;
   font-family: var(--font-pretendard);
   font-weight: 500;
-  size: 14px;
-
-  gap: 4px;
+  font-size: 0.875rem;
+  gap: 0.25rem;
 }
 
 .auth-container p {
-  color: var(--secondary-800);
-  line-height: 24px;
+  color: var(--gray-800);
+  line-height: 1.5rem;
 }
 
 .auth-container a {
