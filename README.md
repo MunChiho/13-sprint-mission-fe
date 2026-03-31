@@ -1,49 +1,71 @@
-# 🐼 판다마켓 프로젝트
+# 🐼 판다마켓 (Panda Market)
 
-> _이 저장소는 판다마켓 프로젝트의 프론트엔드 코드를 관리하는 곳입니다. 프로젝트를 클론하여 개발 환경을 설정하고, 각 브랜치에서 해당 스프린트 미션을 수행해 주세요!_ 🛠️
+## ✨ 프로젝트 소개
 
-## 소개
+판다마켓은 이웃과 함께하는 따뜻한 중고거래 커뮤니티 플랫폼입니다.
+단순한 거래를 넘어 사용자들이 소통하고 정보를 나누는 공간을 지향합니다. 🥳
 
-안녕하세요! 판다마켓 프로젝트에 오신 것을 환영합니다! 🥳  
-판다마켓은 따뜻한 중고거래를 위한 커뮤니티 플랫폼이에요. 여러분은 이곳에서 상품을 등록하고, 다른 사용자들과 소통하며, 자유롭게 이야기를 나눌 수 있어요. 매주 스프린트 미션을 통해 기능을 하나씩 만들어 가며 성장해 나가는 여정을 함께해요. 🚀
+🔗 **[서비스 바로가기](배포링크주소 추가 예정)**
 
 ![PandaMarket](https://github.com/user-attachments/assets/3784b99f-73c9-4349-a9a9-92b2a7563574)  
 _위 이미지는 판다마켓의 대표 이미지입니다._ 📸
 
-## 스프린트 미션이란? 🤔
+## 🛠 Tech Stack
 
-스프린트 미션은 **하나의 개인 프로젝트를 길게 진행하면서, 그 과정에서 주기적으로 피드백을 받을 수 있는 시스템**이에요. 각 스프린트마다 배운 이론을 적용해 보고, **멘토님께 코드 리뷰를 받아가며 실력을 쑥쑥 키워갈 수 있는 중요한 개인 과제**랍니다. 💪
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white)
+![Google Analytics](https://img.shields.io/badge/-GoogleAnalytics-E37400?logo=googleanalytics&logoColor=white)
 
-## 주요 기능 ✨
+## 💡 Key Experience
 
-1. **상품 등록**: 내가 가진 물건을 올리고, 사진과 설명을 추가해 직접 판매할 수 있어요!
-2. **문의 댓글**: 상품에 대한 궁금한 점이나 의견을 자유롭게 남길 수 있답니다. 📝
-3. **자유게시판**: 다양한 주제로 친구들과 이야기를 나누고, 정보를 공유할 수 있는 공간이에요! 🗣️
+- **웹 표준 준수**: 시맨틱 태그를 적절히 활용하여 웹 접근성과 SEO를 개선했습니다.
+- **데이터 기반 개선**: Google Analytics(GA4)를 연동하여 사용자 이벤트를 추적하고 행동 패턴을 분석할 수 있는 환경을 구축했습니다.
+- **반응형 웹 구현**: 다양한 화면 크기에서도 최적화된 UX를 제공하기 위해 미디어 쿼리를 활용한 반응형 디자인을 적용했습니다.
+- **효율적인 스타일 관리**: CSS 컴포넌트화를 통해 코드의 재사용성과 유지보수성을 높였습니다.
 
-## 프로젝트 브랜치 구조 🏗️
+## 🚀 실행 방법
 
-프로젝트는 단계별로 나뉘어 있고, 각 스프린트 미션에 맞는 브랜치가 있어요. 각 브랜치를 통해 체계적으로 개발하며 학습할 수 있어요. 🎯
+1. 저장소를 클론합니다
 
-### 브랜치 설명
+```bash
+  git clone https://github.com/damdadaxx/13-sprint-mission-fe.git
+```
 
-1. **basic (part1): 스프린트 미션 1 ~ 3 FE 요구사항**
+2. 프로젝트 폴더로 이동합니다.
 
-   - 기본적인 웹 애플리케이션 기능 구현을 위한 초기 브랜치입니다. HTML, CSS, JavaScript 등을 사용해 기본을 다집니다.
-   - **스프린트 미션 1부터 4까지**의 프론트엔드 내용을 포함하고 있어요.
+```bash
+  cd 13-sprint-mission-fe
+```
 
-2. **react (part2): 스프린트 미션 5 ~ 6 FE 요구사항**
+3. `index.html` 파일을 브라우저로 엽니다. (추천: VS Code의 Live Server 확장 프로그램 사용)
 
-   - React 라이브러리를 사용해 프론트엔드 기능을 구현하는 브랜치입니다. 컴포넌트 기반 아키텍처와 상태 관리를 배웁니다.
-   - **스프린트 미션 5부터 6까지, 그 이후**의 프론트엔드 내용을 포함하고 있어요.
-   - 만약 스프린트 미션 9부터 프론트엔드 코드를 Next가 아닌 React로 구현하고 싶다면 react 브랜치를 사용해요.
+## 📁 프로젝트 구조
 
-3. **next (part3,4): 스프린트 미션 7 FE 요구사항~**
+```bash
+.
+├── faq.html
+├── index.html
+├── items.html
+├── login.html
+├── privacy.html
+├── README.md
+├── signup.html
+└── src
+    ├── images
+    │   ├── form/
+    │   └── home/
+    └── style
+        └── components/
+        └── home.css
+```
 
-   - Next.js를 사용해 서버 사이드 렌더링(SSR)과 정적 사이트 생성(SSG) 등 고급 기능을 구현합니다.
-   - **스프린트 미션 7부터** 시작하는 프론트엔드 내용을 포함하고 있어요.
-   - 만약 스프린트 미션 8부터 프론트엔드 코드를 React가 아닌 Next로 구현하고 싶다면 next 브랜치를 사용해요.
+## 🎯 주요 기능
 
-> _스프린트 미션 내 백엔드 요구사항은 [백엔드 레포지토리](https://github.com/codeit-sprint-fullstack/11-sprint-mission-be)의 브랜치에서 관리해주세요_
+1. **상품 등록**: 판매하고 싶은 물건의 사진과 설명을 등록할 수 있습니다.
+2. **문의 및 댓글**: 게시글마다 자유로운 의견 교환과 문의가 가능합니다.
+3. **자유게시판**: 다양한 주제로 소통하며 정보를 공유할 수 있습니다.
 
 ---
 
