@@ -1,0 +1,162 @@
+/* 
+  @ Form Styles
+  - login.html
+  - signup.html
+*/
+
+.form-section {
+  max-width: 640px;
+  width: 100%;
+  margin: 14.4375rem auto;
+}
+
+/* Exception: Form section top margin for responsive design */
+@media (max-width: 1600px) {
+  .form-section {
+    margin: 6.25rem auto;
+  }
+}
+
+/* Form header section */
+.logo {
+  display: block;
+  width: 396px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+.logo-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Form elements styles */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 1.5rem;
+  z-index: 0;
+}
+.form-label {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.625rem; /* 144.444% */
+  color: var(--Secondary-800);
+}
+.form-input {
+  height: 3.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.625rem; /* 162.5% */
+  color: var(--Secondary-400);
+  background: var(--Cool-Gray-100);
+  /* 기본 테두리를 미리 설정 (밀림 방지) */
+  border: 1px solid transparent;
+  outline: none; /* 브라우저 기본 파란 테두리 제거 */
+  transition: border-color 0.2s; /* 부드러운 변경 효과 */
+}
+.form-input:focus,
+.form-input:active {
+  border: 1px solid var(--Primary-100) !important;
+  outline: none;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  color: var(--Cool-Gray-800);
+}
+.visibility-off-img {
+  position: absolute;
+  z-index: 1;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1.5rem;
+  right: 0;
+  bottom: calc(3.5rem / 4); /* '.form-input'의 height 기준으로 계산 */
+  cursor: pointer;
+}
+
+/* Submit button styles */
+.button-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  width: 40rem;
+  height: 3.5rem;
+  padding: 1rem 7.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 2rem; /* 160% */
+  text-align: center;
+  color: var(--Cool-Gray-100, #f3f4f6);
+  background: var(--Primary-100);
+  cursor: pointer;
+}
+.button-submit:disabled {
+  background: var(--Secondary-400);
+  cursor: auto;
+}
+
+/* Social Login Styles */
+.social-login-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.625rem;
+  padding: 1rem 1.4375rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  background: #e6f2ff;
+}
+.login-title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.625rem; /* 162.5% */
+  color: var(--Secondary-800);
+}
+.social-logins {
+  display: flex;
+}
+.social-login {
+  display: block;
+  width: 2.625rem;
+  height: 2.625rem;
+}
+.social-login:not(:last-child) {
+  margin-right: 1rem;
+}
+
+/* User access styles */
+.user-access-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-access-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5rem; /* 171.429% */
+  color: var(--Secondary-800);
+}
+.button-user-access {
+  margin-left: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--Primary-100);
+}
+.button-user-access,
+.button-user-access:hover,
+.button-user-access:active {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
