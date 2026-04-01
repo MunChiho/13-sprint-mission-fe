@@ -34,13 +34,11 @@ p {
 
 /* 배경 tag */
 footer {
-  display: flex;
-  width: 100%;
-  height: 100px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  background: var(--Secondary-900, #111827);
+   width: 100%;
+   background-color: #111827;
+   display: flex;
+   align-items: center;
+   min-height: 100px;
 }
 
 /* 클래스 태그 */
@@ -201,9 +199,10 @@ footer {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 120rem;
+  max-width: 1200px;
+  padding: 2rem 2rem;
   box-sizing: border-box;
-  padding: 2rem 12.5rem;
+  margin: 0 auto; 
 }
 
 .codeit-log {

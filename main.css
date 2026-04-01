@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+  font-family: "Pretendard Std Variable";
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-100: #3692ff;
+  --primary-200: #1967d6;
+  --primary-300: #1251aa;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 200px;
+  border-bottom: 1px solid #dfdfdf;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-box {
+  width: 153px;
+  height: 51px;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.logo-box a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.btn-login {
+  display: inline-block;
+  display: flex;
+  padding: 12px 23px;
+  border-radius: 8px;
+  background: var(--primary-100);
+}
+
+.btn-login > a {
+  color: white;
+}
+
+/* main box */
+
+.main-blue {
+  width: 100%;
+  min-height: 520px;
+  padding-bottom: 0;
+  background: #cfe5ff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.white-frame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.txt-box1 {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+}
+
+.main-txt {
+  color: var(--gray700);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+.btn-look {
+  display: flex;
+  padding: 16px 124px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  background: var(--primary-100);
+}
+
+.blue-frame {
+  max-width: 988px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+}
+
+.txt-box1 > a {
+  color: white;
+}
+
+.blue-frame img {
+  width: 670px;
+  height: auto;
+}
+
+/* main box 2 start */
+.main-white {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: #fff;
+  padding: 100px 0;
+}
+
+.white-frame {
+  display: flex;
+  width: 55%;
+  max-width: 988px;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  background: #fcfcfc;
+  border-radius: 5px;
+}
+
+.white-frame img {
+  max-width: 588px;
+  max-height: 544px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.txt-frame {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.txt-reverse {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.point-txt {
+  color: var(--primary-100);
+  font-size: 18px;
+  font-weight: 700px;
+  line-height: 26px;
+}
+
+.sub-txt {
+  color: var(--gray700);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 32px;
+}
