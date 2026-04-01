@@ -1,3 +1,19 @@
+:root {
+  --brand-blue: #3692ff;
+  --Cool-Gray-100: #f3f4f6;
+  --Primary-100: #3692ff;
+  --Primary-Primary-brand: #3692ff;
+
+  --Secondary-100: #f3f4f6;
+  --Secondary-200: #e5e7eb;
+  --Secondary-300: #d1d5db;
+  --Secondary-400: #9ca3af;
+
+  --Secondary-50: #f9fafb;
+  --Secondary-700: #374151;
+  --Secondary-900: #111827;
+}
+
 * {
   box-sizing: border-box;
   text-decoration: none;
@@ -43,11 +59,11 @@
   height: 3rem;
   padding: 0.75rem 1.4375rem;
   border-radius: 0.5rem;
-  background: var(--Primary-100, #3692ff);
+  background: var(--Primary-100);
 
   text-align: center;
 
-  color: var(--Cool-Gray-100, #f3f4f6);
+  color: var(--Cool-Gray-100);
 
   /* pretendard/lg-16px-semibold */
   font-size: 1rem;
@@ -89,7 +105,7 @@
   gap: 2rem;
 }
 .hero-title {
-  color: var(--Secondary-700, #374151);
+  color: var(--Secondary-700);
   font-family: Pretendard;
   font-size: 2.5rem;
   font-style: normal;
@@ -103,9 +119,9 @@
   padding: 1rem 7.75rem;
 
   border-radius: 2.5rem;
-  background: var(--brand-blue, #3692ff);
+  background: var(--brand-blue);
 
-  color: var(--Secondary-50, #f9fafb);
+  color: var(--Secondary-50);
   text-align: center;
 
   /* pretendard/xl-20px-semibold */
@@ -164,7 +180,7 @@
 }
 
 .feature-sub-title {
-  color: var(--Primary-100, #3692ff);
+  color: var(--Primary-100);
 
   /* pretendard/2lg-18px-bold */
   font-family: Pretendard;
@@ -177,7 +193,7 @@
 .feature-title {
   width: 20rem;
 
-  color: var(--Secondary-700, #374151);
+  color: var(--Secondary-700);
   font-family: Pretendard;
   font-size: 2.5rem;
   font-style: normal;
@@ -189,7 +205,7 @@
 .feature-description {
   width: 25rem;
 
-  color: var(--Secondary-700, #374151);
+  color: var(--Secondary-700);
 
   /* pretendard/2xl-24px-medium */
   font-family: Pretendard;
@@ -218,7 +234,7 @@
 }
 .bottom-hero-title {
   width: 20rem;
-  color: var(--Secondary-700, #374151);
+  color: var(--Secondary-700);
   font-family: Pretendard;
   font-size: 2.5rem;
   font-style: normal;
@@ -229,7 +245,7 @@
 
 /*#region footer스타일 부분 */
 .footer {
-  background: var(--Secondary-900, #111827);
+  background: var(--Secondary-900);
 }
 .footer-inner {
   display: flex;
@@ -242,7 +258,7 @@
 }
 .footer-left {
   min-width: 7rem;
-  color: var(--Secondary-400, #9ca3af);
+  color: var(--Secondary-400);
   text-align: center;
   font-family: Pretendard;
   font-size: 1rem;
@@ -258,7 +274,7 @@
   gap: 1.875rem;
 }
 .footer-center a {
-  color: var(--Secondary-200, #e5e7eb);
+  color: var(--Secondary-200);
   text-align: center;
   font-family: Pretendard;
   font-size: 1rem;

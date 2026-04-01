@@ -1,4 +1,20 @@
 /*로그인/회원가입 페이지 CSS*/
+:root {
+  --brand-blue: #3692ff;
+  --Brand-blue: #3182f6;
+
+  --Cool-Gray-50: #f9fafb;
+  --Cool-Gray-100: #f3f4f6;
+  --Cool-Gray-400: #9ca3af;
+  --Cool-Gray-600: #4b5563;
+  --Cool-Gray-800: #1f2937;
+
+  --Primary-100: #3692ff;
+
+  --Secondary-400: #9ca3af;
+  --Secondary-800: #1f2937;
+}
+
 * {
   box-sizing: border-box;
   text-decoration: none;
@@ -33,7 +49,7 @@ input:focus {
   margin: 0.81rem 0 0.95rem 0;
 }
 .brand-name {
-  color: var(--brand-blue, #3692ff);
+  color: var(--brand-blue);
   font-family: "ROKAF Sans";
   font-size: 4.1465rem;
   font-style: normal;
@@ -59,7 +75,7 @@ input:focus {
 }
 
 .form-label {
-  color: var(--Secondary-800, #1f2937);
+  color: var(--Secondary-800);
 
   /* pretendard/2lg-18px-bold */
   font-family: Pretendard;
@@ -74,7 +90,7 @@ input:focus {
   padding: 1rem 1.5rem;
   gap: 0.625rem;
 
-  color: var(--Secondary-400, #9ca3af);
+  color: var(--Secondary-400);
 
   /* pretendard/lg-16px-regular */
   font-family: Pretendard;
@@ -86,7 +102,7 @@ input:focus {
   flex: 1 0 0;
 
   border-radius: 0.75rem;
-  background: var(--Cool-Gray-100, #f3f4f6);
+  background: var(--Cool-Gray-100);
   border: none;
   outline: none;
 }
@@ -118,9 +134,9 @@ input:focus {
   border: none;
   cursor: pointer;
   border-radius: 2.5rem;
-  background: var(--Secondary-400, #9ca3af);
+  background: var(--Secondary-400);
 
-  color: var(--Cool-Gray-100, #f3f4f6);
+  color: var(--Cool-Gray-100);
   text-align: center;
 
   /* pretendard/xl-20px-semibold */
@@ -145,7 +161,7 @@ input:focus {
   border-radius: 0.5rem;
   background: #e6f2ff;
 
-  color: var(--Secondary-800, #1f2937);
+  color: var(--Secondary-800);
 
   /* pretendard/lg-16px-medium */
   font-family: Pretendard;
@@ -170,7 +186,7 @@ input:focus {
 /*#region 하단 로그인/가입 링크로 연결 부분*/
 .auth-helper-link {
   text-align: center;
-  color: var(--Secondary-800, #1f2937);
+  color: var(--Secondary-800);
 
   /* pretendard/md-14px-medium */
   font-family: Pretendard;
@@ -182,7 +198,7 @@ input:focus {
 .auth-helper-link a {
   text-decoration: underline;
 
-  color: var(--Primary-100, #3692ff);
+  color: var(--Primary-100);
   font-family: Pretendard;
   font-size: 0.875rem;
   font-style: normal;
