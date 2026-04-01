@@ -1,6 +1,6 @@
 # 🐼 판다마켓 프로젝트
 
-# 배포주소 : https://sprintkdy.netlify.app/
+# 배포주소 :https://fs13kdysprint.netlify.app/
 
 ## 스프린트 1 요구사항
 
