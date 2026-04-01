@@ -1,6 +1,6 @@
-# 🐼 판다마켓 프로젝트 🐼
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bc227c22-dc4e-4b5c-9ef5-a028ce2b8fe2/deploy-status)](https://app.netlify.com/projects/13-sprint-mission/deploys)
 
-> _이 저장소는 판다마켓 프로젝트의 프론트엔드 코드를 관리하는 곳입니다. 프로젝트를 클론하여 개발 환경을 설정하고, 각 브랜치에서 해당 스프린트 미션을 수행해 주세요!_ 🛠️
+# 🐼 판다마켓 프로젝트 🐼
 
 ## 스프린트 미션 1 요구사항
 
