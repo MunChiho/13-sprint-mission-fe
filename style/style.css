@@ -1,218 +1,216 @@
 * {
-  font-family: "Pretendard Variable", sans-serif !important;
-  cursor: pointer;
+  box-sizing: border-box;
+  font-family: "Pretendard Std Variable";
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--gray200);
+}
+
+:root {
+  --primary-100: #3692ff;
+  --primary-200: #1967d6;
+  --primary-300: #1251aa;
+  --gray900: #111827;
+  --gray800: #1f2937;
+  --gray700: #374151;
+  --gray600: #4b5563;
+  --gray500: #6b7280;
+  --gray400: #9ca3af;
+  --gray200: #e5e7eb;
+  --gray100: #f3f4f6;
+  --gray50: #f9fafb;
 }
 
 a {
   text-decoration: none;
 }
 
-/* 배경 tag */
-nav {
-  position: fixed;
-  top: 0;
-  display: flex;
+.header {
   width: 100%;
   height: 70px;
-  box-sizing: border-box;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-bottom: 1px solid #dfdfdf;
-  background: #fff;
-}
-
-p {
-  color: var(--Secondary-700, #374151);
-  font-size: 2rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 140%; /* 56px */
-  white-space: nowrap;
-}
-
-/* 배경 tag */
-footer {
-   width: 100%;
-   background-color: #111827;
-   display: flex;
-   align-items: center;
-   min-height: 100px;
-}
-
-/* 클래스 태그 */
-
-/* nav */
-.nav-all {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-  padding: 0 200px;
-  box-sizing: border-box;
-}
-
-.logo-left {
-  display: flex;
-  max-width: 153px;
-  height: 51px;
-  padding: 5.017px 0 5.848px 0;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 8.592px;
-}
-
-.logo-main {
-  margin-bottom: 5px;
-}
-
-.btn-small {
-  display: flex;
-  width: 128px;
-  height: 48px;
-  padding: 12px 23px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-/* 배경 tag */
-/* 박스 1/5 같은것 사용 */
-.box-1 {
-  display: flex;
-  align-items: flex-end;
-  height: 33.75rem;
-  background: #cfe5ff;
-  width: 100%;
-}
-
-/* 박스 2/3/4 같은것 사용*/
-.box-2 {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
+  padding: 0px 200px;
+  border-bottom: 1px solid #dfdfdf;
   background: #fff;
-  padding-top: 8.625rem;
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
 
-.text-blue {
-  color: var(--Primary-100, #3692ff);
-  /* pretendard/2lg-18px-bold */
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.625rem; /* 144.444% */
-}
-
-.text-sub {
-  color: var(--Secondary-700, #374151);
-  /* pretendard/2xl-24px-medium */
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 2rem; /* 133.333% */
-}
-
-.box-between {
-  max-width: 1920px;
-  margin: 0 auto;
-  height: 3608px;
-  background: #fcfcfc;
-}
-
-/* 박스 1 */
-.frame-1 {
+.logo-box {
+  width: 153px;
+  height: 51px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.logo-box a {
+  display: block;
   width: 100%;
-  max-width: 120rem;
-  margin: 0 auto;
-  padding: 0 12.5rem;
-  gap: 7px;
+  height: 100%;
 }
 
-.frame-small {
+.logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.btn-login {
+  display: inline-block;
   display: flex;
-  padding-bottom: 3.75rem;
-  flex-direction: column;
+  padding: 12px 23px;
+  border-radius: 8px;
+  background: var(--primary-100);
+}
+
+/* main box */
+
+.main-blue {
+  width: 100%;
+  min-height: 520px;
+  padding-bottom: 0;
+  background: #cfe5ff;
+  display: flex;
   justify-content: center;
+  align-items: flex-end;
+}
+
+.txt-box1 {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   gap: 32px;
 }
 
-.img-1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.main-txt {
+  color: var(--gray700);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 140%;
 }
 
-/* 박스 2 */
-/* 프레임2 /박스 2,3,4 공동사용 */
-.frame-2 {
+.btn-look {
   display: flex;
-  width: 61.75rem;
+  padding: 16px 124px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  background: var(--primary-100);
+}
+
+.blue-frame {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 64px;
-  background: #fcfcfc;
 }
 
-.text-box {
+.blue-frame img {
+  width: 700px;
+  height: auto;
+  padding-left: 100px;
+}
+
+/* main box 2 start */
+.main-white {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  background: #fff;
+  padding: 100px 0;
+}
+
+.white-frame {
+  display: flex;
+  width: fit-content;
+  max-width: 988px;
+  justify-content: space-around;
+  align-items: center;
+  background: #fcfcfc;
+  border-radius: 5px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.white-frame img {
+  width: 60%;
+  max-width: 588px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.txt-frame {
+  flex-shrink: 0;
+  display: flex;
   align-items: flex-start;
+  flex-direction: column;
   gap: 12px;
 }
 
-/* between */
-.between {
-  height: 8.625rem;
+.point-txt {
+  color: var(--primary-100);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
 }
 
-/* 박스 5 */
-
-.frame-3 {
-  display: inline-flex;
-  align-items: center;
-  gap: 69px;
-  margin-top: 8.9375rem;
-  margin-left: 18.75rem;
+.sub-txt {
+  color: var(--gray700);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
 }
 
-.img-2 {
+.box-between {
+  margin-top: 138px;
+}
+
+.footer {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  background-color: var(--gray900);
 }
 
-/* footer */
+.footer-container {
+  width: 100%;
+  max-width: 1920px;
+  min-height: 160px;
+  padding: 32px 200px;
+}
 
-.frame-4 {
+.footer-all {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  padding: 2rem 2rem;
-  box-sizing: border-box;
-  margin: 0 auto; 
 }
 
-.codeit-log {
-  color: var(--Secondary-400, #9ca3af);
+.codeit {
+  color: var(--gray400);
 }
 
-.middle a {
-  color: var(--Secondary-200, #e5e7eb);
+.footer-mid {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
 }
 
-.sns a {
-  margin-left: 0.75rem;
+.icon-sns {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
 }
