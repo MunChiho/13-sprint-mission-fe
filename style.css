@@ -19,7 +19,7 @@
   max-width: 120rem;
   margin: 0 auto;
 }
-.logo {
+.header-logo {
   display: flex;
   width: 9.5625rem;
   height: 3.1875rem;
@@ -35,7 +35,7 @@
   font-weight: 700;
   line-height: normal;
 }
-.logo-text {
+.header-logo-text {
   width: 6.4375rem;
 }
 .login-btn {
@@ -56,16 +56,18 @@
   line-height: 1.625rem; /* 162.5% */
 }
 
-.logo img {
+.header-logo img {
   width: 2.5rem;
   height: 2.50844rem;
   flex-shrink: 0;
 }
 /*#endregion*/
-.idnex-main {
+
+.main-container {
   margin-top: 4.375rem;
 }
 
+/*#region hero부분 스타일*/
 .hero {
   display: inline-flex;
   align-items: center;
@@ -78,7 +80,7 @@
 
   padding: 12.5rem 25.31rem 0;
 }
-.hero-text {
+.hero-text-box {
   display: flex;
   padding-bottom: 3.75rem;
   flex-direction: column;
@@ -86,7 +88,7 @@
   align-items: flex-start;
   gap: 2rem;
 }
-.hero-desc {
+.hero-title {
   color: var(--Secondary-700, #374151);
   font-family: Pretendard;
   font-size: 2.5rem;
@@ -94,7 +96,7 @@
   font-weight: 700;
   line-height: 140%; /* 3.5rem */
 }
-.hero-look {
+.hero-btn {
   width: 22.8125rem;
 
   text-align: center;
@@ -113,8 +115,15 @@
   font-weight: 600;
   line-height: 2rem; /* 160% */
 }
+/*#endregion*/
 
-.card {
+/*#region feature-list 부분 스타일*/
+.feature-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-item {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -123,30 +132,38 @@
 
   padding: 8.625rem 21.5rem;
 }
-.card-reverse {
+.item-Isreverse {
   flex-direction: row-reverse;
 }
-.text-cardbox {
+.feature-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.75rem;
 }
-
-.text-box {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.5rem;
-}
-.text-cardbox-e .text-box {
+.feature-info-Isreverse {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 0.75rem;
 }
 
-.card-title {
+.feature-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.feature-text-container-Isreverse {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 1.5rem;
+}
+
+.feature-sub-title {
   color: var(--Primary-100, #3692ff);
 
   /* pretendard/2lg-18px-bold */
@@ -156,11 +173,8 @@
   font-weight: 700;
   line-height: 1.625rem; /* 144.444% */
 }
-.card-title-d {
-  align-items: flex-end;
-  text-align: right;
-}
-.card-maintext {
+
+.feature-title {
   width: 20rem;
 
   color: var(--Secondary-700, #374151);
@@ -171,11 +185,8 @@
   line-height: 140%; /* 3.5rem */
   letter-spacing: 0.05rem;
 }
-.card-text-d {
-  text-align: right;
-  align-items: flex-end;
-}
-.card-desc {
+
+.feature-description {
   width: 25rem;
 
   color: var(--Secondary-700, #374151);
@@ -187,16 +198,9 @@
   font-weight: 500;
   line-height: 2rem; /* 133.333% */
 }
-.card-desc-d {
-  align-items: flex-end;
-  text-align: right;
-}
-.main-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.main-bottom {
+/*#endregion*/
+/*#region bottom-hero 타이틀 부분*/
+.bottom-hero {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -206,13 +210,13 @@
   gap: 4.3125rem;
   background: #cfe5ff;
 }
-.main-bottom-text {
+.bottom-hero-content {
   display: flex;
   padding-bottom: 3.75rem;
   justify-content: center;
   align-items: center;
 }
-.main-bottom-desc {
+.bottom-hero-title {
   width: 20rem;
   color: var(--Secondary-700, #374151);
   font-family: Pretendard;
@@ -221,6 +225,9 @@
   font-weight: 700;
   line-height: 140%; /* 3.5rem */
 }
+/*#endregion*/
+
+/*#region footer스타일 부분 */
 .footer {
   background: var(--Secondary-900, #111827);
 }
@@ -265,3 +272,4 @@
   align-items: flex-start;
   gap: 0.75rem;
 }
+/*#endregion*/
