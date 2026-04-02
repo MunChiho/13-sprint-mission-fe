@@ -1,11 +1,4 @@
 /* CSS Reset Style Page */
-/*
-  - 기본 HTML 폰트 크기를 62.5%로 설정하여, 기본 16rem 대신 10rem이 기본 크기가 되도록 합니다.
-  - 이로써 1rem = 10rem이 되어, REM 단위를 사용할 때 계산이 편리해집니다.
-*/
-html {
-  font-size: 62.5%;
-}
 
 html,
 body,
