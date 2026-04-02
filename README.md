@@ -17,23 +17,23 @@ HTML과 CSS를 사용하여 로그인과 회원가입 페이지를 구현했습�
 
 ## 프로젝트 브랜치 구조 🏗️
 
-project
-├ html
-│ ├ login.html
-│ └ signup.html
+PANDA-MARKET
+├── html
+│ ├── login.html
+│ └── signup.html
 │
-├ images
-│ ├ logo.png
-│ ├ logo2.png
-│ └ (기타 이미지 파일 등)
+├── images
+│ ├── logo.png
+│ ├── logo2.png
+│ └── 기타 이미지 파일
 │
-├ styles
-│ ├ style.css
-│ ├ auth.css
-│ └ reset.css
+├── styles
+│ ├── style.css
+│ ├── auth.css
+│ └── reset.css
 │
-├ index.html
-└ README.md
+├── index.html
+└── README.md
 
 ## 학습 목표
 
