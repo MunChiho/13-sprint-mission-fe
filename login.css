@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 231px 640px 284px;
+  font-family: "Pretendard Std Variable";
+}
+
+.login-header {
+  margin-bottom: 40px;
+}
+.login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 640px;
+  min-height: 618;
+}
+
+.input-group,
+.input-group-pw {
+  display: flex;
+  flex-direction: column;
+  width: 640px;
+  margin-bottom: 24px;
+  color: #9ca3af;
+}
+input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+#login-email,
+#password {
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: var(--Cool-Gray-100, #f3f4f6);
+  height: 56px;
+  border: none;
+  outline: none;
+}
+
+#login-email:focus,
+#password:focus {
+  outline: 1px solid #3692ff;
+}
+
+label {
+  margin-bottom: 16px;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+.input-wrap {
+  position: relative;
+  width: 100%;
+}
+.password-blind {
+  position: absolute;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4b5563;
+}
+
+.login-btn {
+  display: flex;
+  width: 640px;
+  height: 56px;
+  padding: 16px 124px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 40px;
+  color: #f3f4f6;
+  background-color: #9ca3af;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 640px;
+  height: 74px;
+  padding: 16px 23px;
+  margin: 24px 0;
+  border-radius: 8px;
+  background: #e6f2ff;
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+}
+.social-icon {
+  display: flex;
+  gap: 16px;
+}
+
+.logo-google,
+.logo-kakao {
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
+
+.logo-bg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.logo-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+}
+
+.signup-link {
+  color: #1f2937;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.signup {
+  color: #3692ff;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: none;
+}
