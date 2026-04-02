@@ -94,6 +94,7 @@
 ## 주요 변경사항
 
 웹페이지 배포 https://pandamarket-codeit-jhs.netlify.app/
+README.md 파일 수정
 
 ## 멘토님에게 남길 메시지
 
