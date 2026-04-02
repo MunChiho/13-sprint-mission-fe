@@ -1,0 +1,378 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* 브랜드 컬러 */
+  --primary-color: #3692ff;
+  --primary-color-100: #3692ff;
+  --primary-color-200: #1967d6;
+  --primary-color-200: #1251aa;
+  --secondary-color: #111827;
+  --secondary-color-900: #111827;
+  --secondary-color-800: #1f2937;
+  --secondary-color-700: #374151;
+  --secondary-color-600: #4b5563;
+  --secondary-color-500: #6b7280;
+  --secondary-color-400: #9ca3af;
+  --secondary-color-200: #e5e7eb;
+  --secondary-color-100: #f3f4f6;
+  --secondary-color-50: #f9fafb;
+  --Error-color: #f74747;
+}
+nav {
+  /* 나중에 dev모드풀리면 해야될것(6~7) */
+  width: 1920px;
+  height: 70px;
+  display: flex;
+  margin: auto;
+}
+
+.pandalogo {
+  width: 1520px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 200px;
+  margin-right: 200px;
+  align-items: center;
+}
+img[alt="로고"] {
+  width: 40px;
+  height: 40px;
+}
+.pandalogo > div {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+.pandaMaket {
+  width: 103px;
+  height: 35px;
+  color: #3692ff;
+  font-size: 25.63px;
+  font-weight: bold;
+  font-family: ROKAF Sans;
+  margin-left: 8.59px;
+}
+
+.btn_small {
+  width: 128px;
+  height: 48px;
+  font-size: 16px;
+  font-family: Pretendard;
+  background-color: #3692ff;
+  color: #f3f4f6;
+  border-radius: 8px;
+  display: inline;
+  border: none;
+  cursor: pointer;
+}
+.btn_small_a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: none;
+}
+
+/* 첫번째 섹션 */
+.main {
+  width: 1920px;
+  height: 540px;
+  background-color: #cfe5ff;
+}
+.mainframe {
+  width: 1110px;
+  height: 340px;
+  position: relative;
+  top: 200px;
+  left: 405px;
+  display: flex;
+  flex-direction: row;
+}
+.rectagle {
+  width: 357px;
+  height: 260px;
+  position: relative;
+  z-index: 10;
+}
+.rectagle > span {
+  font-size: 40px;
+  font-weight: 700;
+  color: #374151;
+}
+.btn_large {
+  margin-top: 32px;
+  width: 357px;
+  height: 56px;
+  border-radius: 40px;
+  background-color: #3692ff;
+  color: #f9fafb;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: Pretendard;
+  text-align: center;
+  border: none;
+}
+.btn_large:hover {
+  text-decoration: underline;
+}
+a:hover {
+  text-decoration: none;
+}
+.btn_large_a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.browse {
+  width: 746px;
+  height: 340px;
+  margin-left: 7px;
+  position: relative;
+}
+img[alt="hero-image"] {
+  width: 746px;
+  height: 340px;
+}
+/* 두번째 섹션 */
+.section1 {
+  width: 1920px;
+  height: 720px;
+}
+.banner {
+  width: 988px;
+  height: 444px;
+
+  position: relative;
+  display: flex;
+  top: 138px;
+  left: 466px;
+  background-color: #fcfcfc;
+}
+img[alt="배너이미지홈"] {
+  width: 588px;
+  height: 444px;
+  position: relative;
+  left: 31px;
+}
+.banner_text {
+  width: 274px;
+  height: 238px;
+  position: relative;
+  top: 103px;
+  left: 95px;
+}
+.Hot_item {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3692ff;
+}
+.good {
+  width: auto;
+  height: 112px;
+  margin-top: 12px;
+}
+.good > span {
+  font-weight: 700;
+  font-size: 40px;
+  color: #374151;
+}
+
+.Hot {
+  width: 274px;
+  height: 64px;
+  margin-top: 24px;
+}
+.Hot > span {
+  font-weight: 500;
+  font-size: 20px;
+  font-family: Pretendard;
+  line-height: 32px;
+  text-align: center;
+  color: #374151;
+}
+/* 세번째 섹션 */
+.section2 {
+  width: 1920px;
+  height: 720px;
+}
+.frame2 {
+  width: 988px;
+  height: 444px;
+  background-color: #fcfcfc;
+  position: relative;
+  top: 138px;
+  left: 466px;
+  display: flex;
+}
+.frame2_1 {
+  width: 317px;
+  height: 238px;
+  margin-left: 9.5px;
+  margin-top: 103px;
+  display: flex;
+  flex-direction: column;
+}
+.search {
+  font-weight: 700;
+  font-size: 18px;
+  color: #3692ff;
+  display: block;
+  text-align: right;
+}
+.buy_search {
+  font-weight: 700;
+  font-size: 40px;
+  font-family: Pretendard;
+  color: #374151;
+  margin-top: 12px;
+  text-align: right;
+}
+.frame2_1_span2 {
+  font-weight: 500;
+  font-style: medium;
+  font-size: 24px;
+  font-family: Pretendard;
+  color: #374151;
+  display: block;
+  text-align: right;
+  margin-top: 24px;
+}
+img[alt="배너이미지홈2"] {
+  margin-left: 64px;
+}
+/* 네번쨰 섹션 */
+.section3 {
+  width: 1920px;
+  height: 720px;
+}
+.frame3 {
+  width: 988px;
+  height: 444px;
+  background-color: #fcfcfc;
+  margin-top: 138px;
+  margin-left: 466px;
+  display: flex;
+}
+img[alt="배너이미지홈3"] {
+  width: 588px;
+  height: 444px;
+}
+.frame3_1 {
+  width: 335px;
+  height: 238px;
+  margin-left: 64px;
+  margin-top: 103px;
+  display: flex;
+  flex-direction: column;
+}
+.frame3_1_text1 {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: Pretendard;
+  color: #3692ff;
+}
+.frame3_1_text2 {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Pretendard;
+  color: #374151;
+}
+.frame3_1_text3 {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: Pretendard;
+  color: #374151;
+}
+/* 다섯번쨰 섹션 */
+.section4 {
+  width: 1920px;
+  height: 540px;
+  background-color: #cfe5ff;
+}
+.frame4 {
+  width: 1110px;
+  height: 397px;
+  display: flex;
+  position: relative;
+  left: 405px;
+  top: 143px;
+}
+.frame4_text {
+  font-weight: 700;
+  font-size: 40px;
+  font-family: Pretendard;
+  color: #374151;
+  position: relative;
+  top: 112.5px;
+}
+.frame4_img {
+  width: 746px;
+  height: 397px;
+  position: relative;
+  left: 49px;
+}
+img[alt="bottom-banner"] {
+  width: 746px;
+  height: 397px;
+}
+footer {
+  width: 1920px;
+  height: 160px;
+  background-color: #111827;
+}
+.frame5 {
+  width: 1520px;
+  height: 20px;
+  position: relative;
+  top: 32px;
+  left: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+.codeit {
+  color: #9ca3af;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Pretendard;
+}
+.FAQ {
+  color: #e5e7eb;
+}
+.FAQ > span {
+  color: #e5e7eb;
+  margin-left: 30px;
+}
+.Privacy {
+  color: #e5e7eb;
+  text-decoration: none;
+  cursor: pointer;
+}
+.FAQ {
+  color: #e5e7eb;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: none;
+  color: #e5e7eb;
+}
+
+.img_icon {
+  width: 116px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.img_icon > img {
+  width: 20px;
+  height: 20px;
+}
