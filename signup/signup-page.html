@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google Analytics (GA4) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NPMW73453S"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-NPMW73453S");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../login/loginstyle.css" />
+    <link rel="stylesheet" href="./signup-pagestyle.css" />
+  </head>
+  <body>
+    <header class="header-signup"></header>
+
+    <main class="main-inner">
+      <section class="main-title-move">
+        <a class="signup-title" href="../index.html"></a>
+      </section>
+
+      <section class="signup-panel">
+        <div class="placeholder-signup">
+          <div class="e-mail-signup">
+            <h1 class="font-weight">이메일</h1>
+            <input
+              type="text"
+              class="input-field"
+              placeholder="이메일을 입력해주세요"
+            />
+          </div>
+          <div class="nickname">
+            <h1 class="font-weight">닉네임</h1>
+            <input
+              type="text"
+              class="input-field"
+              placeholder="닉네임을 입력해주세요"
+            />
+          </div>
+          <div class="password-signup">
+            <h1 class="font-weight">비밀번호</h1>
+            <input
+              type="password"
+              class="input-field"
+              placeholder="비밀번호를 입력해주세요"
+            />
+            <button class="secret-btn"></button>
+          </div>
+          <div class="password-confirm">
+            <h1 class="font-weight">비밀번호 확인</h1>
+            <input
+              type="password"
+              class="input-field"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+            />
+            <button class="secret-btn"></button>
+          </div>
+          <div class="signuppage-btn">
+            <button class="btn-submit">회원가입</button>
+          </div>
+        </div>
+        <div class="simple-login">
+          <h1>간편 로그인 하기</h1>
+          <div class="sns-logo">
+            <a class="google-logo" href="https://www.google.com/"></a>
+            <a class="kakao-logo" href="https://www.kakaocorp.com/page/"></a>
+          </div>
+        </div>
+        <div class="loginpage-move-btn">
+          <h1>이미 회원이신가요?</h1>
+          <a href="../login/loginpage.html">로그인</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-signup"></footer>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google Analytics (GA4) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NPMW73453S"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-NPMW73453S");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="./loginstyle.css" />
+  </head>
+  <body>
+    <header class="header-container"></header>
+
+    <main class="main-inner">
+      <section class="main-move">
+        <a class="login-title" href="../index.html"></a>
+      </section>
+
+      <section class="login-panel">
+        <div class="placeholder">
+          <div class="e-mail">
+            <h1 class="font-weight">이메일</h1>
+            <input
+              type="text"
+              class="input-field"
+              placeholder="이메일을 입력해주세요"
+            />
+          </div>
+          <div class="password">
+            <h1 class="font-weight">비밀번호</h1>
+            <input
+              type="password"
+              class="input-field"
+              placeholder="비밀번호를 입력해주세요"
+            />
+            <button class="secret-btn"></button>
+          </div>
+          <div class="login-btn">
+            <button class="btn-submit">로그인</button>
+          </div>
+        </div>
+        <div class="simple-login">
+          <h1>간편 로그인 하기</h1>
+          <div class="sns-logo">
+            <a class="google-logo" href="https://www.google.com/"></a>
+            <a class="kakao-logo" href="https://www.kakaocorp.com/page/"></a>
+          </div>
+        </div>
+        <div class="signup-btn">
+          <h1>판다마켓이 처음이신가요?</h1>
+          <a href="../signup/signup-page.html">회원가입</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-container"></footer>
+  </body>
+</html>
