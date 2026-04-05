@@ -4,7 +4,7 @@
 > 스프린트 미션 1 & 2 통합 제출 저장소입니다.
 
 ## 🚀 배포 링크
-* **Netlify 배포 주소**: [여기에 본인의 Netlify URL을 적어주세요]
+* **Netlify 배포 주소**: [https://13-sprint-mission-1-2-kimjihun.netlify.app/]
 
 ---
 
@@ -45,9 +45,6 @@
 
 ## 💬 멘토님에게 남길 메시지
 안녕하세요 멘토님! 이번 미션을 통해 순수 HTML/CSS만으로 반응형 레이아웃을 잡고, 코멘트를 추가 안하고 작성을 해버려서 AI를 사용해서 코멘트를 작성했습니다 다음부터는 코멘트를 작성해서 파일을 만들겠습니다. 코드 리뷰 부탁드립니다. 감사합니다!
-
-## 💬 Netlify 주소 
-https://13-sprint-mission-1-2-kimjihun.netlify.app/
 
 ---
 
