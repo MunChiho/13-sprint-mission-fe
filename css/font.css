@@ -1,0 +1,55 @@
+.Text-3xl {
+  font-family: Pretendard;
+  font-size: 32px;
+  line-height: 42px;
+  font-weight: 700;
+}
+
+.Text-2xl {
+  font-family: Pretendard;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.Text-xl {
+  font-family: Pretendard;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.Text-2lg {
+  font-family: Pretendard;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+}
+
+.Text-lg {
+  font-family: Pretendard;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 700;
+}
+
+.Text-md {
+  font-family: Pretendard;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.Text-sm {
+  font-family: Pretendard;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+.Text-xs {
+  font-family: Pretendard;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+}
