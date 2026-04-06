@@ -1,0 +1,291 @@
+:root {
+  --brand-blue: #3692ff;
+  --Cool-Gray-100: #f3f4f6;
+  --Primary-100: #3692ff;
+  --Primary-Primary-brand: #3692ff;
+
+  --Secondary-100: #f3f4f6;
+  --Secondary-200: #e5e7eb;
+  --Secondary-300: #d1d5db;
+  --Secondary-400: #9ca3af;
+
+  --Secondary-50: #f9fafb;
+  --Secondary-700: #374151;
+  --Secondary-900: #111827;
+}
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/*#region 헤더 영역 스타일*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5625rem 12.5rem;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+.header-logo {
+  display: flex;
+  width: 9.5625rem;
+  height: 3.1875rem;
+  padding: 0.31356rem 0 0.3655rem 0;
+  justify-content: center;
+  align-items: center;
+  gap: 0.537rem;
+
+  color: #3692ff;
+  font-family: "ROKAF Sans";
+  font-size: 1.60206rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.header-logo-text {
+  width: 6.4375rem;
+}
+.login-btn {
+  min-width: 8rem;
+  height: 3rem;
+  padding: 0.75rem 1.4375rem;
+  border-radius: 0.5rem;
+  background: var(--Primary-100);
+
+  text-align: center;
+
+  color: var(--Cool-Gray-100);
+
+  /* pretendard/lg-16px-semibold */
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.625rem; /* 162.5% */
+}
+
+.header-logo img {
+  width: 2.5rem;
+  height: 2.50844rem;
+  flex-shrink: 0;
+}
+/*#endregion*/
+
+.main-container {
+  margin-top: 4.375rem;
+}
+
+/*#region hero부분 스타일*/
+.hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4375rem;
+
+  width: 100%;
+  height: 33.75rem;
+  background: #cfe5ff;
+
+  padding: 12.5rem 25.31rem 0;
+}
+.hero-text-box {
+  display: flex;
+  padding-bottom: 3.75rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.hero-title {
+  color: var(--Secondary-700);
+  font-family: Pretendard;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%; /* 3.5rem */
+}
+.hero-btn {
+  width: 22.8125rem;
+
+  text-align: center;
+  padding: 1rem 7.75rem;
+
+  border-radius: 2.5rem;
+  background: var(--brand-blue);
+
+  color: var(--Secondary-50);
+  text-align: center;
+
+  /* pretendard/xl-20px-semibold */
+  font-family: Pretendard;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2rem; /* 160% */
+}
+/*#endregion*/
+
+/*#region feature-list 부분 스타일*/
+.feature-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-item {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+
+  padding: 8.625rem 21.5rem;
+}
+.item-Isreverse {
+  flex-direction: row-reverse;
+}
+.feature-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.feature-info-Isreverse {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.feature-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.feature-text-container-Isreverse {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 1.5rem;
+}
+
+.feature-sub-title {
+  color: var(--Primary-100);
+
+  /* pretendard/2lg-18px-bold */
+  font-family: Pretendard;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.625rem; /* 144.444% */
+}
+
+.feature-title {
+  width: 20rem;
+
+  color: var(--Secondary-700);
+  font-family: Pretendard;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%; /* 3.5rem */
+  letter-spacing: 0.05rem;
+}
+
+.feature-description {
+  width: 25rem;
+
+  color: var(--Secondary-700);
+
+  /* pretendard/2xl-24px-medium */
+  font-family: Pretendard;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem; /* 133.333% */
+}
+/*#endregion*/
+/*#region bottom-hero 타이틀 부분*/
+.bottom-hero {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8.94rem 25.31rem 0;
+  width: 100%;
+
+  gap: 4.3125rem;
+  background: #cfe5ff;
+}
+.bottom-hero-content {
+  display: flex;
+  padding-bottom: 3.75rem;
+  justify-content: center;
+  align-items: center;
+}
+.bottom-hero-title {
+  width: 20rem;
+  color: var(--Secondary-700);
+  font-family: Pretendard;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%; /* 3.5rem */
+}
+/*#endregion*/
+
+/*#region footer스타일 부분 */
+.footer {
+  background: var(--Secondary-900);
+}
+.footer-inner {
+  display: flex;
+  width: 100%;
+  height: 10rem;
+  padding: 2rem 12.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  align-self: stretch;
+}
+.footer-left {
+  min-width: 7rem;
+  color: var(--Secondary-400);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.footer-center {
+  min-width: 12rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.875rem;
+}
+.footer-center a {
+  color: var(--Secondary-200);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.footer-right {
+  display: flex;
+  width: 7.25rem;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+/*#endregion*/
