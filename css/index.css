@@ -89,7 +89,7 @@ main {
   gap: 2rem;
 }
 
-.banner-text {
+.banner-text h2 {
   display: flex;
   flex-direction: column;
   font-family: var(--font-pretendard);
@@ -185,20 +185,20 @@ main {
   width: auto;
 }
 
-.intro-text1 {
+.intro-title {
   color: var(--primary-100);
   font-size: 1.125rem;
   font-weight: 700;
 }
 
-.intro-text2 {
+.intro-description {
   color: var(--secondary-700);
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 140%;
 }
 
-.intro-text3 {
+.intro-detail {
   color: var(--secondary-700);
   font-size: 1.5rem;
   font-weight: 500;
@@ -236,7 +236,7 @@ footer {
   gap: 2rem;
 }
 
-.footer-banner .banner-inner p {
+.footer-banner .banner-inner h2 {
   display: flex;
   margin-bottom: 7.031rem;
 }
