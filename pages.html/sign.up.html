@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-M985TVM3");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/reset.css" />
+    <link rel="stylesheet" href="../style/signup.css" />
+    <title>판다마켓-singup</title>
+    <link rel=" shortcut icon " href="../img/main/판다 얼굴.svg" />
+    <link rel="icon" href="../img/main/판다 얼굴.svg" />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-M985TVM3"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <main>
+      <section class="section">
+        <div class="logo-box">
+          <a href="../index.html">
+            <img src="../img/login/logo.png" alt="판다마켓 로고" />
+          </a>
+        </div>
+        <!-- </section> -->
+
+        <div class="main-box">
+          <div class="type-box">
+            <label for="email">이메일</label> <br />
+            <input
+              type="text"
+              placeholder="이메일을 입력해주세요"
+              id="email"
+              class="input"
+            />
+            <br />
+
+            <label for="nickname">닉네임</label> <br />
+            <input
+              type="text"
+              placeholder="닉네임을 입력해주세요"
+              id="nickname"
+              class="input"
+            />
+            <br />
+
+            <div>
+              <label for="password">비밀번호</label> <br />
+              <div class="input-pw">
+                <input
+                  type="password"
+                  placeholder="비밀번호를 입력해주세요"
+                  id="password"
+                />
+                <img
+                  src="./img/login/btn_eye.svg"
+                  alt="비밀번호 보호 이미지"
+                  class="eyes"
+                />
+              </div>
+            </div>
+            <br />
+
+            <div>
+              <label for="password-confirm">비밀번호 확인</label> <br />
+              <div class="input-pw">
+                <input
+                  type="password"
+                  placeholder="비밀번호를 다시 한 번 입력해주세요"
+                  id="password-confirm"
+                />
+                <img
+                  src="../img/login/btn_eye.svg"
+                  alt="비밀번호 보호 이미지"
+                  class="eyes"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <a href="./sign.up.html"><button>회원가입</button></a>
+          </div>
+
+          <div class="easy-log">
+            <div class="easy-box">
+              <span>간편 로그인하기</span>
+              <div class="sns-icons">
+                <a href="https://www.google.com/"
+                  ><img src="../img/login/구글-아이콘.png" alt="구글"
+                /></a>
+                <a href="https://www.kakaocorp.com/"
+                  ><img src="../img/login/카카오-아이콘.png" alt="카카오"
+                /></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="last-box">
+            <p>이미 회원이신가요? <a href="./login.html">로그인</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
