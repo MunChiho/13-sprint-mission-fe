@@ -9,7 +9,7 @@ body {
 
 /* Header */
 
-.title-header {
+.title-header a {
   display: flex;
   align-items: center;
   gap: 1.39rem;

@@ -37,7 +37,7 @@ main {
   height: 100%;
 }
 
-#logo-container {
+#logo-container a {
   display: flex;
   flex-direction: row;
   align-items: center;
