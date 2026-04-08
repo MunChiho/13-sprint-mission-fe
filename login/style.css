@@ -91,6 +91,7 @@
 }
 #email:focus,
 #password:focus,
+#password2:focus,
 #username:focus {
   border: solid #3692ff;
   outline: none;
@@ -114,7 +115,8 @@
   top: 60%;
   cursor: pointer;
 }
-#password {
+#password,
+#password2 {
   display: flex;
   width: 640px;
   height: 56px;
