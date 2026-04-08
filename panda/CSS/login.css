@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  /* 브랜드 컬러 */
+  --primary-color: #3692ff;
+  --primary-color-100: #3692ff;
+  --primary-color-200: #1967d6;
+  --primary-color-200: #1251aa;
+  --secondary-color: #111827;
+  --secondary-color-900: #111827;
+  --secondary-color-800: #1f2937;
+  --secondary-color-700: #374151;
+  --secondary-color-600: #4b5563;
+  --secondary-color-500: #6b7280;
+  --secondary-color-400: #9ca3af;
+  --secondary-color-200: #e5e7eb;
+  --secondary-color-100: #f3f4f6;
+  --secondary-color-50: #f9fafb;
+  --Error-color: #f74747;
+}
+body {
+  width: 1920px;
+  height: 1133px;
+}
+.main-frame {
+  width: 640px;
+  height: 618px;
+  margin-left: 640px;
+  margin-top: 231px;
+  background-color: #fff;
+}
+.pandaimg {
+  text-decoration: none;
+}
+.logo {
+  width: 396px;
+  height: 132px;
+  position: relative;
+  left: 122px;
+}
+img[alt="판다마켓로그인로고"] {
+  position: relative;
+  top: 12.98px;
+}
+.pandaMaket {
+  width: 266px;
+  height: auto;
+  font-weight: 700;
+  font-size: 66px;
+  font-family: Pretendard;
+  color: #3692ff;
+  margin-left: 22.24px;
+  position: relative;
+  bottom: 18.02px;
+}
+.login-frame {
+  width: 640px;
+  height: 446px;
+  margin-top: 40px;
+}
+.font {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  font-family: Pretendard;
+  display: block;
+  margin-bottom: 16px;
+}
+.font-password {
+  display: inline;
+  position: relative;
+  top: 24px;
+}
+.email-box {
+  width: 640px;
+  height: 98px;
+  background-color: #fff;
+  margin-bottom: 24px;
+}
+
+.password-box {
+  width: 640px;
+  height: 98px;
+  background-color: #fff;
+  margin-bottom: 24px;
+}
+img[alt="비밀번호보기아이콘"] {
+  width: 24px;
+  height: 24px;
+  background-color: #f3f4f6;
+}
+#toggle-password {
+  width: 24px;
+  height: 24px;
+  padding: 24px;
+  position: relative;
+  left: 568px;
+  bottom: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #f3f4f6;
+}
+#toggle-password:hover {
+  opacity: 0.5;
+}
+input[type="text"],
+[type="email"],
+[type="password"] {
+  width: 640px;
+  height: 56px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: none;
+  padding: 15px 24px;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af; /* Example color: dark grey */
+  opacity: 1; /* Ensures full opacity in Firefox */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  font-family: Pretendard;
+}
+input:focus {
+  outline: none;
+  border: 2px solid #3692ff;
+}
+.login-box {
+  width: 640px;
+  height: 56px;
+  background-color: #fff;
+  margin-bottom: 24px;
+}
+.login-btn {
+  width: 640px;
+  height: 56px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  font-family: Pretendard;
+  border-radius: 40px;
+  border: none;
+  background-color: #9ca3af;
+}
+.login {
+  padding: 15px;
+  text-decoration: none;
+  color: #f3f4f6;
+}
+.login:hover {
+  opacity: 0.5;
+}
+
+.simple-login-box {
+  width: 640px;
+  height: 74px;
+  background-color: #e6f2ff;
+  padding: 16px 23px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.inner-box {
+  width: 594px;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.inner-box > span {
+  width: 101px;
+  height: 26px;
+  color: #1f2937;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+  font-family: Pretendard;
+  cursor: pointer;
+}
+img[alt="카카오"] {
+  margin-left: 16px;
+  cursor: pointer;
+}
+img[alt="구글"] {
+  cursor: pointer;
+}
+.sub {
+  display: flex;
+  padding-top: 24px;
+  padding-left: 244px;
+  text-align: center;
+  background-color: #fff;
+  gap: 4px;
+}

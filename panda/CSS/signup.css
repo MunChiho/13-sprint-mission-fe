@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  /* 브랜드 컬러 */
+  --primary-color: #3692ff;
+  --primary-color-100: #3692ff;
+  --primary-color-200: #1967d6;
+  --primary-color-200: #1251aa;
+  --secondary-color: #111827;
+  --secondary-color-900: #111827;
+  --secondary-color-800: #1f2937;
+  --secondary-color-700: #374151;
+  --secondary-color-600: #4b5563;
+  --secondary-color-500: #6b7280;
+  --secondary-color-400: #9ca3af;
+  --secondary-color-200: #e5e7eb;
+  --secondary-color-100: #f3f4f6;
+  --secondary-color-50: #f9fafb;
+  --Error-color: #f74747;
+}
+
+body {
+  width: 1920px;
+  height: 1080px;
+}
+.mainframe {
+  width: 640px;
+  height: 842px;
+  position: fixed;
+  left: 640px;
+  top: 60px;
+}
+.pandalogo {
+  width: 396px;
+  height: 132px;
+  margin-left: 122px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+img[alt="판다마켓로고이미지"] {
+  width: 103px;
+  height: 103px;
+  margin-right: 22.24px;
+}
+.logo-font {
+  color: #3692ff;
+  font-weight: 700;
+  font-size: 66.34px;
+  font-family: Pretendard;
+}
+.membership-information {
+  width: 640px;
+  height: 670px;
+  background-color: #fff;
+}
+.information {
+  width: 640px;
+  height: 444px;
+  background-color: #fff;
+}
+.box {
+  width: 640px;
+  height: 93px;
+  display: block;
+}
+.box1 {
+  width: 640px;
+  height: 93px;
+  display: block;
+  margin-top: 24px;
+}
+.font {
+  font-weight: 700;
+  font-size: 18px;
+  color: #1f2937;
+  font-family: Pretendard;
+}
+input[type="email"],
+[type="text"],
+[type="password"] {
+  width: 640px;
+  height: 56px;
+  padding: 15px 24px;
+  margin-top: 16px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f3f4f6;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af; /* Example color: dark grey */
+  opacity: 1; /* Ensures full opacity in Firefox */
+  font-size: 16px;
+  font-family: Pretendard;
+  font-weight: 400;
+  line-height: 26px;
+}
+input:focus {
+  outline: none;
+  border: 2px solid #3692ff;
+}
+#toggle-password {
+  width: 24px;
+  height: 24px;
+  padding: 24px;
+  position: relative;
+  left: 568px;
+  bottom: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #f3f4f6;
+}
+#toggle-password:hover {
+  opacity: 0.5;
+}
+#toggle-password1 {
+  width: 24px;
+  height: 24px;
+  padding: 24px;
+  position: relative;
+  left: 568px;
+  bottom: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #f3f4f6;
+}
+#toggle-password1:hover {
+  opacity: 0.5;
+}
+.create-account-box {
+  width: 640px;
+  height: 56px;
+  background-color: #9ca3af;
+  border-radius: 40px;
+  padding: 16px 285px;
+  margin-top: 24px;
+}
+.create-account-btn {
+  width: 70px;
+  height: 24px;
+  background-color: #9ca3af;
+  color: #fff;
+  border: none;
+}
+
+.create-account-link {
+  width: 70px;
+  height: 24px;
+  background-color: #9ca3af;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+}
+
+.create-account-link:hover {
+  opacity: 0.5;
+}
+
+.simple-login-box {
+  width: 640px;
+  height: 74px;
+  background-color: #e6f2ff;
+  padding: 16px 23px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+}
+.simple-login {
+  width: 594px;
+  height: 42px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.simple-login > span {
+  font-weight: 500;
+  font-size: 16px;
+  font-family: Pretendard;
+  color: #1f2937;
+}
+img[alt="구글"],
+[alt="카카오"] {
+  width: 42px;
+  height: 42px;
+}
+.icon-box {
+  width: 100px;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.to-login {
+  display: inline;
+  width: 151px;
+  height: 30px;
+  margin-left: 244px;
+}

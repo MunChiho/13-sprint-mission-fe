@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓 - 로그인</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="../CSS/login.css" />
+    <link rel="stylesheet" href="../CSS/reset.css" />
+    <link rel="icon" href="../logo/favicon.ico" />
+  </head>
+  <body>
+    <div class="main-frame">
+      <!-- 로고프레임 -->
+      <div class="logo">
+        <a href="./index.html" class="pandaimg">
+          <img
+            src="../img/판다마켓로그인로고.png"
+            alt="판다마켓로그인로고"
+            style="width: 103px; height: 103px"
+          />
+        </a>
+        <span class="pandaMaket">판다마켓</span>
+      </div>
+
+      <!-- 로그인 프레임 -->
+      <div class="login-frame">
+        <!-- 이메일 -->
+        <div class="email-box">
+          <span class="font">이메일</span>
+          <input type="email" placeholder="이메일을 입력해주세요" />
+        </div>
+        <!-- 패스워드 -->
+        <div class="password-box">
+          <span class="font" id="font-password">비밀번호</span>
+          <input type="password" id="user-password" placeholder="비밀번호" />
+          <button type="button" id="toggle-password" onclick="togglePassword()">
+            <img src="../img/비밀번호보기아이콘.png" alt="비밀번호보기아이콘" />
+          </button>
+        </div>
+        <!--로그인  -->
+        <div class="login-box">
+          <button class="login-btn">
+            <a href="#" class="login">로그인</a>
+          </button>
+        </div>
+        <!-- 간편로그인 -->
+        <div class="simple-login-box">
+          <div class="inner-box">
+            <span>간편로그인</span>
+            <div class="icon-box">
+              <a href="https://www.google.com/">
+                <img
+                  src="../img/구글.png"
+                  alt="구글"
+                  style="width: 42px; height: 42px"
+                />
+              </a>
+              <a href="https://www.kakaocorp.com/page/">
+                <img
+                  src="../img/카카오.png"
+                  alt="카카오"
+                  style="width: 42px; height: 42px"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--회원가입인가요? 로그인 -->
+        <div class="sub">
+          <span>이미 회원이신가요?</span>
+          <a href="./signup.html">로그인</a>
+        </div>
+      </div>
+      <!-- 외부 main-frame -->
+    </div>
+    <script>
+      function togglePassword() {
+        const x = document.getElementById("user-password");
+        const toggleButton = document.getElementById("toggle-password");
+
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+    </script>
+  </body>
+</html>
