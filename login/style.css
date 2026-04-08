@@ -150,6 +150,9 @@ button {
   font-weight: 600;
   line-height: 32px; /* 160% */
 }
+.login-btn {
+  cursor: pointer;
+}
 .password2 {
   display: flex;
   justify-content: space-between;

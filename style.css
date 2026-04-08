@@ -8,15 +8,11 @@
 body {
   display: flex;
   flex-direction: column;
-  min-width: 100vh;
+  min-width: 100vw;
 }
 main {
   flex: 1;
 }
-img {
-  max-width: 100%;
-}
-
 .word {
   color: var(--Secondary-700, #374151);
   font-family: Pretendard;
@@ -118,11 +114,11 @@ img {
   height: 540px;
   background: #cfe5ff;
   margin-top: 70px;
+  justify-content: center;
 }
 .two-one {
   display: inline-flex;
   margin: 0 auto;
-  max-width: 1920px;
   align-items: center;
   gap: 7px;
   padding: 200px 405px 0px 405px;
