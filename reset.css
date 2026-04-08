@@ -1,0 +1,153 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  user-select: none;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*CSS Variables*/
+:root {
+  --font-size-logo: 1.6rem;
+  --font-size-title: 2.5rem;
+  --font-size-content: 1.5rem;
+  --font-size-tag: 1.125rem;
+  --font-size-menu: 1rem;
+  --brand-blue: #3182f6;
+  --primary-bg-color: #3692ff;
+  --secondary-bg-color: #cfe5ff;
+  --secondary-bg-color-400: #9ca3af;
+  --tertiary-bg-color: #fcfcfc;
+  --quaternary-bg-color: #e6f2ff;
+  --primary-color: #374151;
+  --secondary-color-800: #1f2937;
+  --secondary-color: #f3f4f6;
+  --tertiary-color: #e5e7eb;
+  --font-weight-title: 700;
+  --font-weight-content: 500;
+  --font-weight-btn: 600;
+}
