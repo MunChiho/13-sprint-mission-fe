@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>판다마켓 로그인</title>
+    <link rel="icon" href="../img/Panda_Face.svg">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+
+    <main class="login-container">
+        <header class="logo-area">
+            <a href="../index.html" class="logo-link">
+                <img src="../img/Panda_Face.svg" alt="판다마켓 로고" class="logo-icon">
+                <h1 class="logo-text">판다마켓</h1>
+            </a>
+        </header>
+
+        <form action="" class="login-form">
+            <div class="input-group">
+                <label for="email" class="input-label">이메일</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" placeholder="이메일을 입력해주세요">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="password" class="input-label">비밀번호</label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" placeholder="비밀번호를 입력해주세요">
+                    <img src="../img/blindcheck.png" alt="비밀번호 숨김" class="toggle-pw-icon">
+                </div>
+            </div>
+
+            <button type="submit" class="login-button">로그인</button>
+        </form>
+
+        <div class="easy-login-box">
+            <span class="easy-login-text">간편 로그인하기</span>
+            <div class="social-icons">
+                <a href="https://www.google.com/" target="_blank" title="구글 로그인">
+                    <img src="../img/Googlelogo.png" alt="구글 로고" class="social-icon">
+                </a>
+                
+                <a href="https://www.kakaocorp.com/page/" target="_blank" title="카카오톡 로그인" class="kakao-link">
+                    <div class="kakaotalk-icon-container">
+                        <img src="../img/Kakaotalk.png" alt="노란색 원 배경" class="yellow-circle">
+                        <img src="../img/Kakaotalkmain.png" alt="카카오톡 말풍선" class="talk-bubble">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="signup-prompt">
+            <span class="prompt-text">판다마켓이 처음이신가요?</span>
+            <a href="./signup.html" class="signup-link">회원가입</a>
+        </div>
+    </main>
+</body>
+</html>
