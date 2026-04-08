@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="login.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-std.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <section class="login-box">
+        <div class="login-header">
+          <a href="/index.html">
+            <img src="/sprint-2/logo.png" alt="판다마켓 로고" />
+          </a>
+        </div>
+        <form>
+          <div class="input-group">
+            <label for="login-email">이메일</label>
+            <input
+              id="login-email"
+              name="email"
+              type="email"
+              placeholder="이메일을 입력해주세요"
+            />
+          </div>
+          <div class="input-group-pw">
+            <label for="password">비밀번호</label>
+            <div class="input-wrap">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="비밀번호를 입력해주세요"
+              />
+              <img
+                class="password-blind"
+                src="/sprint-2/btn_visibility_off_24px.svg"
+                alt="비밀번호 가림"
+              />
+            </div>
+          </div>
+          <button class="login-btn" type="submit">로그인</button>
+        </form>
+
+        <div class="social-login">
+          <span>간편 로그인하기</span>
+          <div class="social-icon">
+            <a href="https://www.google.com/?hl=ko">
+              <div class="logo-google">
+                <img
+                  class="logo-bg"
+                  src="/sprint-2/google.svg"
+                  alt="구글 배경"
+                />
+                <img
+                  class="logo-icon"
+                  src="/sprint-2/google.png"
+                  alt="구글 아이콘"
+                />
+              </div>
+            </a>
+            <a href="https://www.kakaocorp.com/page/">
+              <div class="logo-kakao">
+                <img
+                  class="logo-bg"
+                  src="/sprint-2/kakao.svg"
+                  alt="카카오 배경"
+                />
+                <img
+                  class="logo-icon"
+                  src="/sprint-2/kakaotalk.svg"
+                  alt="카카오 아이콘"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+        <p class="signup-link">
+          판다마켓이 처음이신가요?
+          <a href="signup.html" class="signup">회원가입</a>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
