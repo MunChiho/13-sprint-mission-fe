@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>콘텐츠 변경 연습</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        padding: 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+      }
+
+      .section h2 {
+        margin-bottom: 12px;
+        color: #667eea;
+      }
+
+      .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 10px 0;
+        background-color: #fafafa;
+      }
+
+      .card h3 {
+        margin-bottom: 8px;
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin: 10px 0;
+      }
+
+      .profile-avatar {
+        width: 60px;
+        height: 60px;
+        background-color: #667eea;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .profile-info {
+        flex: 1;
+      }
+
+      .profile-info .name {
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .profile-info .bio {
+        color: #666;
+        margin-top: 4px;
+      }
+
+      .notice-board {
+        border: 2px solid #667eea;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .notice-board .board-title {
+        background-color: #667eea;
+        color: white;
+        padding: 12px 16px;
+        font-weight: bold;
+      }
+
+      .notice-board .board-content {
+        padding: 16px;
+      }
+
+      .notice-board .board-content p {
+        margin-bottom: 8px;
+      }
+
+      .product-list {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .product {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        width: 200px;
+        text-align: center;
+      }
+
+      .product .product-name {
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+
+      .product .product-price {
+        color: #e74c3c;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .product .product-desc {
+        color: #888;
+        font-size: 14px;
+        margin-top: 4px;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #667eea;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #5568d3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>콘텐츠 변경 연습</h1>
+
+      <!-- 섹션 1: textContent 읽기 -->
+      <div class="section">
+        <h2>섹션 1: textContent 읽기</h2>
+        <p id="greeting">안녕하세요 <strong>코드잇</strong> 여러분!</p>
+        <p id="hidden-text">
+          보이는 텍스트
+          <span style="display: none;">숨겨진 비밀 메시지</span>
+        </p>
+      </div>
+
+      <!-- 섹션 2: textContent 쓰기 -->
+      <div class="section">
+        <h2>섹션 2: textContent 쓰기</h2>
+        <div class="profile">
+          <div class="profile-avatar" id="avatar">?</div>
+          <div class="profile-info">
+            <div class="name" id="user-name">이름 미설정</div>
+            <div class="bio" id="user-bio">자기소개를 입력하세요.</div>
+          </div>
+        </div>
+        <p id="counter">현재 카운트: 0</p>
+      </div>
+
+      <!-- 섹션 3: innerHTML 읽기 -->
+      <div class="section">
+        <h2>섹션 3: innerHTML 읽기</h2>
+        <div class="notice-board" id="notice">
+          <div class="board-title">공지사항</div>
+          <div class="board-content" id="notice-content">
+            <p><strong>첫 번째 공지:</strong> 오늘은 JavaScript를 배웁니다.</p>
+            <p><em>두 번째 공지:</em> 열심히 합시다!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 섹션 4: innerHTML 쓰기 -->
+      <div class="section">
+        <h2>섹션 4: innerHTML 쓰기</h2>
+        <div class="product-list" id="product-list">
+          <div class="product">
+            <div class="product-name">상품 준비중</div>
+            <div class="product-price">-</div>
+            <div class="product-desc">곧 업데이트됩니다.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 섹션 5: textContent vs innerHTML 비교 -->
+      <div class="section">
+        <h2>섹션 5: textContent vs innerHTML 비교</h2>
+        <div class="card">
+          <h3>결과 확인 영역</h3>
+          <p id="result-text">여기에 textContent 결과가 표시됩니다.</p>
+          <p id="result-html">여기에 innerHTML 결과가 표시됩니다.</p>
+        </div>
+      </div>
+
+      <!-- 테스트 버튼 -->
+      <div class="section">
+        <h2>테스트 버튼</h2>
+        <button onclick="test1()">테스트 1: textContent 읽기</button>
+        <button onclick="test2()">테스트 2: textContent 쓰기</button>
+        <button onclick="test3()">테스트 3: innerHTML 읽기</button>
+        <button onclick="test4()">테스트 4: innerHTML 쓰기</button>
+        <button onclick="test5()">테스트 5: 차이 비교</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

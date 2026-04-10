@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 선택 연습</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        padding: 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+      }
+
+      .box {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        background-color: lightblue;
+        text-align: center;
+        line-height: 100px;
+        border-radius: 5px;
+      }
+
+      .highlight {
+        background-color: yellow;
+        font-weight: bold;
+      }
+
+      .active {
+        border: 3px solid red;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #667eea;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #5568d3;
+      }
+    </style>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="main-title">DOM 선택 연습</h1>
+
+      <!-- 섹션 1: ID 선택 -->
+      <div class="section">
+        <h2>섹션 1: ID 선택</h2>
+        <p id="intro">이것은 소개 문단입니다.</p>
+        <p id="description">이것은 설명 문단입니다.</p>
+        <button id="btn1">버튼 1</button>
+        <button id="btn2">버튼 2</button>
+      </div>
+
+      <!-- 섹션 2: 클래스 선택 -->
+      <div class="section">
+        <h2>섹션 2: 클래스 선택</h2>
+        <div class="box">박스 1</div>
+        <div class="box">박스 2</div>
+        <div class="box highlight">박스 3</div>
+        <div class="box">박스 4</div>
+        <div class="box highlight">박스 5</div>
+      </div>
+
+      <!-- 섹션 3: 태그 선택 -->
+      <div class="section">
+        <h2>섹션 3: 태그 선택</h2>
+        <p>첫 번째 문단</p>
+        <p class="special">두 번째 문단</p>
+        <p>세 번째 문단</p>
+        <div>
+          <p>중첩된 문단</p>
+        </div>
+      </div>
+
+      <!-- 섹션 4: 복합 선택 -->
+      <div class="section" id="complex-section">
+        <h2>섹션 4: 복합 선택</h2>
+        <ul id="item-list">
+          <li>항목 1</li>
+          <li class="active">항목 2</li>
+          <li>항목 3</li>
+          <li class="active">항목 4</li>
+          <li>항목 5</li>
+        </ul>
+      </div>
+
+      <!-- 컨트롤 버튼 -->
+      <div class="section">
+        <h2>테스트 버튼</h2>
+        <button onclick="test1()">테스트 1: ID 선택</button>
+        <button onclick="test2()">테스트 2: 클래스 선택</button>
+        <button onclick="test3()">테스트 3: 태그 선택</button>
+        <button onclick="test4()">테스트 4: querySelector</button>
+        <button onclick="test5()">테스트 5: querySelectorAll</button>
+      </div>
+    </div>
+  </body>
+</html>

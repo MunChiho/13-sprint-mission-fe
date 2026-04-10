@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지 갤러리</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        padding: 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+      }
+
+      .section h2 {
+        margin-bottom: 12px;
+        color: #667eea;
+      }
+
+      /* 갤러리 이미지 스타일 */
+      .gallery {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin: 16px 0;
+      }
+
+      .gallery img {
+        border-radius: 8px;
+        transition: all 0.3s;
+      }
+
+      /* classList 실습용 스타일 */
+      .bordered {
+        border: 4px solid #667eea;
+      }
+
+      .rounded {
+        border-radius: 50%;
+      }
+
+      .shadow {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .grayscale {
+        filter: grayscale(100%);
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      /* 프로필 카드 */
+      .profile-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin: 16px 0;
+      }
+
+      .profile-card img {
+        border-radius: 50%;
+      }
+
+      .profile-info .name {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+
+      .profile-info .role {
+        color: #888;
+      }
+
+      /* 테마 스타일 */
+      .theme-box {
+        padding: 24px;
+        border-radius: 8px;
+        margin: 16px 0;
+        transition: all 0.3s;
+        background-color: #fafafa;
+        color: #333;
+      }
+
+      .theme-box.dark {
+        background-color: #1a1a2e;
+        color: #eee;
+      }
+
+      .theme-box.highlight {
+        border: 3px solid #e74c3c;
+        background-color: #fff3f3;
+      }
+
+      /* 스타일 박스 */
+      .style-box {
+        width: 200px;
+        height: 200px;
+        background-color: #667eea;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 16px 0;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #667eea;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #5568d3;
+      }
+
+      .btn-group {
+        margin-top: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>이미지 갤러리</h1>
+
+      <!-- 섹션 1: getAttribute로 속성 읽기 -->
+      <div class="section">
+        <h2>섹션 1: 속성 읽기 (getAttribute)</h2>
+        <div class="gallery">
+          <img
+            id="photo1"
+            src="https://picsum.photos/id/10/200/150"
+            alt="숲 속 풍경"
+            data-photographer="Paul Jarvis"
+          />
+          <img
+            id="photo2"
+            src="https://picsum.photos/id/20/200/150"
+            alt="바다 풍경"
+            data-photographer="Aleks Dorohovich"
+          />
+        </div>
+        <div class="btn-group">
+          <button onclick="test1()">테스트 1: 이미지 속성 읽기</button>
+        </div>
+      </div>
+
+      <!-- 섹션 2: setAttribute로 속성 변경 -->
+      <div class="section">
+        <h2>섹션 2: 속성 변경 (setAttribute)</h2>
+        <div class="profile-card">
+          <img
+            id="profile-img"
+            src="https://picsum.photos/id/64/80/80"
+            alt="프로필 사진"
+          />
+          <div class="profile-info">
+            <div class="name" id="profile-name">김코딩</div>
+            <div class="role">프론트엔드 개발자</div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button onclick="test2()">테스트 2: 프로필 이미지 변경</button>
+        </div>
+      </div>
+
+      <!-- 섹션 3: classList로 스타일 클래스 추가/제거 -->
+      <div class="section">
+        <h2>섹션 3: 클래스 추가/제거 (classList)</h2>
+        <div class="gallery">
+          <img
+            id="gallery-img"
+            src="https://picsum.photos/id/30/200/200"
+            alt="갤러리 이미지"
+          />
+        </div>
+        <div class="btn-group">
+          <button onclick="test3()">테스트 3: 테두리+그림자 추가</button>
+        </div>
+      </div>
+
+      <!-- 섹션 4: classList.toggle -->
+      <div class="section">
+        <h2>섹션 4: 클래스 토글 (classList.toggle)</h2>
+        <div class="theme-box" id="theme-box">
+          <h3>테마 전환 영역</h3>
+          <p>이 영역의 테마가 바뀝니다.</p>
+        </div>
+        <div class="btn-group">
+          <button onclick="test4()">테스트 4: 다크 모드 토글</button>
+        </div>
+      </div>
+
+      <!-- 섹션 5: style 속성으로 인라인 스타일 변경 -->
+      <div class="section">
+        <h2>섹션 5: 인라인 스타일 변경 (style)</h2>
+        <div class="style-box" id="style-box">스타일 박스</div>
+        <div class="btn-group">
+          <button onclick="test5()">테스트 5: 스타일 변경</button>
+        </div>
+      </div>
+
+      <!-- 섹션 6: getComputedStyle -->
+      <div class="section">
+        <h2>섹션 6: 계산된 스타일 읽기 (getComputedStyle)</h2>
+        <div class="style-box" id="computed-box" style="font-size: 14px;">
+          계산된 스타일
+        </div>
+        <div class="btn-group">
+          <button onclick="test6()">테스트 6: 계산된 스타일 확인</button>
+        </div>
+      </div>
+
+      <!-- 섹션 7: 클래스 기반 스타일 관리 -->
+      <div class="section">
+        <h2>섹션 7: 클래스 기반 스타일 관리 (권장)</h2>
+        <div class="gallery">
+          <img
+            id="img-a"
+            src="https://picsum.photos/id/40/150/150"
+            alt="이미지 A"
+          />
+          <img
+            id="img-b"
+            src="https://picsum.photos/id/50/150/150"
+            alt="이미지 B"
+          />
+          <img
+            id="img-c"
+            src="https://picsum.photos/id/60/150/150"
+            alt="이미지 C"
+          />
+        </div>
+        <div class="btn-group">
+          <button onclick="test7()">테스트 7: 흑백 필터 토글</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
