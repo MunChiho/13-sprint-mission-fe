@@ -139,7 +139,7 @@ main {
 
 .hotpage-image,
 .search-image,
-.sellPage-image {
+.sell-page-image {
   max-width: 100%;
   height: auto;
 }
@@ -173,7 +173,7 @@ main {
   width: auto;
 }
 
-.sellPage-text {
+.sell-Page-text {
   display: flex;
   gap: 1.5rem;
   flex-direction: column;
