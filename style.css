@@ -4,12 +4,14 @@
   list-style: none;
 }
 
+body {
+  font-family: Pretendard;
+}
 main {
   flex: 1;
 }
 .word {
   color: var(--Secondary-700);
-  font-family: Pretendard;
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
@@ -20,7 +22,6 @@ main {
   color: var(--Secondary-700);
 
   /* pretendard/2xl-24px-medium */
-  font-family: Pretendard;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -30,7 +31,6 @@ main {
   color: var(--Primary-100);
 
   /* pretendard/2lg-18px-bold */
-  font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -59,7 +59,7 @@ main {
   background: #fff;
   z-index: 1;
 }
-.one {
+.header-inner {
   max-width: 1920px;
   padding: 9px 200px;
   display: flex;
@@ -68,7 +68,7 @@ main {
   align-self: stretch;
   margin: 0 auto;
 }
-.one-one {
+.header-logo {
   display: flex;
   width: 153px;
   height: 51px;
@@ -82,7 +82,7 @@ main {
   height: 40.135px;
   flex-shrink: 0;
 }
-.login {
+.header-btn {
   display: flex;
   width: 128px;
   height: 48px;
@@ -95,20 +95,19 @@ main {
   color: var(--Cool-Gray-100);
 
   /* pretendard/lg-16px-semibold */
-  font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 26px; /* 162.5% */
 }
 
-.two {
+.first {
   width: 100%;
   height: 540px;
   background: #cfe5ff;
   margin-top: 70px;
 }
-.two-one {
+.first-frame {
   display: flex;
   justify-content: center;
   max-width: 1920px;
@@ -117,7 +116,7 @@ main {
   padding: 200px 405px 0px 405px;
   margin: 0 auto;
 }
-.two-two {
+.first-inner {
   display: flex;
   padding-bottom: 60px;
   flex-direction: column;
@@ -125,7 +124,7 @@ main {
   align-items: flex-start;
   gap: 32px;
 }
-.look-btn {
+.first-btn {
   display: flex;
   height: 56px;
   padding: 16px 124px;
@@ -153,7 +152,7 @@ main {
   align-items: center;
   gap: 7px;
 }
-.three {
+.second {
   display: flex;
   width: 100%;
   padding: 138px 344px;
@@ -163,7 +162,7 @@ main {
   gap: 10px;
   background: #fff;
 }
-.three-one {
+.second-frame {
   max-width: 1920px;
   display: flex;
   width: 988px;
@@ -172,13 +171,7 @@ main {
   gap: 64px;
   background: #fcfcfc;
 }
-.three-two {
-  width: 588px;
-  height: 444px;
-  border-radius: 12px;
-  background: var(--Secondary-100);
-}
-.three-three {
+.second-inner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -192,7 +185,7 @@ main {
   align-items: center;
   flex-shrink: 0;
 }
-.four {
+.third {
   display: flex;
   width: 100%;
   padding: 138px 342px;
@@ -202,7 +195,7 @@ main {
   gap: 10px;
   background: #fff;
 }
-.four-one {
+.third-frame {
   display: flex;
   max-width: 1920px;
   width: 988px;
@@ -211,23 +204,18 @@ main {
   gap: 64px;
   background: #fcfcfc;
 }
-.four-two {
+.third-inner {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 12px;
-}
-.four-three {
-  width: 588px;
-  height: 444px;
-  flex-shrink: 0;
 }
 .searchimg {
   width: 588px;
   height: 444px;
   flex-shrink: 0;
 }
-.five {
+.fourth {
   display: flex;
   width: 100%;
   padding: 138px 360px;
@@ -237,7 +225,7 @@ main {
   gap: 10px;
   background: #fff;
 }
-.five-one {
+.fourth-frame {
   display: flex;
   max-width: 1920px;
   width: 988px;
@@ -254,19 +242,19 @@ main {
   align-items: center;
   flex-shrink: 0;
 }
-.five-two {
+.fourth-inner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
 }
-.six {
+.fifth {
   width: 100%;
   height: 540px;
   background: #cfe5ff;
   margin-top: 138px;
 }
-.six-one {
+.fifth-frame {
   display: flex;
   max-width: 1920px;
   align-items: center;
@@ -275,7 +263,7 @@ main {
   padding: 143px 405px 0px 405px;
   margin: 0 auto;
 }
-.six-two {
+.fifth-inner {
   display: flex;
   padding-bottom: 60px;
   justify-content: center;
@@ -299,7 +287,7 @@ main {
   gap: 10px;
   background: var(--Secondary-900);
 }
-.footer-one {
+.footer-frame {
   display: flex;
   max-width: 1920px;
   padding: 32px 200px;
@@ -308,7 +296,7 @@ main {
   align-items: center;
   align-self: stretch;
 }
-.footer-two {
+.footer-inner-center {
   display: flex;
   align-items: flex-start;
   gap: 30px;
@@ -316,7 +304,6 @@ main {
 .footerwordgray {
   color: var(--Secondary-400);
   text-align: center;
-  font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -325,13 +312,12 @@ main {
 .footerwordwhite {
   color: var(--Secondary-200);
   text-align: center;
-  font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
-.footer-three {
+.footer-inner-right {
   display: flex;
   width: 116px;
   align-items: flex-start;
