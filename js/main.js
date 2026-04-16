@@ -15,12 +15,10 @@ const listParams = new URLSearchParams({
 
 test();
 
-function test() {
-  btn.addEventListener("click", async () => {
-    await articleApiTest();
-    // ================ProcutApi========================
-    await productApiTest();
-  });
+async function test() {
+  await articleApiTest();
+  // ================ProcutApi========================
+  await productApiTest();
 }
 
 async function articleApiTest() {

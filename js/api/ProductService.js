@@ -2,23 +2,23 @@ const BASE_URL = "https://panda-market-api-crud.vercel.app";
 
 export default class ProductApi {
   async getProductList(params) {
-    return await api.get(`/products?${params}`);
+    return api.get(`/products?${params}`);
   }
 
   async getProduct(id) {
-    return await api.get(`/products/${id}`);
+    return api.get(`/products/${id}`);
   }
 
   async createProduct(data) {
-    return await api.post("/products", data);
+    return api.post("/products", data);
   }
 
   async patchProduct(id, data) {
-    return await api.patch(`/products/${id}`, data);
+    return api.patch(`/products/${id}`, data);
   }
 
   async deleteProduct(id) {
-    return await api.delete(`/products/${id}`);
+    return api.delete(`/products/${id}`);
   }
 }
 
