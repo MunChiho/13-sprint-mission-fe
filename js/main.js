@@ -15,95 +15,118 @@ const listParams = new URLSearchParams({
 
 test();
 
-async function test() {
+function test() {
   btn.addEventListener("click", async () => {
-    // ArticleList
-    article.getArticleList(listParams).then((result) => {
-      const list = result.list;
-      console.log(list);
-    });
-
-    //Article{id}
-    article.getArticle(3001).then((result) => {
-      console.log(result);
-    });
-
-    const articleData = {
-      image: "https://example.com/articlePost",
-      content: "김대영의 스프린트3",
-      title: "Article Post~",
-    };
-
-    //ArticlePost
-    article.createArticle(articleData).then((result) => {
-      console.log(result);
-    });
-
-    //ArticlePatch
-    article.patchArticle(3001, articleData).then((result) => {
-      console.log(result);
-    });
-
-    // //ArticleDelete
-    // article.deleteArticle(1231).then((result) => {
-    //   console.log(result);
-    // });
-
+    await articleApiTest();
     // ================ProcutApi========================
-    //Product List
-    try {
-      const result = await products.getProductList(listParams);
-      console.log("============Products=================");
-      const list = result.list;
-
-      console.log(list);
-    } catch (error) {
-      console.error(error.message);
-    }
-
-    //Product{id}
-    try {
-      const result = await products.getProductList(listParams);
-      console.log("============Products=================");
-      const list = result.list;
-
-      console.log(list);
-    } catch (error) {
-      console.error(error.message);
-    }
-    //Product Post
-
-    try {
-      const result = await products.getProductList(listParams);
-      console.log("============Products=================");
-      const list = result.list;
-
-      console.log(list);
-    } catch (error) {
-      console.error(error.message);
-    }
-    //Product PATCH
-
-    try {
-      const result = await products.getProductList(listParams);
-      console.log("============Products=================");
-      const list = result.list;
-
-      console.log(list);
-    } catch (error) {
-      console.error(error.message);
-    }
-
-    //Product DELETE
-
-    try {
-      const result = await products.getProductList(listParams);
-      console.log("============Products=================");
-      const list = result.list;
-
-      console.log(list);
-    } catch (error) {
-      console.error(error.message);
-    }
+    await productApiTest();
   });
+}
+
+async function articleApiTest() {
+  const articleData = {
+    image: "https://example.com/articlePost",
+    content: "김대영의 스프린트3",
+    title: "Article Post~",
+  };
+
+  const articlePatchData = {
+    ...articleData,
+    title: "Article Patch",
+  };
+
+  return article
+    .getArticleList(listParams)
+    .then((result) => {
+      console.log("=====ArticleList======");
+      const list = result.list;
+      console.log(list);
+      return list[0].id;
+    })
+    .then((id) => {
+      return article.getArticle(id).then((result) => {
+        console.log("=====Article{ID}======");
+        console.log(result);
+        return id;
+      });
+    })
+    .then((id) => {
+      return article.createArticle(articleData).then((result) => {
+        console.log("=====ArticlePost======");
+        console.log(result);
+        return id;
+      });
+    })
+    .then((id) => {
+      return article.patchArticle(id, articlePatchData).then((result) => {
+        console.log("=====ArticlePatch======");
+        console.log(result);
+        return id;
+      });
+    })
+    .then((id) => {
+      return article.deleteArticle(id).then((result) => {
+        console.log("=====ArticleDelete=====");
+        console.log(result);
+      });
+    });
+}
+
+async function productApiTest() {
+  const productData = {
+    images: ["https://example.com/..."],
+    tags: ["전자제품", "학용퓸"],
+    price: 0,
+    description: "string",
+    name: "POST 김대영",
+  };
+  const patchData = { ...productData, name: "PATCH 김대영" };
+
+  //Product List
+  let productListId = 0;
+  try {
+    const result = await products.getProductList(listParams);
+    const list = result.list;
+    productListId = list[0].id;
+    console.log("============ProductsList=================");
+    console.log(list);
+  } catch (error) {
+    console.error(error.message);
+  }
+
+  //Product{id}
+  try {
+    const result = await products.getProduct(productListId);
+    console.log("============Products{id}=================");
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+
+  //Product Post
+  try {
+    const result = await products.createProduct(productData);
+    console.log("============ProductsPost=================");
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+
+  //Product PATCH
+  try {
+    const result = await products.patchProduct(productListId, patchData);
+    console.log("============ProductsPatch=================");
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+
+  //Product DELETE
+  try {
+    const result = await products.deleteProduct(productListId);
+    console.log("============ProductsDelete=================");
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
 }
