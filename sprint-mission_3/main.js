@@ -32,6 +32,12 @@ createArticle()
   })
   .catch(console.error);
 
+getArticleList(1, 5, "")
+  .then((data) => {
+    console.log("게시글 리스트: ", data);
+  })
+  .catch(console.error);
+
 async function productFlow() {
   try {
     const created = await createProduct();
@@ -51,3 +57,14 @@ async function productFlow() {
 }
 
 productFlow();
+
+async function productListTest() {
+  try {
+    const list = await getProductList(1, 5, "");
+    console.log("상품 리스트: ", list);
+  } catch (error) {
+    console.error("상품 리스트 에러: ", error);
+  }
+}
+
+productListTest();
