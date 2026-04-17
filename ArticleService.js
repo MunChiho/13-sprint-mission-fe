@@ -1,5 +1,5 @@
 // [ ]  'https://panda-market-api-crud.vercel.app/docs/#/Article' API를 이용하여 아래 함수들을 구현해 주세요.
-const BASE_URL = "https://panda-market-api-crud.vercel.app/api";
+const BASE_URL = "https://panda-market-api-crud.vercel.app";
 // [ ] getArticleList() : GET 메서드를 사용해 주세요.
 // [ ] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
 export const getArticleList = (page = 1, pageSize = 10, keyword = "") => {
@@ -26,7 +26,7 @@ export const createArticle = (data) => {
   return fetch(`${BASE_URL}/articles`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data), // title, content, image 포함
+    body: JSON.stringify(data),
   })
     .then((res) => {
       if (!res.ok) throw new Error(`에러 발생: ${res.status}`);

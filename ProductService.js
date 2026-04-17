@@ -1,5 +1,5 @@
 // [ ]  'https://panda-market-api-crud.vercel.app/docs/#/Product' API를 이용하여 아래 함수들을 구현해 주세요.
-const BASE_URL = "https://panda-market-api-crud.vercel.app/api";
+const BASE_URL = "https://panda-market-api-crud.vercel.app";
 // [ ] getProductList() : GET 메서드를 사용해 주세요.
 // [ ] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
 export async function getProductList(page = 1, pageSize = 10, keyword = "") {
@@ -30,7 +30,7 @@ export async function createProduct(data) {
     const response = await fetch(`${BASE_URL}/products`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data), // name, description, price, tags, images 포함
+      body: JSON.stringify(data),
     });
     if (!response.ok) throw new Error(`에러 발생: ${response.status}`);
     return await response.json();
