@@ -16,23 +16,7 @@ import {
   deleteProduct,
 } from "./ProductService.js";
 
-// console.log("main.js 연결 완료!");
-
-// //Article
-// // 1. 목록 조회해서 존재하는 id들 가져오기
-// const list = await getArticleList();
-
-// // 2. 그 중에서 랜덤으로 하나 뽑아서
-// const randomArticleId =
-//   list.list[Math.floor(Math.random() * list.list.length)].id;
-
 getArticleList(1, 10, "")
-  // .then((data) => {
-  //   console.log("getArticleList::", data);
-
-  //   const randomId = data.list[Math.floor(Math.random() * data.list.length)].id;
-  //   return getArticle(randomId);
-  // })
   .then((data) => console.log("getArticleList::", data))
   .catch((err) => console.log("error::", err));
 
@@ -62,15 +46,6 @@ createArticle({
 
 // Product
 async function testProductApi() {
-  // // 1. 목록 조회해서 존재하는 id들 가져오기
-  // const list = await getProductList();
-
-  // // 2. 그 중에서 랜덤으로 하나 뽑아서
-  // const randomId = list.list[Math.floor(Math.random() * list.list.length)].id;
-
-  // // 3. 그 id로 삭제
-  // await deleteProduct(randomId);
-
   const productList = await getProductList(1, 5, "");
   console.log("getProductList::", productList);
 

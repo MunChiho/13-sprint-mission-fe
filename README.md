@@ -15,21 +15,27 @@
 ## 기술 스택
 
 - HTML/CSS
+- JavaScript
 
 ## 폴더 구조
 
-📁 CODEIT-SPRINT_2
+📁 CODEIT-SPRINT
 ┣ 📂 eye
 ┣ 📂 logo
 ┣ 📂 sns
+┣ 📜 index.html
 ┣ 📜 login.html
 ┣ 📜 signup.html
 ┣ 📜 faq.html
 ┣ 📜 items.html
 ┣ 📜 privacy.html
 ┣ 📜 reset.css
-┣ 📜 style_1.css
-┣ 📜 style_2.css
+┣ 📜 index.css
+┣ 📜 login.css
+┣ 📜 main.js
+┣ 📜 ArticleService.js
+┣ 📜 ProductService.js
+┣ 📜 api.js
 ┗ 📜 README.md
 
 ## netlify 배포 주소
