@@ -1,5 +1,5 @@
 import * as articleService from "./ArticleService.js";
-import * as productService from "./ProductService.js";
+import { productAPI } from "./ProductService.js";
 
 const search = {
   page: 1,
@@ -41,23 +41,31 @@ async function callProductService() {
     name: "상품 이름",
   };
 
-  const getList = await productService.getProductList(search);
-  console.log("상품 조회 결과들 : ", getList);
+  try {
+    const getList = await productAPI.getSearch(search);
+    console.log("상품 조회 결과들 : ", getList);
 
-  const create = await productService.createProduct(postProduct);
-  const id = create.id;
-  console.log("상품 생성 결과 : ", create);
+    const create = await productAPI.post(postProduct);
+    if (!create) //생성에 실패해서 값이 없다.
+    {
+      throw new Error("생성에 실패했습니다.");
+    }
+    const id = create.id;
+    console.log("상품 생성 결과 : ", create);
 
-  const getPost = await productService.getProduct(id);
-  console.log("상품 상세 조회 결과 : ", getPost);
+    const getPost = await productAPI.getDtail(id);
+    console.log("상품 상세 조회 결과 : ", getPost);
 
-  const patch = await productService.patchProduct(id, {
-    name: "수정한 상품이름",
-    price: 1000,
-  });
-  console.log("상품 수정 결과 : ", patch);
-  const deleteArticle = await productService.deleteProduct(id);
-  console.log("상품 삭제 결과 : ", deleteArticle);
+    const patch = await productAPI.patch(id, {
+      name: "수정한 상품이름",
+      price: 1000,
+    });
+    console.log("상품 수정 결과 : ", patch);
+    const deleteProduct = await productAPI.delete(id);
+    console.log("상품 삭제 결과 : ", deleteProduct);
+  } catch (error) {
+    console.log(error);
+  }
 }
 callArticleService();
 callProductService();
