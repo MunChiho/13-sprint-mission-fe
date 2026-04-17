@@ -1,4 +1,4 @@
-import * as articleService from "./ArticleService.js";
+import { articleAPI } from "./ArticleService.js";
 import { productAPI } from "./ProductService.js";
 
 const search = {
@@ -7,29 +7,42 @@ const search = {
   keyword: "",
 };
 
-async function callArticleService() {
+function callArticleService() {
   const postArticle = {
     image: "https://example.com/...",
     content: "생성한 게시글의 내용",
     title: "생성한 게시글",
   };
-
-  const getList = await articleService.getArticleList(search);
-  console.log("게시글 조회 결과들 : ", getList);
-
-  const create = await articleService.createArticle(postArticle);
-  const id = create.id;
-  console.log("게시글 생성 결과 : ", create);
-
-  const getPost = await articleService.getArticle(id);
-  console.log("게시글 상세 조회 결과 : ", getPost);
-
-  const patch = await articleService.patchArticle(id, {
-    title: "수정한 게시글",
-  });
-  console.log("게시글 수정 결과 : ", patch);
-  const deleteArticle = await articleService.deleteArticle(id);
-  console.log("게시글 삭제 결과 : ", deleteArticle);
+  let id = -1;
+  return articleAPI
+    .getSearch(search)
+    .then((searchResult) => {
+      console.log("게시글 조회 결과들 : ", searchResult);
+      return articleAPI.post(postArticle);
+    })
+    .then((postResult) => {
+      console.log("게시글 생성 결과 : ", postResult);
+      if (!postResult) //생성에 실패해서 값이 없다.
+      {
+        throw new Error("생성에 실패했습니다.");
+      }
+      id = postResult.id;
+      return articleAPI.getDtail(id);
+    })
+    .then((detailResult) => {
+      console.log("게시글 상세 조회 결과 : ", detailResult);
+      return articleAPI.patch(id, { title: "수정한 게시글" });
+    })
+    .then((patchResult) => {
+      console.log("게시글 삭제 결과 : ", patchResult);
+      return articleAPI.delete(id);
+    })
+    .then((deleteResult) => {
+      console.log("게시글 삭제 결과 : ", deleteResult);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
 async function callProductService() {
@@ -61,11 +74,16 @@ async function callProductService() {
       price: 1000,
     });
     console.log("상품 수정 결과 : ", patch);
+
     const deleteProduct = await productAPI.delete(id);
     console.log("상품 삭제 결과 : ", deleteProduct);
   } catch (error) {
     console.log(error);
   }
 }
-callArticleService();
+console.log("===ArticleService API 호출 =====");
+await callArticleService();
+console.log("================================");
+console.log("===ProductService API 호출 =====");
 callProductService();
+console.log("================================");
