@@ -1,3 +1,4 @@
+@import "variables.css";
 * {
   box-sizing: border-box;
 }
@@ -59,9 +60,6 @@ nav .logo img {
   display: flex;
   background-color: #cfe5ff;
 }
-/* .section-container-hero {
-
-} */
 .frame-large-top {
   margin: 200px auto 0 auto;
   display: flex;
@@ -133,7 +131,7 @@ nav .logo img {
   flex-shrink: 0;
 }
 .section-container {
-  background-color: #fcfcfc;
+  background-color: var(--bg);
   display: flex;
   flex-direction: row;
   gap: 64px;
@@ -144,14 +142,14 @@ nav .logo img {
 }
 .tag {
   display: inline;
-  color: #3692ff;
+  color: var(--primary);
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
 }
 .section-desc {
   display: inline;
-  color: #374151;
+  color: var(--text);
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -161,7 +159,7 @@ nav .logo img {
 .section-desc-middle {
   display: inline;
   text-align: right;
-  color: #374151;
+  color: var(--text);
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -200,7 +198,7 @@ footer {
   justify-content: center;
 }
 .footer-copy {
-  color: #9ca3af;
+  color: var(--Secondary);
   font-size: 16px;
   white-space: nowrap;
 }
