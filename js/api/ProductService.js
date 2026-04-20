@@ -34,7 +34,7 @@ async function request(endpoint, options = {}) {
   try {
     const response = await fetch(`${BASE_URL}${endpoint}`, config);
 
-    if (!response.status === 200) {
+    if (response.status !== 200) {
       console.error(`Http Error : ${response.status}`);
       throw error;
     }
