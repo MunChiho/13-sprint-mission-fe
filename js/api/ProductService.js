@@ -34,15 +34,15 @@ async function request(endpoint, options = {}) {
   try {
     const response = await fetch(`${BASE_URL}${endpoint}`, config);
 
-    if (response.status !== 200) {
-      console.error(`Http Error : ${response.status}`);
-      throw error;
+    if (!response.ok) {
+      throw new Error(`Http Error : ${response.status}`);
     }
     if (response.status === 204) return null;
 
     return response.json();
   } catch (error) {
-    console.error(`Rquest에러: ${error.message}`);
+    console.error(`Request 에러: ${error.message}`);
+    throw error;
   }
 }
 
