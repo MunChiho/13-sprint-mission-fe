@@ -69,7 +69,7 @@ export async function createProduct(name, description, price, tags, images) {
   }
   
 // PATCH/products/{productId}
-export async function patchProduct(productId, name, description, price, tags, image) {
+export async function patchProduct(productId, updatedObj) {
     const url = `${BASE_URL}/products/${productId}`;
 
   try{
@@ -78,13 +78,7 @@ export async function patchProduct(productId, name, description, price, tags, im
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name,
-        description,
-        price,
-        tags,
-        images,
-      }),
+      body: JSON.stringify(updatedObj),
     });
     
     if(!res.ok) {
