@@ -7,6 +7,40 @@
 그동안 독학으로 습득한 지식을 프로젝트를 진행하며 굳혀나가며, 부족한 부분을 찾아 메꿀 것입니다!
 그것들을 직접 적용하고 구현하며 체화할 수 있도록 노력하겠습니다! **잘 부탁드립니다!** 🙏
 
+## 프로젝트 폴더 구조
+
+```
+.
+├── src/
+│   ├── api/
+│   │   ├── api.js
+│   │   ├── ArticleService.js
+│   │   └── ProductService.js
+│   ├── assets/
+│   │   ├── icons/
+│   │   └── img/
+│   │       └── landing/
+│   ├── pages/
+│   │   ├── faq.html
+│   │   ├── items.html
+│   │   ├── login.html
+│   │   ├── privacy.html
+│   │   └── signup.html
+│   └── styles/
+│       ├── components/
+│       │   ├── footer.css
+│       │   ├── header.css
+│       │   └── hero.css
+│       ├── pages/
+│       │       └── login-signup.css
+│       ├── global.css
+│       ├── reset.css
+│       └── root.css
+├── index.html
+├── main.js
+└── README.md
+```
+
 ## 소개
 
 안녕하세요! 판다마켓 프로젝트에 오신 것을 환영합니다! 🥳  

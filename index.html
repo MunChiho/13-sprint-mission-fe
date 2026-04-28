@@ -4,9 +4,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/styles/reset.css" />
-    <link rel="stylesheet" href="./src/styles/style.css" />
-    <link rel="stylesheet" href="./src/styles/root.css" />
+    <link rel="stylesheet" href="/src/styles/reset.css" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <link rel="stylesheet" href="/src/styles/root.css" />
+
+    <link rel="stylesheet" href="/src/styles/components/header.css" />
+    <link rel="stylesheet" href="/src/styles/components/hero.css" />
+    <link rel="stylesheet" href="/src/styles/components/footer.css" />
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FMKGD4PCH6"></script>
     <script>
@@ -17,16 +22,17 @@
       gtag('config', 'G-FMKGD4PCH6');
     </script>
     <title>판다마켓</title>
+    <link rel="icon" href="src/assets/icons/favicon.ico" />
   </head>
 
   <body>
     <header>
-      <div class="hero-container">
-          <a href="index.html" class="logo-container">
-          <img src="./src/assets/img/landing/panda-logo.png" alt="판다마켓 판다로고" />
-          <img id="hero-logo" src="./src/assets/img/landing/pandamarket-logo.png" alt="판다마켓 로고" />
+      <div class="header-container">
+          <a href="/" class="logo-container">
+          <img src="/src/assets/img/landing/panda-logo.png" alt="판다마켓 판다로고" />
+          <img id="hero-logo" src="/src/assets/img/landing/pandamarket-logo.png" alt="판다마켓 로고" />
         </a>
-        <a class="login-bttn" href="./src/pages/login.html">로그인</a>
+        <a class="login-bttn" href="/src/pages/login.html">로그인</a>
       </div>
     </header>
 
@@ -35,14 +41,13 @@
         <div class="main-container">
           <div class="left-section">
             <h1 class="mention">
-              일상의 모든 물건을<br />
-              거래해 보세요
+              일상의 모든 물건을 거래해 보세요
             </h1>
-            <a class="items-bttn" href="./src/pages/items.html">구경하러 가기</a>
+            <a class="items-bttn" href="/src/pages/items.html">구경하러 가기</a>
           </div>
           <img
             id="panda-img"
-            src="./src/assets/img/landing/Img_home_top.png"
+            src="/src/assets/img/landing/Img_home_top.png"
             alt="판다 이미지"
           />
         </div>
@@ -50,13 +55,12 @@
 
       <section class="main-white">
         <div class="contents-wrapper">
-          <img src="./src/assets/img/landing/Img_home_01.png" alt="인기 상품 이미지" />
+          <img src="/src/assets/img/landing/Img_home_01.png" alt="인기 상품 이미지" />
           <div class="right-section">
             <div class="highlight-keyword">Hot item</div>
-            <h2 class="mention">인기 상품을<br />확인해 보세요</h2>
+            <h2 class="mention">인기 상품을 확인해 보세요</h2>
             <p class="description">
-              가장 HOT한 중고거래 물품을<br />
-              판다 마켓에서 확인해 보세요
+              가장 HOT한 중고거래 물품을 판다 마켓에서 확인해 보세요
             </p>
           </div>
         </div>
@@ -67,35 +71,34 @@
         <div class="contents-wrapper ">
           <div class="search-left-section">
             <div class="highlight-keyword">Search</div>
-            <h2 class="mention">구매를 원하는<br />상품을 검색하세요</h2>
+            <h2 class="mention">구매를 원하는 상품을 검색하세요</h2>
             <p class="description">
-              구매하고 싶은 물품은 검색해서<br />쉽게 찾아보세요
+              구매하고 싶은 물품은 검색해서 쉽게 찾아보세요
             </p>
           </div>
-          <img src="./src/assets/img/landing/Img_home_02.png" alt="검색 이미지" />
+          <img src="/src/assets/img/landing/Img_home_02.png" alt="검색 이미지" />
         </div>
       </section>
       
         <section class="main-white">
           <div class="contents-wrapper">
-            <img src="./src/assets/img/landing/Group 33682.png" alt="등록 이미지" />
+            <img src="/src/assets/img/landing/Group 33682.png" alt="등록 이미지" />
             <div class="right-section">
               <div class="highlight-keyword">Register</div>
-              <h2 class="mention">판매를 원하는<br />상품을 등록하세요</h2>
+              <h2 class="mention">판매를 원하는 상품을 등록하세요
               <p class="description">
-                어떤 물건이든 판매하고 싶은 상품을<br />쉽게 등록하세요
+                어떤 물건이든 판매하고 싶은 상품을 쉽게 등록하세요
               </p>
             </div>
           </div>
         </section>
 
-      <section class="main-blue">
+      <section class="main-blue--bottom">
           <div class="main-container-bottom">
           <h2 class="mention">
-            믿을 수 있는<br />
-            판다마켓 중고 거래
+            믿을 수 있는 판다마켓 중고 거래
           </h2>
-          <img src="./src/assets/img/landing/Img_home_bottom.png" alt="판다 대화 이미지" /> 
+          <img src="/src/assets/img/landing/Img_home_bottom.png" alt="판다 대화 이미지" /> 
           </div>
         </section>
     </main>
@@ -105,8 +108,8 @@
       <div class="footer-info">@codeit - 2026</div>
 
       <div class="privacy-faq-info">
-        <a href="./src/pages/privacy.html">Privacy Policy</a>
-        <a href="./src/pages/faq.html">FAQ</a>
+        <a href="/src/pages/privacy.html">Privacy Policy</a>
+        <a href="/src/pages/faq.html">FAQ</a>
       </div>
 
       <div class="footer-sns">
@@ -114,30 +117,31 @@
           href="https://www.facebook.com/codeit.kr/"
           target="_blank"
           rel="noopener noreferrer"
-          ><img src="./src/assets/icons/ic_facebook.png" alt="facebook"
+          ><img src="/src/assets/icons/ic_facebook.png" alt="facebook"
         /></a>
 
         <a
           href="https://x.com/?lang=ko"
           target="_blank"
           rel="noopener noreferrer"
-          ><img src="./src/assets/icons/ic_twitter.png" alt="ic_twitter"
+          ><img src="/src/assets/icons/ic_twitter.png" alt="ic_twitter"
         /></a>
 
         <a
           href="http://youtube.com/@codeit-kr"
           target="_blank"
           rel="noopener noreferrer"
-          ><img src="./src/assets/icons/ic_youtube.png" alt="youtube"
+          ><img src="/src/assets/icons/ic_youtube.png" alt="youtube"
         /></a>
 
         <a
           href="https://www.instagram.com/codeit_kr/"
           target="_blank"
           rel="noopener noreferrer"
-          ><img src="./src/assets/icons/ic_instagram.png" alt="instagram"
+          ><img src="/src/assets/icons/ic_instagram.png" alt="instagram"
         /></a>
       </div>
     </footer>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
