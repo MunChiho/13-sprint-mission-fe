@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../reset.css" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../font.css" />
     <title>로그인</title>
   </head>
   <body class="loginbody">
@@ -16,10 +17,10 @@
         </a>  
       </div>
       <div class="login-page2">
-        <div class="login-page2-1">
+        <form class="login-page2-1">
           <div class="emailpassword">
             <div class="oneframe">
-              <span class="write">이메일</span>
+              <label class="write" for="email">이메일</label>              
               <input
                 name="email"
                 placeholder="이메일을 입력해주세요"
@@ -28,7 +29,7 @@
               />
             </div>
             <div class="oneframe">
-              <span class="write">비밀번호</span>
+              <label class="write" for="password">비밀번호</label>
               <div class="password2">
                 <input
                   name="password"
@@ -41,9 +42,9 @@
             </div>
           </div>
           <div>
-            <button><span class="login">로그인</span></button>
+            <button class="login-btn"><span class="login">로그인</span></button>
           </div>
-        </div>
+        </form>
         <div class="login-page2-2">
           <div class="login-page2-2-1">
             <span class="quicklogin">간편로그인하기</span>
