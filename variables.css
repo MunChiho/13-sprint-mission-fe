@@ -1,0 +1,11 @@
+/* CSS 변수 (심화 요구사항) */
+:root {
+  --Secondary: #9ca3af;
+  --text: #374151;
+  --bg: #fcfcfc;
+  --simple-bg: #e6f2ff;
+  --kakao: #f5e148;
+  --first-text: #1f2937;
+  --cool-gray: #f3f4f6;
+  --primary: #3692ff;
+}
