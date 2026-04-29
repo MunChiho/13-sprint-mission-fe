@@ -1,37 +1,50 @@
-# 🐼 판다마켓
+스프린트 미션 3 요구사항 확인
+스프린트 미션 3의 요구사항은 두 가지 주요 API(Article API와 Product API)를 사용하여 다양한 CRUD(생성, 읽기, 업데이트, 삭제) 기능을 구현하는 것입니다.
 
-## 📋 프로젝트 소개
+API 명세 확인하러 가기
+위 명세를 참고해 아래 요구사항에 따라 함수들을 구현하세요.
 
-판다마켓 로그인/회원가입 페이지 구현 프로젝트입니다.
+요구사항
+기본 요구사항
+공통
 
-## ✅ 기본 요구사항
+[x] Github에 스프린트 미션 PR을 만들어 주세요.
 
-### 로그인 페이지, 회원가입 페이지 공통
+[x] 'https://panda-market-api-crud.vercel.app/docs/#/Article' API를 이용하여 아래 함수들을 구현해 주세요.
 
-- [x] "판다마켓" 로고 클릭 시 루트 페이지("/")로 이동합니다.
-- [x] SNS 아이콘들은 클릭 시 각각 "https://www.google.com/", "https://www.kakaocorp.com/page/" 으로 이동합니다.
-- [x] input 요소에 focus in 일 때, 테두리 색상은 #3692FF입니다.
-- [x] input 요소에 focus out 일 때, 테두리는 없습니다.
+[x] getArticleList() : GET 메서드를 사용해 주세요.
+[x] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
+[x] getArticle() : GET 메서드를 사용해 주세요.
+[x] createArticle() : POST 메서드를 사용해 주세요.
+[x] request body에 title, content, image 를 포함해 주세요.
+[x] patchArticle() : PATCH 메서드를 사용해 주세요.
+[x] deleteArticle() : DELETE 메서드를 사용해 주세요.
+[x] fetch 혹은 axios 를 이용해 주세요.
 
-### 로그인 페이지
+[x] 응답의 상태 코드가 2XX가 아닐 경우, 에러메시지를 콘솔에 출력해 주세요.
+[x] .then() 메서드를 이용하여 비동기 처리를 해주세요.
 
-- [x] "회원가입" 버튼 클릭 시 "/signup" 페이지로 이동합니다.
+[x] .catch() 를 이용하여 오류 처리를 해주세요.
 
-### 회원가입 페이지
+[x] 'https://panda-market-api-crud.vercel.app/docs/#/Product' API를 이용하여 아래 함수들을 구현해 주세요.
 
-- [x] "로그인" 버튼 클릭 시 "/login" 페이지로 이동합니다.
+[x] getProductList() : GET 메서드를 사용해 주세요.
+[x] page, pageSize, keyword 쿼리 파라미터를 이용해 주세요.
+[x] getProduct() : GET 메서드를 사용해 주세요.
+[x] createProduct() : POST 메서드를 사용해 주세요.
+[x] request body에 name, description, price, tags, images 를 포함해 주세요.
+[x] patchProduct() : PATCH 메서드를 사용해 주세요.
+[x] deleteProduct() : DELETE 메서드를 사용해 주세요.
+[x] async/await 을 이용하여 비동기 처리를 해주세요.
 
-## ✅ 심화 요구사항
+[x] try/catch 를 이용하여 오류 처리를 해주세요.
 
-### 공통
+[x] 구현한 함수들을 아래와 같이 파일을 분리해 주세요.
 
-- [x] palette에 있는 color값들을 css 변수로 등록해서 사용합니다.
-- [ ] 구글 애널리틱스로 방문자 수 확인할 수 있도록 설정합니다.
+[x] export를 활용해 주세요.
+[x] ProductService.js 파일 Product API 관련 함수들을 작성해 주세요.
+[x] ArticleService.js 파일에 Article API 관련 함수들을 작성해 주세요.
+[x] 이외의 코드들은 모두 main.js 파일에 작성해 주세요.
 
-### 로그인 페이지, 회원가입 페이지 공통
-
-- [x] 비밀번호, 비밀번호 확인 input 요소 오른쪽에 눈 모양 아이콘을 추가합니다.
-
-## 🔗 배포 링크
-
-[판다마켓 바로가기](https://candid-cheesecake-e777a3.netlify.app/)
+[x] import를 활용해 주세요.
+[x] 각 함수를 실행하는 코드를 작성하고, 제대로 동작하는지 확인해 주세요.
