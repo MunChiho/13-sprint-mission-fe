@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/color.css" />
     <link rel="stylesheet" href="css/font.css" />
+    <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/index.css" />
     <title>판다마켓</title>
+    <script defer type="module" src="../js/main.js"></script>
 
     <!-- Google tag (gtag.js) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-1YB5RZW542"
     ></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -33,15 +36,12 @@
               class="logo-image clickable"
               src="./images/logo.png"
               alt="Panda Market logo"
-          /></a>
-          <p>판다마켓</p>
+            />
+            <p>판다마켓</p>
+          </a>
         </div>
 
-        <ul>
-          <li>
-            <a href="./view/login.html" class="login-btn clickable">로그인</a>
-          </li>
-        </ul>
+        <a href="./view/login.html" class="login-btn clickable">로그인</a>
       </nav>
     </header>
 
@@ -49,7 +49,7 @@
       <section class="banner-section">
         <div class="banner-inner">
           <div class="banner-text">
-            <p>일상의 모든 물건을<br />거래해 보세요</p>
+            <h2>일상의 모든 물건을<br />거래해 보세요</h2>
             <a href="./view/items.html" class="products-btn clickable"
               >구경하러 가기</a
             >
@@ -71,9 +71,9 @@
               alt="인기상품 확인 이미지"
             />
             <div class="hotpage-text">
-              <p class="intro-text1">Hot item</p>
-              <p class="intro-text2">인기 상품을<br />확인해 보세요</p>
-              <p class="intro-text3">
+              <h2 class="intro-title">Hot item</h2>
+              <p class="intro-description">인기 상품을<br />확인해 보세요</p>
+              <p class="intro-detail">
                 가장 HOT한 중고거래 물품을 <br />판다 마켓에서 확인해 보세요
               </p>
             </div>
@@ -81,9 +81,11 @@
 
           <section class="search-section">
             <div class="search-text">
-              <p class="intro-text1">Search</p>
-              <p class="intro-text2">구매를 원하는<br />상품을 검색하세요</p>
-              <p class="intro-text3">
+              <h2 class="intro-title">Search</h2>
+              <p class="intro-description">
+                구매를 원하는<br />상품을 검색하세요
+              </p>
+              <p class="intro-detail">
                 구매하고 싶은 물품은 검색해서<br />쉽게 찾아보세요
               </p>
             </div>
@@ -97,15 +99,17 @@
 
           <section class="sell-section">
             <img
-              class="sellPage-image"
+              class="sell-page-image"
               src="./images/Group 33682.jpg"
               alt="판매등록 이미지"
             />
 
-            <div class="sellPage-text">
-              <p class="intro-text1">Register</p>
-              <p class="intro-text2">판매를 원하는 <br />상품을 등록하세요</p>
-              <p class="intro-text3">
+            <div class="sell-page-text">
+              <h2 class="intro-title">Register</h2>
+              <p class="intro-description">
+                판매를 원하는 <br />상품을 등록하세요
+              </p>
+              <p class="intro-detail">
                 어떤 물건이든 판매하고 싶은 상품을<br />쉽게 등록하세요
               </p>
             </div>
@@ -116,10 +120,11 @@
 
     <footer>
       <div class="footer-under-view"></div>
+
       <section class="footer-banner">
         <div class="banner-inner">
           <div class="banner-text">
-            <p>믿을 수 있는<br />판다마켓 중고 거래</p>
+            <h2>믿을 수 있는<br />판다마켓 중고 거래</h2>
           </div>
           <img
             class="banner-image"
