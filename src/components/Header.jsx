@@ -1,6 +1,6 @@
 
 import "./Header.css";
-import pandaLogo from "../assets/Image/login-header.png";
+import pandaLogo from "../assets/image/login-header.png";
 import { Link } from "react-router";
 
 export default function Nav() {
@@ -17,7 +17,7 @@ export default function Nav() {
 
           <div className="menu">
             <Link to="/community">자유게시판</Link>
-            <Link to="/market">중고마켓</Link>
+            <Link to="/item">중고마켓</Link>
           </div>
           <button
             type="button"

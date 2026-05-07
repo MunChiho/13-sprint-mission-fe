@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import BestSection from '../components/Market/BestSection';
 import ProductListSection from '../components/Market/ProductListSection';
 import '../css/Market.css';
@@ -18,25 +18,34 @@ function Market() {
       if (width >= 1200) setPageSize(10);
       else if (width >= 768) setPageSize(6);
       else setPageSize(4);
+
+      if (width >= 1200) setBestpageSize(4);
+      else if (width >= 768) setBestpageSize(2);
+      else setBestpageSize(1);
     };
+    
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
-    fetch(`https://panda-market-api.vercel.app/products?page=1&pageSize=4&orderBy=favorite`)
-      .then(res => res.json())
-      .then(data => setBestProducts(data.list));
-  }, []);
+    const params = new URLSearchParams({
+      page: page.toString(),
+      pageSize: pageSize.toString(),
+      orderBy: orderBy
+    });
 
-  useEffect(() => {
-    fetch(`https://panda-market-api.vercel.app/products?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&keyword=${keyword}`)
+    if (keyword) {params.append('keyword', keyword);
+    }
+
+    fetch(`http://panda-market-api-vercel.app/products?${params.toString()}`)
       .then(res => res.json())
       .then(data => {
         setProducts(data.list);
         setTotalCount(data.totalCount);
-      });
+      })
+      .catch(err => console.error('상품 목록 로드 실패:', err));
   }, [page, pageSize, orderBy, keyword]);
 
   return (

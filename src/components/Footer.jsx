@@ -1,9 +1,9 @@
 
 import "./Footer.css";
-import facebook from "../assets/Image/ic_facebook.png";
-import twitter from "../assets/Image/ic_twitter.png";
-import instagram from "../assets/Image/ic_instagram.png";
-import youtube from "../assets/Image/ic_youtube.png";
+import facebook from "../assets/image/ic_facebook.png";
+import twitter from "../assets/image/ic_twitter.png";
+import instagram from "../assets/image/ic_instagram.png";
+import youtube from "../assets/image/ic_youtube.png";
 
 export default function Footer() {
   return (

@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router";
 
 function SearchBar({ keyword, onKeywordChange, orderBy, onOrderChange }) {
+  const navigate = useNavigate();
+
   return (
     <div className="list-controls">
       <div className="search-bar">
@@ -11,7 +14,8 @@ function SearchBar({ keyword, onKeywordChange, orderBy, onOrderChange }) {
         />
       </div>
 
-      <button className="upload-btn">상품 등록하기</button>
+      <button className="upload-btn"
+      onClick={() => navigate('/product/create')}>상품 등록하기</button>
 
       <select 
         className="order-select"

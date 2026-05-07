@@ -1,9 +1,9 @@
 import "../css/Landing.css";
-import hero1 from "../assets/Image/hero1-panda.png";
-import banner from "../assets/Image/Img_home_bottom.png";
-import register from "../assets/Image/Img_home_03.png";
-import search from "../assets/Image/Img_home_02.png";
-import hotItem from "../assets/Image/Img_home_01.png";
+import hero1 from "../assets/image/hero1-panda.png";
+import banner from "../assets/image/Img_home_bottom.png";
+import register from "../assets/image/Img_home_03.png";
+import search from "../assets/image/Img_home_02.png";
+import hotItem from "../assets/image/Img_home_01.png";
 import { Link } from "react-router";
 
 function Landing() {
