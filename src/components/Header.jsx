@@ -1,9 +1,10 @@
 
 import "./Header.css";
 import pandaLogo from "../assets/image/login-header.png";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
-export default function Nav() {
+export default function Header() {
+  const location = useLocation();
   const handleLoginClick = () => {
     alert("로그인 페이지로 이동합니다!");
   };
@@ -17,7 +18,7 @@ export default function Nav() {
 
           <div className="menu">
             <Link to="/community">자유게시판</Link>
-            <Link to="/item">중고마켓</Link>
+            <Link to="/items" className={location.pathname === '/items' ? 'active' : ''}>중고마켓</Link>
           </div>
           <button
             type="button"

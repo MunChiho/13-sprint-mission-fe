@@ -15,15 +15,14 @@ function SearchBar({ keyword, onKeywordChange, orderBy, onOrderChange }) {
       </div>
 
       <button className="upload-btn"
-      onClick={() => navigate('/product/create')}>상품 등록하기</button>
+      onClick={() => navigate('/registration')}>상품 등록하기</button>
 
-      <select 
+      <select
         className="order-select"
-        value={orderBy} 
+        value={orderBy}
         onChange={(e) => onOrderChange(e.target.value)}
       >
         <option value="recent">최신순</option>
-        <option value="favorite">좋아요순</option>
       </select>
     </div>
   );

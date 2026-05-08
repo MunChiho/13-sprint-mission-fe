@@ -17,7 +17,7 @@ function Landing() {
               <br />
               거래해보세요
             </p>
-            <Link to="/market" className="go-btn">
+            <Link to="/items" className="go-btn">
               구경하러 가기
             </Link>
           </div>
