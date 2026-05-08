@@ -1,5 +1,6 @@
 
 import "./Footer.css";
+import { Link } from "react-router";
 import facebook from "../assets/image/ic_facebook.png";
 import twitter from "../assets/image/ic_twitter.png";
 import instagram from "../assets/image/ic_instagram.png";
@@ -12,10 +13,10 @@ export default function Footer() {
     <p>&copy;codeit - 2024</p>
     <ul className="footer-links">
       <li>
-        <a href="/pages/privacy.html">Privacy Policy</a>
+        <Link to="/privacy">Privacy Policy</Link>
       </li>
       <li>
-        <a href="/pages/faq.html">FAQ</a>
+        <Link to="/faq">FAQ</Link>
       </li>
     </ul>
     <ul className="footer-sns">

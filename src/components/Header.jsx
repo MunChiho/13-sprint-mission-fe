@@ -11,10 +11,10 @@ export default function Header() {
   return (
     <nav>
       <div className="nav-container">
-        <a className="logo-wrap" href="/">
+        <Link to="/" className="logo-wrap">
           <img className="logo-icon" src={pandaLogo} alt="판다마켓 로고" />
           <span className="logo">판다마켓</span>
-        </a>
+        </Link>
 
           <div className="menu">
             <Link to="/community">자유게시판</Link>
