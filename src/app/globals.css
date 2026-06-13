@@ -1,26 +1,36 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("/fonts/ROKAF-Sans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  --font-rokaf: "ROKAF Sans", sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --breakpoint-tablet: 744px;
+  --breakpoint-desktop: 1200px;
+  
+  --font-size-3xl: 32px;
+  --line-height-3xl: 42px;
+  --font-size-2xl: 24px;
+  --line-height-2xl: 32px;
+  --font-size-xl: 20px;
+  --line-height-xl: 32px;
+  --font-size-2lg: 18px;
+  --line-height-2lg: 26px;
+  --font-size-lg: 16px;
+  --line-height-lg: 26px;
+  --font-size-md: 14px;
+  --line-height-md: 24px;
+  --font-size-sm: 13px;
+  --line-height-sm: 22px;
+  --font-size-xs: 12px;
+  --line-height-xs: 20px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Pretendard, sans-serif;
 }
