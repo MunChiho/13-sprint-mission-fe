@@ -43,7 +43,7 @@ export default function Header() {
         </nav>
       </div>
       <Link href="/login">
-        <button className="inline-flex bg-primary-100 h-10.5 px-5.75 py-3 justify-center items-center gap-2.5 rounded-lg text-lg md:text-2lg font-semibold text-white">
+        <button className="btn_small_40">
           로그인
         </button>
       </Link>

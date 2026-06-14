@@ -13,7 +13,9 @@ export default function RootLayout({ children }) {
       lang="ko">
       <body>
         <Header />
-        <main>{children}</main>
+        <main className="w-full px-4 md:px-6 lg:max-w-300 lg:mx-auto lg:px-0 pt-4 md:pt-6.5">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

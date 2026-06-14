@@ -60,3 +60,9 @@
 body {
   font-family: Pretendard, sans-serif;
 }
+
+@layer components {
+  .btn_small_40 {
+    @apply inline-flex bg-primary-100 h-10 px-5.75 py-3 justify-center items-center gap-2.5 rounded-lg text-lg font-semibold text-white;
+  }
+}
