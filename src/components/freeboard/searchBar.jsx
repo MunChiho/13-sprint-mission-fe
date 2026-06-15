@@ -2,11 +2,15 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export default function SearchBar() {
+export default function SearchBar({ onSearch, onOrderBy }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState("최신순");
 
-  const options = ["최신 순", "좋아요 순"];
+  const options = [
+    { label: "최신순", value: "recent" },
+    { label: "좋아요순", value: "like" },
+  ];
+
   return (
     <div className="flex w-full items-center justify-between gap-2">
       <div className="flex bg-gray-100 items-center gap-1 flex-1 rounded-xl font-normal pl-4 pr-5 py-2.25">
@@ -14,6 +18,7 @@ export default function SearchBar() {
         <input
           type="text"
           placeholder="검색할 상품을 입력해 주세요"
+          onChange={(e) => onSearch(e.target.value)}
           className="bg-transparent w-full text-base text-gray-800 outline-none placeholder-gray-400 "
         />
       </div>
@@ -44,14 +49,15 @@ export default function SearchBar() {
           <ul className="absolute right-0 mt-1 w-28 bg-white border border-gray-200 rounded-lg shadow-md z-10">
             {options.map((option) => (
               <li
-                key={option}
+                key={option.value}
                 onClick={() => {
-                  setSelected(option);
+                  setSelected(option.label);
+                  onOrderBy(option.value);
                   setIsOpen(false);
                 }}
                 className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
               >
-                {option}
+                {option.label}
               </li>
             ))}
           </ul>
