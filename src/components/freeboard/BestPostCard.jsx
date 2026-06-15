@@ -2,12 +2,11 @@
 import Image from "next/image";
 
 const RANDOM_NICKNAMES = ["총명한판다", "든든한판다", "귀여운판다"];
-const RANDOM_LIKES = ["9999+", "1234", "567"];
 
 export default function BestPostCard({ post }) {
   if (!post) return null;
   const nickname = RANDOM_NICKNAMES[post.id % 3];
-  const likes = RANDOM_LIKES[post.id % 3];
+  const likes = post.likeCount > 9999 ? "9999+" : post.likeCount;
   const date = new Date(post.createdAt)
     .toLocaleDateString("ko-KR", {
       year: "numeric",
@@ -29,12 +28,12 @@ export default function BestPostCard({ post }) {
         <p className="font-semibold text-gray-800 text-lg flex-1">
           {post.title}
         </p>
-        <div className="w-18 h-18 bg-white rounded-lg border border-gray-200 flex items-center justify-cente shrink-0 pt-[13.713px] pb-[13.716px] px-3">
+        <div className="w-18 h-18 bg-white rounded-lg border border-gray-200 flex items-center justify-cente shrink-0 py-3.5 px-3">
           <Image
-            src="/image/default.png"
+            src={post.image || "/image/default.png"}
             alt="썸네일"
             width={48}
-            height={44.571}
+            height={44}
             className="object-cover"
           />
         </div>
