@@ -5,6 +5,7 @@ import BestPostCard from "./BestPostCard";
 // 베스트 게시글 목록 - 최신 3개를 가져와 화면 크기에 따라 1~3개 표시
 export default function BestPostList() {
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // 컴포넌트 마운트 시 베스트 게시글 3개 fetch
   useEffect(() => {
@@ -14,9 +15,19 @@ export default function BestPostList() {
       );
       const data = await res.json();
       setPosts(data.list);
+      setIsLoading(false);
     };
     fetchBestPosts();
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-3 py-10">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-200 border-t-blue-500" />
+        <p className="text-sm text-gray-400">게시글 불러오는 중...</p>
+      </div>
+    );
+  }
 
   return (
     // 반응형 그리드: 모바일 1열 / 태블릿 2열 / 데스크탑 3열

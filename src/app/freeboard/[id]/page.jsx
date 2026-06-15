@@ -15,6 +15,7 @@ export default function PostDetailPage() {
   const router = useRouter();
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // 페이지 진입 시 게시글과 댓글을 병렬로 fetch
   useEffect(() => {
@@ -25,6 +26,7 @@ export default function PostDetailPage() {
       ]);
       setPost(postData);
       setComments(commentData.list);
+      setIsLoading(false); 
     };
     fetchData();
   }, [id]);
@@ -58,6 +60,15 @@ export default function PostDetailPage() {
     await deleteArticle(postId);
     router.push("/freeboard");
   };
+
+  if (isLoading) {
+  return (
+    <div className="flex flex-col items-center justify-center gap-3 py-40">
+      <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-200 border-t-blue-500" />
+      <p className="text-sm text-gray-400">상세 페이지 불러오는 중...</p>
+    </div>
+  );
+}
 
   return (
     <div className="flex flex-col gap-6 pr-4">
