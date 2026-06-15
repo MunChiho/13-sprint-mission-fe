@@ -14,13 +14,13 @@ export default function PostCard({ post }) {
     .replace(/\. /g, ". ");
 
   return (
-    <div className="bg-[#FCFCFC] mb-6">
+    <div className="mb-6 bg-[#FCFCFC]">
       {/* 제목 + 이미지 */}
-      <div className="flex justify-between items-start mb-4">
-        <p className="font-semibold text-gray-800 text-lg flex-1">
+      <div className="mb-4 flex items-start justify-between">
+        <p className="flex-1 text-lg font-semibold text-gray-800">
           {post.title}
         </p>
-        <div className="w-18 h-18 bg-white rounded-lg border border-gray-200 flex items-center justify-cente shrink-0 py-3.5 px-3">
+        <div className="justify-cente flex h-18 w-18 shrink-0 items-center rounded-lg border border-gray-200 bg-white px-3 py-3.5">
           <Image
             src={post.image || "/image/default.png"}
             alt="썸네일"
@@ -32,7 +32,7 @@ export default function PostCard({ post }) {
       </div>
 
       {/* 하단 정보 */}
-      <div className="flex items-center justify-between text-sm text-gray-600 pb-6">
+      <div className="flex items-center justify-between pb-6 text-sm text-gray-600">
         <div className="flex items-center gap-2">
           <Image
             src="/image/ic_profile.svg"

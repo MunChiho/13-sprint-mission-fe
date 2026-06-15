@@ -13,7 +13,7 @@ export default function EditPost() {
   useEffect(() => {
     const fetchPost = async () => {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/articles/${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/articles/${id}`,
       );
       const data = await res.json();
       setTitle(data.title);
@@ -29,7 +29,7 @@ export default function EditPost() {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title, content }),
-      }
+      },
     );
     const data = await res.json();
     router.push(`/freeboard/${data.id}`);
@@ -37,8 +37,8 @@ export default function EditPost() {
 
   return (
     <div>
-      <div className="flex justify-between mb-6">
-        <h2 className="text-xl text-gray-800 font-bold">게시물 수정</h2>
+      <div className="mb-6 flex justify-between">
+        <h2 className="text-xl font-bold text-gray-800">게시물 수정</h2>
         <button
           onClick={handleSubmit}
           disabled={!isValid}
@@ -48,7 +48,7 @@ export default function EditPost() {
         </button>
       </div>
       <div className="mb-4 flex flex-col">
-        <label className="text-sm text-gray-800 font-bold md:text-lg">
+        <label className="text-sm font-bold text-gray-800 md:text-lg">
           *제목
         </label>
         <input
@@ -56,18 +56,18 @@ export default function EditPost() {
           placeholder="제목을 입력해주세요"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="bg-gray-100 w-full text-base text-gray-800 outline-none placeholder-gray-400 rounded-xl py-4 px-6 mt-3"
+          className="mt-3 w-full rounded-xl bg-gray-100 px-6 py-4 text-base text-gray-800 placeholder-gray-400 outline-none"
         />
       </div>
       <div>
-        <label className="text-sm text-gray-800 font-bold md:text-lg">
+        <label className="text-sm font-bold text-gray-800 md:text-lg">
           *내용
         </label>
         <textarea
           placeholder="내용을 입력해주세요"
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          className="bg-gray-100 w-full h-70.5 text-base text-gray-800 outline-none placeholder-gray-400 rounded-xl py-4 px-6 mt-3 resize-none"
+          className="mt-3 h-70.5 w-full resize-none rounded-xl bg-gray-100 px-6 py-4 text-base text-gray-800 placeholder-gray-400 outline-none"
         />
       </div>
     </div>

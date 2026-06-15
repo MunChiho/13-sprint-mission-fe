@@ -8,7 +8,7 @@ export default function PostList({ keyword, orderBy }) {
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await fetch(
-       `${process.env.NEXT_PUBLIC_API_URL}/articles?keyword=${keyword}&orderBy=${orderBy}&page=1&pageSize=10`,
+        `${process.env.NEXT_PUBLIC_API_URL}/articles?keyword=${keyword}&orderBy=${orderBy}&page=1&pageSize=10`,
       );
       const data = await res.json();
       setPosts(data.list);
@@ -16,13 +16,13 @@ export default function PostList({ keyword, orderBy }) {
     fetchPosts();
   }, [keyword, orderBy]);
 
-return (
-  <ul>
-    {posts.map((post) => (
-      <li key={post.id}>
-        <PostCard post={post} />
-      </li>
-    ))}
-  </ul>
-);
+  return (
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>
+          <PostCard post={post} />
+        </li>
+      ))}
+    </ul>
+  );
 }

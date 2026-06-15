@@ -13,32 +13,31 @@
   --breakpoint-md: 744px;
   --breakpoint-lg: 1200px;
 
-    /* -----------------------------------------------
+  /* -----------------------------------------------
      Primary Colors
   ----------------------------------------------- */
-  --color-primary-100: #3692FF;  /* blue - light */
-  --color-primary-200: #1967D6;  /* blue - medium */
-  --color-primary-300: #1251AA;  /* blue - dark */
+  --color-primary-100: #3692ff; /* blue - light */
+  --color-primary-200: #1967d6; /* blue - medium */
+  --color-primary-300: #1251aa; /* blue - dark */
 
   /* -----------------------------------------------
      Error Color
   ----------------------------------------------- */
-  --color-error: #F74747;        /* red */
+  --color-error: #f74747; /* red */
 
   /* -----------------------------------------------
      Secondary Colors (Gray Scale)
   ----------------------------------------------- */
   --color-gray-900: #111827;
-  --color-gray-800: #1F2937;
+  --color-gray-800: #1f2937;
   --color-gray-700: #374151;
-  --color-gray-600: #4B5563;
-  --color-gray-500: #6B7280;
-  --color-gray-400: #9CA3AF;
-  --color-gray-200: #E5E7EB;
-  --color-gray-100: #F3F4F6;
-  --color-gray-50:  #F9FAFB;
+  --color-gray-600: #4b5563;
+  --color-gray-500: #6b7280;
+  --color-gray-400: #9ca3af;
+  --color-gray-200: #e5e7eb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-50: #f9fafb;
 
-  
   --font-size-3xl: 32px;
   --line-height-3xl: 42px;
   --font-size-2xl: 24px;
@@ -63,9 +62,9 @@ body {
 
 @layer components {
   .btn_small_40 {
-    @apply inline-flex bg-primary-100 h-10 px-5.75 py-3 justify-center items-center gap-2.5 rounded-lg text-lg font-semibold text-white;
+    @apply bg-primary-100 inline-flex h-10 items-center justify-center gap-2.5 rounded-lg px-5.75 py-3 text-lg font-semibold text-white;
   }
-   .btn_small_40:disabled {
-    @apply bg-gray-400 cursor-not-allowed;
+  .btn_small_40:disabled {
+    @apply cursor-not-allowed bg-gray-400;
   }
 }

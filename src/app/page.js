@@ -1,7 +1,5 @@
-import next from "next"
+import next from "next";
 
 export default function home() {
-  return (
-    <div>home</div>
-  )
+  return <div>home</div>;
 }

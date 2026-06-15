@@ -8,7 +8,7 @@ export default function BestPostList() {
   useEffect(() => {
     const fetchBestPosts = async () => {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/articles?page=1&pageSize=3`
+        `${process.env.NEXT_PUBLIC_API_URL}/articles?page=1&pageSize=3`,
       );
       const data = await res.json();
       console.log(data);
@@ -18,15 +18,11 @@ export default function BestPostList() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
       {posts.map((post, index) => (
         <div
           key={post.id}
-          className={`
-            ${index === 0 ? 'block' : ''}
-            ${index === 1 ? 'hidden md:block' : ''}
-            ${index === 2 ? 'hidden xl:block' : ''}
-          `}
+          className={` ${index === 0 ? "block" : ""} ${index === 1 ? "hidden md:block" : ""} ${index === 2 ? "hidden xl:block" : ""} `}
         >
           <BestPostCard post={post} />
         </div>
