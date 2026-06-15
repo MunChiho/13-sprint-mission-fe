@@ -4,6 +4,7 @@ import SearchBar from "@/components/freeboard/searchBar";
 import BestPostList from "@/components/freeboard/BestPostList";
 import React from "react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Freedoard() {
   const [keyword, setKeyword] = useState("");
@@ -13,7 +14,7 @@ export default function Freedoard() {
     <div>
       <section>
         <h2 className="text-[18px] mb-4 md:mb-6 text-gray-900 md:text-xl font-bold">
-          베스트 게시글{" "}
+          베스트 게시글
         </h2>
         <BestPostList />
       </section>
@@ -22,12 +23,14 @@ export default function Freedoard() {
           <h2 className="text-[18px] text-gray-800 md:text-xl font-bold">
             게시글
           </h2>
+          <Link href="/freeboard/write">
           <button className="btn_small_40">글쓰기</button>
+          </Link>
         </div>
         <div className="my-4 md:my-12 xl:my-6">
           <SearchBar onSearch={setKeyword} onOrderBy={setOrderBy} />
         </div>
-        <div className="h-[660px] md:h-[716px] xl:h-[676px] overflow-y-auto">
+        <div className="h-165 md:h-179 xl:h-169 overflow-y-auto">
           <PostList keyword={keyword} orderBy={orderBy} />
         </div>
       </section>
