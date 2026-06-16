@@ -39,7 +39,12 @@ export default function CommentCard({ comment, onEdit, onDelete }) {
         {/* 케밥 메뉴 - 수정/삭제 드롭다운 */}
         <div className="relative">
           <button onClick={() => setIsOpen(!isOpen)}>
-            <Image src="/image/ic_kebab.svg" alt="kebab" width={24} height={24} />
+            <Image
+              src="/image/ic_kebab.svg"
+              alt="kebab"
+              width={24}
+              height={24}
+            />
           </button>
           {isOpen && (
             <ul className="absolute right-0 z-50 mt-1 w-28 rounded-lg border border-gray-200 bg-white shadow-md">

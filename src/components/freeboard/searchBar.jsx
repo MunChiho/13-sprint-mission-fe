@@ -1,10 +1,12 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-export default function SearchBar({ onSearch, onOrderBy }) {
+export default function SearchBar({ keyword, orderBy }) {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("최신순");
+  const selected = orderBy === "like" ? "좋아요순" : "최신순";
 
   const options = [
     { label: "최신순", value: "recent" },
@@ -17,8 +19,13 @@ export default function SearchBar({ onSearch, onOrderBy }) {
         <Image src="/image/ic_search.svg" alt="search" width={20} height={20} />
         <input
           type="text"
-          placeholder="검색할 상품을 입력해 주세요"
-          onChange={(e) => onSearch(e.target.value)}
+          placeholder="검색할 게시글을 입력해 주세요"
+          defaultValue={keyword}
+          onChange={(e) =>
+            router.replace(
+              `/freeboard?keyword=${e.target.value}&orderBy=${orderBy}`,
+            )
+          }
           className="w-full bg-transparent text-base text-gray-800 placeholder-gray-400 outline-none"
         />
       </div>
@@ -51,8 +58,9 @@ export default function SearchBar({ onSearch, onOrderBy }) {
               <li
                 key={option.value}
                 onClick={() => {
-                  setSelected(option.label);
-                  onOrderBy(option.value);
+                  router.replace(
+                    `/freeboard?keyword=${keyword}&orderBy=${option.value}`,
+                  );
                   setIsOpen(false);
                 }}
                 className="cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"

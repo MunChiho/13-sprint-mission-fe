@@ -2,19 +2,22 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function WritePost() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+export default function EditForm({ id, initialTitle, initialContent }) {
+  const [title, setTitle] = useState(initialTitle);
+  const [content, setContent] = useState(initialContent);
   const router = useRouter();
 
-  const isValid = title.trim() && content.trim();
+  const isValid = title?.trim() && content.trim();
 
   const handleSubmit = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title, content }),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/articles/${id}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, content }),
+      },
+    );
     const data = await res.json();
     router.push(`/freeboard/${data.id}`);
   };
@@ -22,13 +25,13 @@ export default function WritePost() {
   return (
     <div>
       <div className="mb-6 flex justify-between">
-        <h2 className="text-xl font-bold text-gray-800">게시글 등록하기</h2>
+        <h2 className="text-xl font-bold text-gray-800">게시물 수정</h2>
         <button
           onClick={handleSubmit}
           disabled={!isValid}
-          className={`btn_small_40 ${!isValid ? "cursor-not-allowed opacity-50" : ""}`}
+          className="btn_small_40"
         >
-          등록
+          수정
         </button>
       </div>
       <div className="mb-4 flex flex-col">
@@ -51,7 +54,7 @@ export default function WritePost() {
           placeholder="내용을 입력해주세요"
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          className="mt-3 h-70.5 w-full rounded-xl bg-gray-100 px-6 py-4 text-base text-gray-800 placeholder-gray-400 outline-none"
+          className="mt-3 h-70.5 w-full resize-none rounded-xl bg-gray-100 px-6 py-4 text-base text-gray-800 placeholder-gray-400 outline-none"
         />
       </div>
     </div>
