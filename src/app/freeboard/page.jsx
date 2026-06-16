@@ -1,25 +1,29 @@
-"use client";
 import PostList from "@/components/freeboard/PostList";
 import SearchBar from "@/components/freeboard/searchBar";
 import BestPostList from "@/components/freeboard/BestPostList";
-import React from "react";
-import { useState } from "react";
 import Link from "next/link";
 
 // 자유게시판 페이지 - 베스트 게시글 섹션과 일반 게시글 섹션으로 구성
-export default function Freedoard() {
-  // 검색어와 정렬 기준을 상태로 관리해 SearchBar → PostList로 전달
-  const [keyword, setKeyword] = useState("");
-  const [orderBy, setOrderBy] = useState("recent");
+export default async function Freedoard({ searchParams }) {
+  const { keyword = "", orderBy = "recent" } = await searchParams;
+
+  const [bestRes, listRes] = await Promise.all([
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles?page=1&pageSize=3`),
+    fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/articles?keyword=${keyword}&orderBy=${orderBy}&page=1&pageSize=10`,
+    ),
+  ]);
+  const bestData = await bestRes.json();
+  const listData = await listRes.json();
 
   return (
     <div>
       {/* 베스트 게시글 섹션 */}
       <section>
-        <h2 className="mb-4 text-2lg font-bold text-gray-900 md:mb-6 md:text-xl">
+        <h2 className="text-2lg mb-4 font-bold text-gray-900 md:mb-6 md:text-xl">
           베스트 게시글
         </h2>
-        <BestPostList />
+        <BestPostList posts={bestData.list} />
       </section>
 
       {/* 일반 게시글 섹션 - 검색/정렬 기능 포함 */}
@@ -33,11 +37,11 @@ export default function Freedoard() {
           </Link>
         </div>
         <div className="my-4 md:my-12 xl:my-6">
-          <SearchBar onSearch={setKeyword} onOrderBy={setOrderBy} />
+          <SearchBar keyword={keyword} orderBy={orderBy} />
         </div>
         {/* 고정 높이 + 스크롤로 게시글 목록 표시 */}
         <div className="h-165 overflow-y-auto md:h-179 xl:h-169">
-          <PostList keyword={keyword} orderBy={orderBy} />
+          <PostList posts={listData.list} />
         </div>
       </section>
     </div>

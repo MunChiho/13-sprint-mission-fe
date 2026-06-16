@@ -27,5 +27,7 @@ export const updateComment = async (commentId, content) => {
 
 // 댓글 삭제
 export const deleteComment = async (commentId) => {
-  await fetch(`${BASE_URL}/articles/comments/${commentId}`, { method: "DELETE" });
+  await fetch(`${BASE_URL}/articles/comments/${commentId}`, {
+    method: "DELETE",
+  });
 };
