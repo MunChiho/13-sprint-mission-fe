@@ -32,7 +32,7 @@ export default function WritePost() {
         </button>
       </div>
       <div className="mb-4 flex flex-col">
-        <label className="text-sm font-bold text-gray-800 md:text-lg">
+        <label className="text-md font-bold text-gray-800 md:text-2lg">
           *제목
         </label>
         <input
@@ -40,18 +40,18 @@ export default function WritePost() {
           placeholder="제목을 입력해주세요"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="mt-3 w-full rounded-xl bg-gray-100 px-6 py-4 text-base text-gray-800 placeholder-gray-400 outline-none"
+          className="mt-3 w-full rounded-xl bg-gray-100 px-6 py-4 text-lg text-gray-800 placeholder-gray-400 outline-none"
         />
       </div>
       <div>
-        <label className="text-sm font-bold text-gray-800 md:text-lg">
+        <label className="text-md font-bold text-gray-800 md:text-2lg">
           *내용
         </label>
         <textarea
           placeholder="내용을 입력해주세요"
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          className="mt-3 h-70.5 w-full rounded-xl bg-gray-100 px-6 py-4 text-base text-gray-800 placeholder-gray-400 outline-none"
+          className="mt-3 h-70.5 w-full rounded-xl bg-gray-100 px-6 py-4 text-lg text-gray-800 placeholder-gray-400 outline-none"
         />
       </div>
     </div>

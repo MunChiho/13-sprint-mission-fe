@@ -26,7 +26,7 @@ export default function SearchBar({ keyword, orderBy }) {
               `/freeboard?keyword=${e.target.value}&orderBy=${orderBy}`,
             )
           }
-          className="w-full bg-transparent text-base text-gray-800 placeholder-gray-400 outline-none"
+          className="w-full bg-transparent text-lg text-gray-800 placeholder-gray-400 outline-none"
         />
       </div>
       <div className="relative">
@@ -41,7 +41,7 @@ export default function SearchBar({ keyword, orderBy }) {
             height={24}
             className="md:hidden"
           />
-          <span className="hidden text-sm text-gray-800 md:block">
+          <span className="hidden text-md text-gray-800 md:block">
             {selected}
           </span>
           <Image
@@ -63,7 +63,7 @@ export default function SearchBar({ keyword, orderBy }) {
                   );
                   setIsOpen(false);
                 }}
-                className="cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="cursor-pointer px-4 py-2 text-md text-gray-700 hover:bg-gray-100"
               >
                 {option.label}
               </li>

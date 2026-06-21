@@ -15,7 +15,7 @@ export default function CommentList({ comments, onEdit, onDelete }) {
           height={140}
           priority
         />
-        <p className="text-center text-lg text-gray-400">
+        <p className="text-center text-2lg text-gray-400">
           아직 댓글이 없어요,
           <br />
           지금 댓글을 달아보세요!

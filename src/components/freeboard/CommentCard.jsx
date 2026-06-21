@@ -33,7 +33,7 @@ export default function CommentCard({ comment, onEdit, onDelete }) {
             className="w-full resize-none rounded-xl bg-gray-100 p-3 outline-none"
           />
         ) : (
-          <span className="text-sm font-normal text-gray-800">{content}</span>
+          <span className="text-md font-normal text-gray-800">{content}</span>
         )}
 
         {/* 케밥 메뉴 - 수정/삭제 드롭다운 */}
@@ -53,7 +53,7 @@ export default function CommentCard({ comment, onEdit, onDelete }) {
                   setIsEditing(true);
                   setIsOpen(false);
                 }}
-                className="cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="cursor-pointer px-4 py-2 text-md text-gray-700 hover:bg-gray-100"
               >
                 수정하기
               </li>
@@ -62,7 +62,7 @@ export default function CommentCard({ comment, onEdit, onDelete }) {
                   onDelete(comment.id);
                   setIsOpen(false);
                 }}
-                className="cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="cursor-pointer px-4 py-2 text-md text-gray-700 hover:bg-gray-100"
               >
                 삭제하기
               </li>
@@ -94,7 +94,7 @@ export default function CommentCard({ comment, onEdit, onDelete }) {
               setIsEditing(false);
               setEditContent(content); // 취소 시 원래 내용으로 복원
             }}
-            className="px-5 py-1.5 text-lg text-gray-500"
+            className="px-5 py-1.5 text-2lg text-gray-500"
           >
             취소
           </button>
