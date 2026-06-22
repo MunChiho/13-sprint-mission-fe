@@ -1,6 +1,6 @@
-import PostList from "@/components/freeboard/PostList";
-import SearchBar from "@/components/freeboard/searchBar";
-import BestPostList from "@/components/freeboard/BestPostList";
+import PostList from "./_components/PostList";
+import SearchBar from "./_components/searchBar";
+import BestPostList from "./_components/BestPostList";
 import Link from "next/link";
 
 // 자유게시판 페이지 - 베스트 게시글 섹션과 일반 게시글 섹션으로 구성

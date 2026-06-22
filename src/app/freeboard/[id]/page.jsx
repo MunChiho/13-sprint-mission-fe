@@ -1,7 +1,7 @@
 import { getArticle } from "@/api/articles";
 import { getComments } from "@/api/comments";
-import PostDetail from "@/components/freeboard/PostDetail";
-import CommentsSection from "@/components/freeboard/CommentsSection";
+import PostDetail from "../_components/PostDetail";
+import CommentsSection from "../_components/CommentsSection";
 import Image from "next/image";
 import Link from "next/link";
 
