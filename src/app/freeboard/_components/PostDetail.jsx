@@ -46,7 +46,7 @@ export default function PostDetail({ post }) {
             <ul className="absolute right-0 z-50 mt-1 w-28 rounded-lg border border-gray-200 bg-white shadow-md">
               <li
                 onClick={() => router.push(`/freeboard/${post.id}/edit`)}
-                className="cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="cursor-pointer px-4 py-2 text-md text-gray-700 hover:bg-gray-100"
               >
                 수정하기
               </li>
@@ -55,7 +55,7 @@ export default function PostDetail({ post }) {
                   handleDelete();
                   setIsOpen(false);
                 }}
-                className="cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="cursor-pointer px-4 py-2 text-md text-gray-700 hover:bg-gray-100"
               >
                 삭제하기
               </li>
@@ -72,7 +72,7 @@ export default function PostDetail({ post }) {
             width={40}
             height={40}
           />
-          <span className="text-sm text-gray-600">{nickname}</span>
+          <span className="text-md text-gray-600">{nickname}</span>
           <span className="text-xs text-gray-400">
             {formatDate(post.createdAt)}
           </span>
@@ -84,13 +84,13 @@ export default function PostDetail({ post }) {
               width={16}
               height={16}
             />
-            <span className="text-sm text-gray-500">{post.likeCount}</span>
+            <span className="text-md text-gray-500">{post.likeCount}</span>
           </div>
         </div>
       </div>
 
       <div>
-        <p className="text-base text-gray-800">{post.content}</p>
+        <p className="text-lg text-gray-800">{post.content}</p>
       </div>
     </div>
   );

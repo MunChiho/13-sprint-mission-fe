@@ -24,7 +24,7 @@ export default function Footer() {
       {/* 태블릿+: 스팬 · 링크 · 소셜 한 줄 justify-between */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
         <div className="flex justify-between md:contents">
-          <div className="flex gap-7.5 text-base text-gray-200 md:order-2">
+          <div className="flex gap-7.5 text-lg text-gray-200 md:order-2">
             <Link href="/privacy">privacy Policy</Link>
             <Link href="/faq">FAQ</Link>
           </div>

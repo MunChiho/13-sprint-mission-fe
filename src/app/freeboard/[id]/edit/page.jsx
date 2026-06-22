@@ -1,5 +1,5 @@
 import { getArticle } from "@/api/articles";
-import EditForm from "@/components/freeboard/EditForm";
+import EditForm from "../../_components/EditForm";
 
 export default async function EditPost({ params }) {
   const { id } = await params;

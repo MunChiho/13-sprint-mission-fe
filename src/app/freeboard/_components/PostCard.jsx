@@ -23,7 +23,7 @@ export default function PostCard({ post }) {
       <div className="mb-6 bg-[#FCFCFC]">
         {/* 제목 + 이미지 */}
         <div className="mb-4 flex items-start justify-between">
-          <p className="flex-1 text-lg font-semibold text-gray-800">
+          <p className="flex-1 text-2lg font-semibold text-gray-800">
             {post.title}
           </p>
           <div className="justify-cente flex h-18 w-18 shrink-0 items-center rounded-lg border border-gray-200 bg-white px-3 py-3.5">
@@ -38,7 +38,7 @@ export default function PostCard({ post }) {
         </div>
 
         {/* 하단 정보 */}
-        <div className="flex items-center justify-between pb-6 text-sm text-gray-600">
+        <div className="flex items-center justify-between pb-6 text-md text-gray-600">
           <div className="flex items-center gap-2">
             <Image
               src="/image/ic_profile.svg"
@@ -57,7 +57,7 @@ export default function PostCard({ post }) {
               width={24}
               height={24}
             />
-            <span className="text-base">{likes}</span>
+            <span className="text-lg">{likes}</span>
           </div>
         </div>
       </div>

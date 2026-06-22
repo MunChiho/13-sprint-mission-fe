@@ -15,7 +15,7 @@ export default function CommentForm({ onSubmit }) {
 
   return (
     <div>
-      <h3 className="text-base font-semibold text-gray-900">댓글달기</h3>
+      <h3 className="text-lg font-semibold text-gray-900">댓글달기</h3>
       <textarea
         placeholder="댓글을 입력해주세요."
         value={content}

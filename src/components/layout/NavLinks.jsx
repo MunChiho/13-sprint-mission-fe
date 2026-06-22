@@ -7,7 +7,7 @@ export default function NavLinks() {
   const pathname = usePathname();
 
   return (
-    <nav className="ml-4 flex gap-2 text-base md:ml-5 lg:ml-8">
+    <nav className="ml-4 flex gap-2 text-lg md:ml-5 lg:ml-8">
       <Link
         href="/freeboard"
         className={`text-md md:text-2lg flex items-center justify-center font-bold md:py-6 md:pr-4 md:pl-3.75 ${
