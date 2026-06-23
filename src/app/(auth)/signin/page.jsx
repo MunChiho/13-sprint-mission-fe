@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect  } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useMutation } from "@tanstack/react-query";
@@ -11,7 +11,15 @@ import PasswordInput from "../_components/PasswordInput";
 import SocialLoginSection from "../_components/SocialLoginSection";
 
 export default function SignInPage() {
+ 
   const router = useRouter();
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      router.push("/items");
+    }
+  }, []);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -63,7 +71,11 @@ export default function SignInPage() {
     <div className="min-h-screen flex flex-col items-center pt-20 md:pt-[190px] px-4">
       <div className="w-full max-w-[343px] md:max-w-[640px] flex flex-col gap-6">
         <LogoHeader />
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6" noValidate>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-4 md:gap-6"
+          noValidate
+        >
           <InputField
             label="이메일"
             id="email"
@@ -85,7 +97,9 @@ export default function SignInPage() {
           />
           <button
             type="submit"
-            disabled={!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || password.length < 8}
+            disabled={
+              !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || password.length < 8
+            }
             className="mt-2 w-full h-14 rounded-full bg-primary-100 text-white font-bold text-lg disabled:bg-gray-400"
           >
             로그인
@@ -103,7 +117,9 @@ export default function SignInPage() {
       {modalMessage && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
           <div className="bg-white rounded-lg flex flex-col items-center justify-center gap-[42px] w-[327px] h-[220px] px-[90px] py-[23px] md:gap-10 md:w-[540px] md:h-[250px] md:px-[187px] md:py-[40px]">
-            <p className="text-center text-gray-800 text-lg whitespace-pre-line">{modalMessage}</p>
+            <p className="text-center text-gray-800 text-lg whitespace-pre-line">
+              {modalMessage}
+            </p>
             <button
               onClick={() => setModalMessage("")}
               className="w-[120px] md:w-[165px] h-12 px-[23px] py-3 bg-primary-100 text-white rounded-lg text-lg"
