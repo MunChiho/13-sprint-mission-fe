@@ -29,7 +29,7 @@ export default function Header() {
       </div>
 
       {/* 로그인 버튼 */}
-      <Link href="/login">
+      <Link href="/signin">
         <button className="btn_small_40">로그인</button>
       </Link>
     </header>
