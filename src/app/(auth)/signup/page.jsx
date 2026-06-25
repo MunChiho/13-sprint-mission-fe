@@ -12,7 +12,7 @@ import SocialLoginSection from "../_components/SocialLoginSection";
 
 export default function SignUpPage() {
   const router = useRouter();
-   
+
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (token) {
@@ -36,14 +36,14 @@ export default function SignUpPage() {
       localStorage.setItem("accessToken", data.accessToken);
       router.push("/items");
     },
-   onError: (error) => {
-  const message = error.response?.data?.message;
-  if (message === "이미 사용중인 이메일입니다.") {
-    setModalMessage("사용중인 이메일입니다.");
-  } else if (message === "이미 사용중인 닉네임입니다.") {
-    setModalMessage("사용중인 닉네임입니다.");
-  }
-},
+    onError: (error) => {
+      const message = error.response?.data?.message;
+      if (message === "이미 사용중인 이메일입니다.") {
+        setModalMessage("사용중인 이메일입니다.");
+      } else if (message === "이미 사용중인 닉네임입니다.") {
+        setModalMessage("사용중인 닉네임입니다.");
+      }
+    },
   });
 
   const validateEmail = () => {
@@ -88,8 +88,19 @@ export default function SignUpPage() {
     const isNicknameValid = validateNickname();
     const isPasswordValid = validatePassword();
     const isPasswordConfirmValid = validatePasswordConfirm();
-    if (!isEmailValid || !isNicknameValid || !isPasswordValid || !isPasswordConfirmValid) return;
-    register({ email, nickname, password, passwordConfirmation: passwordConfirm });
+    if (
+      !isEmailValid ||
+      !isNicknameValid ||
+      !isPasswordValid ||
+      !isPasswordConfirmValid
+    )
+      return;
+    register({
+      email,
+      nickname,
+      password,
+      passwordConfirmation: passwordConfirm,
+    });
   };
 
   const isFormValid =
@@ -99,10 +110,14 @@ export default function SignUpPage() {
     password === passwordConfirm;
 
   return (
-    <div className="min-h-screen flex flex-col items-center pt-20 md:pt-[190px] px-4">
-      <div className="w-full max-w-[343px] md:max-w-[640px] flex flex-col gap-6">
+    <div className="flex min-h-screen flex-col items-center px-4 pt-20 md:pt-[190px]">
+      <div className="flex w-full max-w-[343px] flex-col gap-6 md:max-w-[640px]">
         <LogoHeader />
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6" noValidate>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-4 md:gap-6"
+          noValidate
+        >
           <InputField
             label="이메일"
             id="email"
@@ -143,7 +158,7 @@ export default function SignUpPage() {
           <button
             type="submit"
             disabled={!isFormValid}
-            className="mt-2 w-full h-14 rounded-full bg-primary-100 text-white font-bold text-lg disabled:bg-gray-400"
+            className="bg-primary-100 mt-2 h-14 w-full rounded-full text-lg font-bold text-white disabled:bg-gray-400"
           >
             회원가입
           </button>
@@ -158,12 +173,14 @@ export default function SignUpPage() {
       </div>
 
       {modalMessage && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
-          <div className="bg-white rounded-lg flex flex-col items-center justify-center gap-[42px] w-[327px] h-[220px] px-[90px] py-[23px] md:gap-10 md:w-[540px] md:h-[250px] md:px-[187px] md:py-[40px]">
-            <p className="text-center text-gray-800 text-lg whitespace-pre-line">{modalMessage}</p>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50">
+          <div className="flex h-[220px] w-[327px] flex-col items-center justify-center gap-[42px] rounded-lg bg-white px-[90px] py-[23px] md:h-[250px] md:w-[540px] md:gap-10 md:px-[187px] md:py-[40px]">
+            <p className="text-center text-lg whitespace-pre-line text-gray-800">
+              {modalMessage}
+            </p>
             <button
               onClick={() => setModalMessage("")}
-              className="w-[120px] md:w-[165px] h-12 px-[23px] py-3 bg-primary-100 text-white rounded-lg text-lg"
+              className="bg-primary-100 h-12 w-[120px] rounded-lg px-[23px] py-3 text-lg text-white md:w-[165px]"
             >
               확인
             </button>

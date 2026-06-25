@@ -21,28 +21,31 @@ export default function SearchBar({
 
   return (
     <div className="flex items-center gap-3">
+      {/* 검색창 */}
       <div className="flex w-[288px] items-center gap-1 rounded-xl bg-gray-100 px-4 py-2 md:w-[242px] lg:w-[325px]">
-        <Image src="/image/ic_search.svg" alt="search" width={20} height={20} />
+        <Image src="/image/ic_search.svg" alt="search" width={24} height={24} />
         <input
           type="text"
-          placeholder="상품을 검색해보세요"
+          placeholder="검색할 상품을 입력해주세요"
           value={keyword}
           onChange={(e) => onKeywordChange(e.target.value)}
-          className="text-md w-full bg-transparent text-gray-800 placeholder-gray-400 outline-none"
+          className="w-full bg-gray-100 text-lg text-gray-800 placeholder-gray-400 outline-none"
         />
       </div>
 
+      {/* 상품 등록 버튼 - 태블릿/PC만 */}
       <button
         onClick={() => router.push("/registration")}
-        className="bg-primary-100 text-md hidden rounded-xl px-5 py-2 font-semibold whitespace-nowrap text-white transition hover:opacity-90 md:block"
+        className="bg-primary-100 hidden w-[133px] rounded-lg px-[23px] py-3 text-lg font-semibold whitespace-nowrap text-white transition hover:opacity-90 md:block"
       >
         상품 등록하기
       </button>
 
+      {/* 드롭다운 */}
       <div className="relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-center rounded-xl border border-gray-200 p-2 md:w-32 md:justify-between md:px-5 md:py-2"
+          className="flex items-center justify-center rounded-xl border border-gray-200 p-[9px] md:w-[130px] md:justify-between md:px-5 md:py-3"
         >
           <Image
             src="/image/ic_sort.svg"
@@ -51,7 +54,7 @@ export default function SearchBar({
             height={24}
             className="md:hidden"
           />
-          <span className="text-md hidden text-gray-800 md:block">
+          <span className="hidden text-lg text-gray-800 md:block">
             {selected}
           </span>
           <Image
@@ -71,7 +74,7 @@ export default function SearchBar({
                   onOrderChange(option.value);
                   setIsOpen(false);
                 }}
-                className="text-md cursor-pointer px-4 py-2 text-gray-700 hover:bg-gray-100"
+                className="cursor-pointer px-4 py-2 text-lg text-gray-800 hover:bg-gray-100"
               >
                 {option.label}
               </li>
