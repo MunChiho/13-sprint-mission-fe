@@ -1,6 +1,38 @@
-import { useState } from "react";
+import { useState, type Dispatch, type SetStateAction } from "react";
 
-function validate(field, value) {
+export type ProductFormField = "name" | "description" | "price" | "tagInput";
+
+export interface ProductFormValues {
+  name: string;
+  description: string;
+  price: number | string;
+  tagInput: string;
+  tags: string[];
+}
+
+export type ProductFormErrors = Record<ProductFormField, string>;
+export type ProductFormTouched = Record<ProductFormField, boolean>;
+
+export interface UseProductFormInitial {
+  name?: string;
+  description?: string;
+  price?: number | string;
+  tags?: string[];
+}
+
+export interface UseProductFormReturn {
+  values: ProductFormValues;
+  errors: ProductFormErrors;
+  handleChange: (field: ProductFormField, value: string) => void;
+  handleBlur: (field: ProductFormField) => void;
+  addTag: () => void;
+  removeTag: (tag: string) => void;
+  validateAll: () => boolean;
+  isValid: boolean;
+  setValues: Dispatch<SetStateAction<ProductFormValues>>;
+}
+
+function validate(field: ProductFormField, value: string): string {
   switch (field) {
     case "name":
       if (!value.trim()) return "상품명을 입력해 주세요.";
@@ -24,8 +56,8 @@ function validate(field, value) {
   }
 }
 
-export function useProductForm(initial = {}) {
-  const [values, setValues] = useState({
+export function useProductForm(initial: UseProductFormInitial = {}): UseProductFormReturn {
+  const [values, setValues] = useState<ProductFormValues>({
     name: initial.name ?? "",
     description: initial.description ?? "",
     price: initial.price ?? "",
@@ -33,30 +65,30 @@ export function useProductForm(initial = {}) {
     tags: initial.tags ?? [],
   });
 
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState<ProductFormErrors>({
     name: "",
     description: "",
     price: "",
     tagInput: "",
   });
 
-  const [touched, setTouched] = useState({
+  const [touched, setTouched] = useState<ProductFormTouched>({
     name: false,
     description: false,
     price: false,
     tagInput: false,
   });
 
-  const handleChange = (field, value) => {
+  const handleChange = (field: ProductFormField, value: string) => {
     setValues((prev) => ({ ...prev, [field]: value }));
     if (touched[field]) {
       setErrors((prev) => ({ ...prev, [field]: validate(field, value) }));
     }
   };
 
-  const handleBlur = (field) => {
+  const handleBlur = (field: ProductFormField) => {
     setTouched((prev) => ({ ...prev, [field]: true }));
-    setErrors((prev) => ({ ...prev, [field]: validate(field, values[field]) }));
+    setErrors((prev) => ({ ...prev, [field]: validate(field, String(values[field])) }));
   };
 
   const addTag = () => {
@@ -74,15 +106,15 @@ export function useProductForm(initial = {}) {
     }
   };
 
-  const removeTag = (tag) => {
+  const removeTag = (tag: string) => {
     setValues((prev) => ({ ...prev, tags: prev.tags.filter((t) => t !== tag) }));
   };
 
   const validateAll = () => {
-    const newErrors = {
+    const newErrors: ProductFormErrors = {
       name: validate("name", values.name),
       description: validate("description", values.description),
-      price: validate("price", values.price),
+      price: validate("price", String(values.price)),
       tagInput: "",
     };
     setErrors(newErrors);
@@ -93,7 +125,7 @@ export function useProductForm(initial = {}) {
   const isValid =
     !validate("name", values.name) &&
     !validate("description", values.description) &&
-    !validate("price", values.price);
+    !validate("price", String(values.price));
 
   return { values, errors, handleChange, handleBlur, addTag, removeTag, validateAll, isValid, setValues };
 }

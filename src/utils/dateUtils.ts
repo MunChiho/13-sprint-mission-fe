@@ -1,8 +1,7 @@
-// 날짜 문자열을 "방금 전", "N분 전" 등의 상대 시간 문자열로 변환
-export function getRelativeTime(dateString) {
+export function getRelativeTime(dateString: string | Date): string {
   const now = new Date();
   const date = new Date(dateString);
-  const diff = Math.floor((now - date) / 1000); // 초 단위
+  const diff = Math.floor((now.getTime() - date.getTime()) / 1000);
 
   if (diff < 60) return "방금 전";
   if (diff < 3600) return `${Math.floor(diff / 60)}분 전`;
