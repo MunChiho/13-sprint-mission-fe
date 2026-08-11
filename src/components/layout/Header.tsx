@@ -2,16 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import NavLinks from "./NavLinks";
 import { useQuery } from "@tanstack/react-query";
-import { getMe } from "@/api/user";
 import { useState, useEffect } from "react";
+import NavLinks from "./NavLinks";
+import { getMe } from "@/api/user";
+import { getAccessToken } from "@/lib/authStorage";
 
 export default function Header() {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
-    setToken(localStorage.getItem("accessToken"));
+    setToken(getAccessToken());
   }, []);
 
   const { data: user } = useQuery({
