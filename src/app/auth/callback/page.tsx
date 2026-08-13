@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function AuthCallback() {
+function AuthCallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -22,4 +22,12 @@ export default function AuthCallback() {
   }, []);
 
   return <p className="p-10 text-center text-gray-400">로그인 처리 중...</p>;
+}
+
+export default function AuthCallback() {
+  return (
+    <Suspense fallback={<p className="p-10 text-center text-gray-400">로그인 처리 중...</p>}>
+      <AuthCallbackContent />
+    </Suspense>
+  );
 }
