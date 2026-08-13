@@ -1,10 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useMutation } from "@tanstack/react-query";
-import { signIn } from "@/api/auth";
+import { signIn, type SignInPayload } from "@/api/auth";
+import type { SignInResponse } from "@/types/user";
+import type { ApiError } from "@/types/api";
+import { getAccessToken, setTokens } from "@/lib/authStorage";
 import LogoHeader from "../_components/LogoHeader";
 import InputField from "../_components/InputField";
 import PasswordInput from "../_components/PasswordInput";
@@ -13,8 +16,7 @@ import SocialLoginSection from "../_components/SocialLoginSection";
 export default function SignInPage() {
   const router = useRouter();
   useEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    if (token) {
+    if (getAccessToken()) {
       router.push("/items");
     }
   }, []);
@@ -25,11 +27,10 @@ export default function SignInPage() {
   const [passwordError, setPasswordError] = useState("");
   const [modalMessage, setModalMessage] = useState("");
 
-  const { mutate: login } = useMutation({
+  const { mutate: login } = useMutation<SignInResponse, ApiError, SignInPayload>({
     mutationFn: signIn,
     onSuccess: (data) => {
-      localStorage.setItem("accessToken", data.accessToken);
-      if (data.refreshToken) localStorage.setItem("refreshToken", data.refreshToken);
+      setTokens(data.accessToken, data.refreshToken);
       router.push("/items");
     },
     onError: () => {
@@ -59,7 +60,7 @@ export default function SignInPage() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const isEmailValid = validateEmail();
     const isPasswordValid = validatePassword();
@@ -71,11 +72,7 @@ export default function SignInPage() {
     <div className="flex min-h-screen flex-col items-center px-4 pt-20 md:pt-[190px]">
       <div className="flex w-full max-w-[343px] flex-col gap-6 md:max-w-[640px]">
         <LogoHeader />
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-4 md:gap-6"
-          noValidate
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6" noValidate>
           <InputField
             label="이메일"
             id="email"
@@ -97,9 +94,7 @@ export default function SignInPage() {
           />
           <button
             type="submit"
-            disabled={
-              !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || password.length < 8
-            }
+            disabled={!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || password.length < 8}
             className="bg-primary-100 mt-2 h-14 w-full rounded-full text-lg font-bold text-white disabled:bg-gray-400"
           >
             로그인
@@ -117,9 +112,7 @@ export default function SignInPage() {
       {modalMessage && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50">
           <div className="flex h-[220px] w-[327px] flex-col items-center justify-center gap-[42px] rounded-lg bg-white px-[90px] py-[23px] md:h-[250px] md:w-[540px] md:gap-10 md:px-[187px] md:py-[40px]">
-            <p className="text-center text-lg whitespace-pre-line text-gray-800">
-              {modalMessage}
-            </p>
+            <p className="text-center text-lg whitespace-pre-line text-gray-800">{modalMessage}</p>
             <button
               onClick={() => setModalMessage("")}
               className="bg-primary-100 h-12 w-[120px] rounded-lg px-[23px] py-3 text-lg text-white md:w-[165px]"

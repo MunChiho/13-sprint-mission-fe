@@ -1,10 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useMutation } from "@tanstack/react-query";
-import { signUp } from "@/api/auth";
+import { signUp, type SignUpPayload } from "@/api/auth";
+import type { User } from "@/types/user";
+import type { ApiError } from "@/types/api";
+import { getAccessToken } from "@/lib/authStorage";
 import LogoHeader from "../_components/LogoHeader";
 import InputField from "../_components/InputField";
 import PasswordInput from "../_components/PasswordInput";
@@ -14,8 +17,7 @@ export default function SignUpPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    if (token) {
+    if (getAccessToken()) {
       router.push("/items");
     }
   }, []);
@@ -30,14 +32,13 @@ export default function SignUpPage() {
   const [passwordConfirmError, setPasswordConfirmError] = useState("");
   const [modalMessage, setModalMessage] = useState("");
 
-  const { mutate: register } = useMutation({
+  const { mutate: register } = useMutation<User, ApiError, SignUpPayload>({
     mutationFn: signUp,
-    onSuccess: (data) => {
-      localStorage.setItem("accessToken", data.accessToken);
-      router.push("/items");
+    onSuccess: () => {
+      router.push("/signin");
     },
     onError: (error) => {
-      const message = error.message ?? error.response?.data?.message;
+      const message = error.message;
       if (message === "이미 사용중인 이메일입니다.") {
         setModalMessage("사용중인 이메일입니다.");
       } else if (message === "이미 사용중인 닉네임입니다.") {
@@ -84,19 +85,13 @@ export default function SignUpPage() {
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const isEmailValid = validateEmail();
     const isNicknameValid = validateNickname();
     const isPasswordValid = validatePassword();
     const isPasswordConfirmValid = validatePasswordConfirm();
-    if (
-      !isEmailValid ||
-      !isNicknameValid ||
-      !isPasswordValid ||
-      !isPasswordConfirmValid
-    )
-      return;
+    if (!isEmailValid || !isNicknameValid || !isPasswordValid || !isPasswordConfirmValid) return;
     register({
       email,
       nickname,
@@ -115,11 +110,7 @@ export default function SignUpPage() {
     <div className="flex min-h-screen flex-col items-center px-4 pt-20 md:pt-[190px]">
       <div className="flex w-full max-w-[343px] flex-col gap-6 md:max-w-[640px]">
         <LogoHeader />
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-4 md:gap-6"
-          noValidate
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6" noValidate>
           <InputField
             label="이메일"
             id="email"
@@ -177,9 +168,7 @@ export default function SignUpPage() {
       {modalMessage && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50">
           <div className="flex h-[220px] w-[327px] flex-col items-center justify-center gap-[42px] rounded-lg bg-white px-[90px] py-[23px] md:h-[250px] md:w-[540px] md:gap-10 md:px-[187px] md:py-[40px]">
-            <p className="text-center text-lg whitespace-pre-line text-gray-800">
-              {modalMessage}
-            </p>
+            <p className="text-center text-lg whitespace-pre-line text-gray-800">{modalMessage}</p>
             <button
               onClick={() => setModalMessage("")}
               className="bg-primary-100 h-12 w-[120px] rounded-lg px-[23px] py-3 text-lg text-white md:w-[165px]"
