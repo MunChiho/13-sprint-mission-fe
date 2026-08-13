@@ -3,34 +3,32 @@
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import {
-  getProduct,
-  deleteProduct,
-  addFavorite,
-  removeFavorite,
-} from "@/api/product";
+import Link from "next/link";
+import Image from "next/image";
+import { getProduct, deleteProduct, addFavorite, removeFavorite } from "@/api/product";
 import { getMe } from "@/api/user";
+import { getAccessToken } from "@/lib/authStorage";
 import ProductDetail from "./_components/ProductDetail";
 import CommentsSection from "./_components/CommentsSection";
 import DeleteModal from "./_components/DeleteModal";
-import Link from "next/link";
-import Image from "next/image";
 
 export default function ItemDetailPage() {
-  const { itemsId: itemId } = useParams();
+  const { itemsId: itemId } = useParams<{ itemsId: string }>();
   const router = useRouter();
   const queryClient = useQueryClient();
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState<string | null>(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
-  const [myId, setMyId] = useState(null);
+  const [myId, setMyId] = useState<number | null>(null);
 
   useEffect(() => {
-    const t = localStorage.getItem("accessToken");
+    const t = getAccessToken();
     if (!t) router.push("/signin");
     setToken(t);
-    getMe().then((me) => setMyId(me?.id)).catch(() => {});
-  }, [])
+    getMe()
+      .then((me) => setMyId(me?.id ?? null))
+      .catch(() => {});
+  }, []);
 
   const {
     data: product,
@@ -52,8 +50,7 @@ export default function ItemDetailPage() {
   });
 
   const { mutate: favoriteMutate } = useMutation({
-    mutationFn: () =>
-      isFavorite ? removeFavorite(itemId) : addFavorite(itemId),
+    mutationFn: () => (isFavorite ? removeFavorite(itemId) : addFavorite(itemId)),
     onSuccess: () => {
       setIsFavorite((prev) => !prev);
       queryClient.invalidateQueries({ queryKey: ["product", itemId] });
@@ -68,7 +65,7 @@ export default function ItemDetailPage() {
     );
   }
 
-  if (isError) {
+  if (isError || !product) {
     return (
       <main className="mx-auto flex max-w-[1200px] flex-col items-center gap-6 px-4 py-20 md:px-6">
         <p className="text-error">상품 정보를 불러오지 못했습니다.</p>
@@ -84,8 +81,8 @@ export default function ItemDetailPage() {
       <ProductDetail
         product={product}
         isFavorite={isFavorite}
-        onFavoriteToggle={favoriteMutate}
-        isOwner={myId && product?.owner?.id === myId}
+        onFavoriteToggle={() => favoriteMutate()}
+        isOwner={Boolean(myId && product.owner?.id === myId)}
         onEdit={() => router.push(`/items/${itemId}/edit`)}
         onDelete={() => setShowDeleteModal(true)}
       />

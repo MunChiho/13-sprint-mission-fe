@@ -1,13 +1,21 @@
 "use client";
 
-export default function Pagination({ totalPages, page, setPage }) {
+import type { Dispatch, SetStateAction } from "react";
+
+interface PaginationProps {
+  totalPages: number;
+  page: number;
+  setPage: Dispatch<SetStateAction<number>>;
+}
+
+export default function Pagination({ totalPages, page, setPage }: PaginationProps) {
   if (!totalPages || totalPages <= 0) return null;
 
   const pageLimit = 5;
   const startPage = Math.floor((page - 1) / pageLimit) * pageLimit + 1;
   const endPage = Math.min(startPage + pageLimit - 1, totalPages);
 
-  const pages = [];
+  const pages: number[] = [];
   for (let i = startPage; i <= endPage; i++) {
     pages.push(i);
   }

@@ -1,31 +1,32 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import { getProduct, updateProduct } from "@/api/product";
+import { uploadImage } from "@/api/upload";
+import { getAccessToken } from "@/lib/authStorage";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 const MAX_IMAGES = 3;
 
 export default function ItemEditPage() {
-  const { itemsId: itemId } = useParams();
+  const { itemsId: itemId } = useParams<{ itemsId: string }>();
   const router = useRouter();
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [modalMessage, setModalMessage] = useState("");
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [tagInput, setTagInput] = useState("");
-  const [tags, setTags] = useState([]);
-  const [images, setImages] = useState([]);
-  const [previews, setPreviews] = useState([]);
+  const [tags, setTags] = useState<string[]>([]);
+  const [images, setImages] = useState<string[]>([]);
+  const [previews, setPreviews] = useState<string[]>([]);
 
   useEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    if (!token) router.push("/signin");
+    if (!getAccessToken()) router.push("/signin");
   }, []);
 
   const { data: product } = useQuery({
@@ -36,40 +37,31 @@ export default function ItemEditPage() {
 
   useEffect(() => {
     if (product) {
-      setName(product.name ?? "");
-      setPrice(product.price?.toString() ?? "");
-      setDescription(product.description ?? "");
-      setTags(product.tags ?? []);
-      setImages(product.images ?? []);
-      setPreviews(product.images ?? []);
+      setName(product.name);
+      setPrice(product.price.toString());
+      setDescription(product.description);
+      setTags(product.tags);
+      setImages(product.images);
+      setPreviews(product.images);
     }
   }, [product]);
 
-  const handleImageChange = async (e) => {
-    const files = Array.from(e.target.files);
+  const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []);
     if (images.length + files.length > MAX_IMAGES) {
       setModalMessage(`이미지는 최대 ${MAX_IMAGES}개까지 등록 가능합니다.`);
       return;
     }
 
-    const token = localStorage.getItem("accessToken");
-    const uploadedUrls = [];
-    const newPreviews = [];
+    const uploadedUrls: string[] = [];
+    const newPreviews: string[] = [];
 
     for (const file of files) {
       newPreviews.push(URL.createObjectURL(file));
 
-      const formData = new FormData();
-      formData.append("image", file);
-
       try {
-        const res = await fetch(`${BASE_URL}/images/upload`, {
-          method: "POST",
-          headers: { Authorization: `Bearer ${token}` },
-          body: formData,
-        });
-        const data = await res.json();
-        uploadedUrls.push(data.url);
+        const { url } = await uploadImage(file);
+        uploadedUrls.push(url);
       } catch {
         setModalMessage("이미지 업로드에 실패했습니다.");
         return;
@@ -81,14 +73,13 @@ export default function ItemEditPage() {
     e.target.value = "";
   };
 
-  const removeImage = (index) => {
+  const removeImage = (index: number) => {
     setImages((prev) => prev.filter((_, i) => i !== index));
     setPreviews((prev) => prev.filter((_, i) => i !== index));
   };
 
   const { mutate: editProduct } = useMutation({
-    mutationFn: () =>
-      updateProduct(itemId, { name, price: Number(price), description, tags, images }),
+    mutationFn: () => updateProduct(itemId, { name, price: Number(price), description, tags, images }),
     onSuccess: () => router.push(`/items/${itemId}`),
     onError: () => setModalMessage("상품 수정에 실패했습니다.\n다시 시도해 주세요."),
   });
@@ -101,11 +92,11 @@ export default function ItemEditPage() {
     setTagInput("");
   };
 
-  const removeTag = (tag) => setTags((prev) => prev.filter((t) => t !== tag));
+  const removeTag = (tag: string) => setTags((prev) => prev.filter((t) => t !== tag));
 
   const isValid = name.trim() && price && description.trim();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isValid) return;
     editProduct();
@@ -126,18 +117,12 @@ export default function ItemEditPage() {
       </div>
 
       <form id="edit-form" onSubmit={handleSubmit} className="flex flex-col gap-6">
-        {/* 이미지 업로드 */}
         <div className="flex flex-col gap-2">
           <label className="font-bold text-gray-800">상품 이미지</label>
           <div className="flex flex-wrap gap-4">
             {previews.map((src, i) => (
               <div key={i} className="relative h-[162px] w-[162px]">
-                <Image
-                  src={src}
-                  alt={`이미지 ${i + 1}`}
-                  fill
-                  className="rounded-xl object-cover"
-                />
+                <Image src={src} alt={`이미지 ${i + 1}`} fill className="rounded-xl object-cover" />
                 <button
                   type="button"
                   onClick={() => removeImage(i)}
@@ -222,16 +207,9 @@ export default function ItemEditPage() {
           </div>
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <span
-                key={tag}
-                className="flex items-center gap-1 rounded-[26px] bg-gray-100 px-4 py-1.5 text-lg text-gray-800"
-              >
+              <span key={tag} className="flex items-center gap-1 rounded-[26px] bg-gray-100 px-4 py-1.5 text-lg text-gray-800">
                 #{tag}
-                <button
-                  type="button"
-                  onClick={() => removeTag(tag)}
-                  className="ml-1 text-gray-400 hover:text-gray-600"
-                >
+                <button type="button" onClick={() => removeTag(tag)} className="ml-1 text-gray-400 hover:text-gray-600">
                   ✕
                 </button>
               </span>
@@ -249,9 +227,7 @@ export default function ItemEditPage() {
       {modalMessage && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50">
           <div className="flex h-[220px] w-[327px] flex-col items-center justify-center gap-[42px] rounded-lg bg-white px-[90px] py-[23px] md:h-[250px] md:w-[540px] md:gap-10 md:px-[187px] md:py-[40px]">
-            <p className="whitespace-pre-line text-center text-lg text-gray-800">
-              {modalMessage}
-            </p>
+            <p className="text-center text-lg whitespace-pre-line text-gray-800">{modalMessage}</p>
             <button
               onClick={() => setModalMessage("")}
               className="bg-primary-100 h-12 w-[120px] rounded-lg px-[23px] py-3 text-lg text-white md:w-[165px]"

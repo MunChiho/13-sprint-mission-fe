@@ -1,15 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { getRelativeTime } from "@/utils/dateUtils";
+import type { BaseComment } from "@/types/comment";
 
-export default function CommentCard({ comment, onEdit, onDelete, isOwner }) {
+interface CommentCardProps {
+  comment: BaseComment;
+  onEdit: (id: number, content: string) => void;
+  onDelete: (id: number) => void;
+  isOwner: boolean;
+}
+
+export default function CommentCard({ comment, onEdit, onDelete, isOwner }: CommentCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [editContent, setEditContent] = useState(comment?.content ?? "");
-
-  if (!comment) return null;
+  const [editContent, setEditContent] = useState(comment.content);
 
   const nickname = comment.author?.nickname ?? "판다";
   const content = comment.content;
@@ -31,12 +37,7 @@ export default function CommentCard({ comment, onEdit, onDelete, isOwner }) {
         {isOwner && (
           <div className="relative">
             <button onClick={() => setIsOpen(!isOpen)}>
-              <Image
-                src="/image/ic_kebab.svg"
-                alt="kebab"
-                width={24}
-                height={24}
-              />
+              <Image src="/image/ic_kebab.svg" alt="kebab" width={24} height={24} />
             </button>
             {isOpen && (
               <ul className="absolute right-0 z-50 mt-1 w-28 rounded-lg border border-gray-200 bg-white shadow-md">

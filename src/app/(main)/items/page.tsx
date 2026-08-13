@@ -3,15 +3,17 @@
 import { useState, useEffect } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getProducts, addFavorite, removeFavorite } from "@/api/product";
+import type { ProductListItem, ProductOrderBy } from "@/types/product";
+import type { ListResponse } from "@/types/api";
 import BestSection from "./_components/BestSection";
 import ProductListSection from "./_components/ProductListSection";
 
-export default function page() {
+export default function ItemsPage() {
   const [bestCount, setBestCount] = useState(4);
   const [pageSize, setPageSize] = useState(10);
   const [page, setPage] = useState(1);
   const [keyword, setKeyword] = useState("");
-  const [orderBy, setOrderBy] = useState("recent");
+  const [orderBy, setOrderBy] = useState<ProductOrderBy>("recent");
   const queryClient = useQueryClient();
 
   useEffect(() => {
@@ -35,8 +37,7 @@ export default function page() {
 
   const { data: bestData } = useQuery({
     queryKey: ["products", "best", bestCount],
-    queryFn: () =>
-      getProducts({ page: 1, pageSize: bestCount, orderBy: "like" }),
+    queryFn: () => getProducts({ page: 1, pageSize: bestCount, orderBy: "like" }),
   });
 
   const { data: listData, isLoading } = useQuery({
@@ -45,43 +46,36 @@ export default function page() {
     refetchInterval: 1000 * 60,
   });
 
-  const bestProducts = bestData?.list || [];
-  const products = listData?.list || [];
-  const totalCount = listData?.totalCount || 0;
+  const bestProducts = bestData?.list ?? [];
+  const products = listData?.list ?? [];
+  const totalCount = listData?.totalCount ?? 0;
   const totalPages = Math.ceil(totalCount / pageSize);
 
-  const handleKeywordChange = (value) => {
+  const handleKeywordChange = (value: string) => {
     setKeyword(value);
     setPage(1);
   };
-  const handleOrderChange = (value) => {
+  const handleOrderChange = (value: ProductOrderBy) => {
     setOrderBy(value);
     setPage(1);
   };
 
-  const toggleLike = async (id, isLiked) => {
+  const toggleLike = async (id: number, isLiked: boolean) => {
     try {
-      const updated = isLiked
-        ? await removeFavorite(id)
-        : await addFavorite(id);
+      const updated = isLiked ? await removeFavorite(id) : await addFavorite(id);
 
-      const updateList = (data) => {
+      const updateList = (data: ListResponse<ProductListItem> | undefined) => {
         if (!data) return data;
         return {
           ...data,
           list: data.list.map((p) =>
-            p.id === id
-              ? { ...p, isLiked: !isLiked, likeCount: updated.likeCount }
-              : p
+            p.id === id ? { ...p, isLiked: !isLiked, likeCount: updated.likeCount } : p,
           ),
         };
       };
 
       queryClient.setQueryData(["products", "best", bestCount], updateList);
-      queryClient.setQueryData(
-        ["products", "list", page, pageSize, orderBy, keyword],
-        updateList
-      );
+      queryClient.setQueryData(["products", "list", page, pageSize, orderBy, keyword], updateList);
     } catch {}
   };
 
