@@ -1,6 +1,12 @@
 import BestPostCard from "./BestPostCard";
+import type { ArticleListItem } from "@/types/article";
 
-export default function BestPostList({ posts, onToggleLike }) {
+interface BestPostListProps {
+  posts: ArticleListItem[];
+  onToggleLike: (id: number, isLiked: boolean) => void;
+}
+
+export default function BestPostList({ posts, onToggleLike }: BestPostListProps) {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
       {posts.map((post, index) => (

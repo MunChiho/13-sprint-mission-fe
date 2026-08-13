@@ -3,21 +3,29 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import type { ArticleOrderBy } from "@/types/article";
 
-export default function SearchBar({
-  keyword,
-  onKeywordChange,
-  orderBy,
-  onOrderChange,
-}) {
+interface SearchBarProps {
+  keyword: string;
+  onKeywordChange: (value: string) => void;
+  orderBy: ArticleOrderBy;
+  onOrderChange: (value: ArticleOrderBy) => void;
+}
+
+interface SortOption {
+  label: string;
+  value: ArticleOrderBy;
+}
+
+const options: SortOption[] = [
+  { label: "최신순", value: "recent" },
+  { label: "좋아요순", value: "like" },
+];
+
+export default function SearchBar({ keyword, onKeywordChange, orderBy, onOrderChange }: SearchBarProps) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const selected = orderBy === "favorite" ? "좋아요순" : "최신순";
-
-  const options = [
-    { label: "최신순", value: "recent" },
-    { label: "좋아요순", value: "favorite" },
-  ];
+  const selected = orderBy === "like" ? "좋아요순" : "최신순";
 
   return (
     <div className="flex items-center gap-3">
@@ -44,23 +52,9 @@ export default function SearchBar({
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center justify-center rounded-xl border border-gray-200 p-2 md:w-32 md:justify-between md:px-5 md:py-2"
         >
-          <Image
-            src="/image/ic_sort.svg"
-            alt="sort"
-            width={24}
-            height={24}
-            className="md:hidden"
-          />
-          <span className="text-md hidden text-gray-800 md:block">
-            {selected}
-          </span>
-          <Image
-            src="/image/ic_arrow_down.svg"
-            alt="arrow"
-            width={24}
-            height={24}
-            className="hidden md:block"
-          />
+          <Image src="/image/ic_sort.svg" alt="sort" width={24} height={24} className="md:hidden" />
+          <span className="text-md hidden text-gray-800 md:block">{selected}</span>
+          <Image src="/image/ic_arrow_down.svg" alt="arrow" width={24} height={24} className="hidden md:block" />
         </button>
         {isOpen && (
           <ul className="absolute right-0 z-10 mt-1 w-28 rounded-lg border border-gray-200 bg-white shadow-md">

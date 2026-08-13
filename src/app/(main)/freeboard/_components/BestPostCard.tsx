@@ -1,17 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import type { ArticleListItem } from "@/types/article";
 
-export default function BestPostCard({ post, onToggleLike }) {
-  if (!post) return null;
+interface BestPostCardProps {
+  post: ArticleListItem;
+  onToggleLike?: (id: number, isLiked: boolean) => void;
+}
+
+export default function BestPostCard({ post, onToggleLike }: BestPostCardProps) {
   const nickname = post.owner?.nickname ?? "판다";
   const likes = post.likeCount > 9999 ? "9999+" : post.likeCount;
   const date = new Date(post.createdAt)
-    .toLocaleDateString("ko-KR", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    })
+    .toLocaleDateString("ko-KR", { year: "numeric", month: "2-digit", day: "2-digit" })
     .replace(/\. /g, ". ");
 
   return (
@@ -23,12 +24,10 @@ export default function BestPostCard({ post, onToggleLike }) {
         </span>
 
         <div className="mb-10 flex items-center justify-between">
-          <p className="flex-1 text-2lg font-semibold text-gray-800">
-            {post.title}
-          </p>
+          <p className="flex-1 text-2lg font-semibold text-gray-800">{post.title}</p>
           <div className="justify-cente flex h-18 w-18 shrink-0 items-center rounded-lg border border-gray-200 bg-white px-3 py-3.5">
             <Image
-              src={post.images?.[0] || "/image/default.png"}
+              src={post.images[0] || "/image/default.png"}
               alt="썸네일"
               width={48}
               height={44}
@@ -48,10 +47,11 @@ export default function BestPostCard({ post, onToggleLike }) {
               }}
               className="flex items-center gap-1"
             >
-              {post.isLiked
-                ? <AiFillHeart size={16} className="text-red-500" />
-                : <AiOutlineHeart size={16} />
-              }
+              {post.isLiked ? (
+                <AiFillHeart size={16} className="text-red-500" />
+              ) : (
+                <AiOutlineHeart size={16} />
+              )}
               <span>{likes}</span>
             </button>
           </div>

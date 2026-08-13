@@ -3,31 +3,31 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { notFound } from "next/navigation";
-import { fetchInstance } from "@/lib/fetchInstance";
-import PostDetail from "../_components/PostDetail";
-import CommentsSection from "../_components/CommentsSection";
 import Image from "next/image";
 import Link from "next/link";
+import { getArticle } from "@/api/articles";
+import { getComments } from "@/api/articlesComments";
+import { getAccessToken } from "@/lib/authStorage";
+import type { Article, ArticleComment } from "@/types/article";
+import PostDetail from "../_components/PostDetail";
+import CommentsSection from "../_components/CommentsSection";
 
 export default function PostDetailPage() {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const router = useRouter();
-  const [post, setPost] = useState(null);
-  const [comments, setComments] = useState([]);
+  const [post, setPost] = useState<Article | null>(null);
+  const [comments, setComments] = useState<ArticleComment[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!localStorage.getItem("accessToken")) {
+    if (!getAccessToken()) {
       router.push("/signin");
       return;
     }
-    Promise.all([
-      fetchInstance(`/articles/${id}`),
-      fetchInstance(`/articles/${id}/comments?limit=10`),
-    ])
+    Promise.all([getArticle(id), getComments(id, { limit: 10 })])
       .then(([postData, commentData]) => {
         setPost(postData);
-        setComments(commentData?.list ?? []);
+        setComments(commentData.list);
       })
       .finally(() => setLoading(false));
   }, [id]);
@@ -39,10 +39,7 @@ export default function PostDetailPage() {
     <div className="flex flex-col gap-6 pr-4">
       <PostDetail post={post} />
 
-      <CommentsSection
-        initialComments={comments}
-        articleId={id}
-      />
+      <CommentsSection initialComments={comments} articleId={id} />
 
       <div className="mt-10 mb-10 flex justify-center md:mt-14 lg:mt-16">
         <Link href="/freeboard">

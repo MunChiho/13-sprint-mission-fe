@@ -1,53 +1,45 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import { createProducts } from "@/api/product";
-import { useProductForm } from "@/hooks/useProductForm";
+import { uploadImage } from "@/api/upload";
+import { useProductForm, type ProductFormField } from "@/hooks/useProductForm";
+import { getAccessToken } from "@/lib/authStorage";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 const MAX_IMAGES = 3;
 
 export default function RegistrationPage() {
   const router = useRouter();
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [modalMessage, setModalMessage] = useState("");
-  const [images, setImages] = useState([]);
-  const [previews, setPreviews] = useState([]);
+  const [images, setImages] = useState<string[]>([]);
+  const [previews, setPreviews] = useState<string[]>([]);
 
-  const { values, errors, handleChange, handleBlur, addTag, removeTag, validateAll, isValid } =
-    useProductForm();
+  const { values, errors, handleChange, handleBlur, addTag, removeTag, validateAll, isValid } = useProductForm();
 
   useEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    if (!token) router.push("/signin");
+    if (!getAccessToken()) router.push("/signin");
   }, []);
 
-  const handleImageChange = async (e) => {
-    const files = Array.from(e.target.files);
+  const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []);
     if (images.length + files.length > MAX_IMAGES) {
       setModalMessage(`이미지는 최대 ${MAX_IMAGES}개까지 등록 가능합니다.`);
       return;
     }
 
-    const token = localStorage.getItem("accessToken");
-    const uploadedUrls = [];
-    const newPreviews = [];
+    const uploadedUrls: string[] = [];
+    const newPreviews: string[] = [];
 
     for (const file of files) {
       newPreviews.push(URL.createObjectURL(file));
-      const formData = new FormData();
-      formData.append("image", file);
       try {
-        const res = await fetch(`${BASE_URL}/images/upload`, {
-          method: "POST",
-          headers: { Authorization: `Bearer ${token}` },
-          body: formData,
-        });
-        const data = await res.json();
-        uploadedUrls.push(data.url);
+        const { url } = await uploadImage(file);
+        uploadedUrls.push(url);
       } catch {
         setModalMessage("이미지 업로드에 실패했습니다.");
         return;
@@ -59,7 +51,7 @@ export default function RegistrationPage() {
     e.target.value = "";
   };
 
-  const removeImage = (index) => {
+  const removeImage = (index: number) => {
     setImages((prev) => prev.filter((_, i) => i !== index));
     setPreviews((prev) => {
       URL.revokeObjectURL(prev[index]);
@@ -80,13 +72,13 @@ export default function RegistrationPage() {
     onError: () => setModalMessage("상품 등록에 실패했습니다.\n다시 시도해 주세요."),
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validateAll()) return;
     submitProduct();
   };
 
-  const inputClass = (field) =>
+  const inputClass = (field: ProductFormField) =>
     `w-full rounded-xl bg-gray-100 py-4 px-6 text-base text-gray-800 placeholder-gray-400 outline-none ${
       errors[field] ? "border border-red-500" : ""
     }`;
@@ -106,7 +98,6 @@ export default function RegistrationPage() {
       </div>
 
       <form id="registration-form" onSubmit={handleSubmit} className="flex flex-col gap-6">
-        {/* 이미지 업로드 */}
         <div className="flex flex-col gap-2">
           <label className="font-bold text-gray-800">상품 이미지</label>
           <div className="flex flex-wrap gap-4">
@@ -116,9 +107,7 @@ export default function RegistrationPage() {
                 onClick={() => fileInputRef.current?.click()}
                 className="flex h-[168px] w-[168px] flex-col items-center justify-center gap-3 rounded-xl bg-gray-100 text-gray-400 lg:h-[282px] lg:w-[282px]"
               >
-                <div className="flex h-12 w-12 items-center justify-center text-4xl text-gray-400">
-                  +
-                </div>
+                <div className="flex h-12 w-12 items-center justify-center text-4xl text-gray-400">+</div>
                 <span className="text-base">이미지 등록</span>
               </button>
             )}
@@ -146,7 +135,6 @@ export default function RegistrationPage() {
           <p className="text-sm text-gray-400">최대 {MAX_IMAGES}개까지 등록 가능합니다.</p>
         </div>
 
-        {/* 상품명 */}
         <div className="flex flex-col gap-2">
           <label className="font-bold text-gray-800">상품명</label>
           <input
@@ -159,7 +147,6 @@ export default function RegistrationPage() {
           {errors.name && <p className="text-sm text-red-500">{errors.name}</p>}
         </div>
 
-        {/* 상품 소개 */}
         <div className="flex flex-col gap-2">
           <label className="font-bold text-gray-800">상품 소개</label>
           <textarea
@@ -173,7 +160,6 @@ export default function RegistrationPage() {
           {errors.description && <p className="text-sm text-red-500">{errors.description}</p>}
         </div>
 
-        {/* 판매 가격 */}
         <div className="flex flex-col gap-2">
           <label className="font-bold text-gray-800">판매 가격</label>
           <input
@@ -187,7 +173,6 @@ export default function RegistrationPage() {
           {errors.price && <p className="text-sm text-red-500">{errors.price}</p>}
         </div>
 
-        {/* 태그 */}
         <div className="flex flex-col gap-2">
           <label className="font-bold text-gray-800">태그</label>
           <input
@@ -208,16 +193,9 @@ export default function RegistrationPage() {
           {errors.tagInput && <p className="text-sm text-red-500">{errors.tagInput}</p>}
           <div className="flex flex-wrap gap-2">
             {values.tags.map((tag) => (
-              <span
-                key={tag}
-                className="flex items-center gap-1 rounded-[26px] bg-gray-100 px-4 py-1.5 text-base text-gray-800"
-              >
+              <span key={tag} className="flex items-center gap-1 rounded-[26px] bg-gray-100 px-4 py-1.5 text-base text-gray-800">
                 #{tag}
-                <button
-                  type="button"
-                  onClick={() => removeTag(tag)}
-                  className="ml-1 text-gray-400 hover:text-gray-600"
-                >
+                <button type="button" onClick={() => removeTag(tag)} className="ml-1 text-gray-400 hover:text-gray-600">
                   ✕
                 </button>
               </span>

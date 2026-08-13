@@ -6,32 +6,33 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { deleteArticle, addArticleLike, removeArticleLike } from "@/api/articles";
 import { getMe } from "@/api/user";
+import type { Article } from "@/types/article";
 
-const formatDate = (dateString) => {
+interface PostDetailProps {
+  post: Article;
+}
+
+const formatDate = (dateString: string) => {
   const date = new Date(dateString);
   return date
-    .toLocaleDateString("ko-KR", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    })
+    .toLocaleDateString("ko-KR", { year: "numeric", month: "2-digit", day: "2-digit" })
     .replace(/\.$/, "");
 };
 
-export default function PostDetail({ post }) {
+export default function PostDetail({ post }: PostDetailProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(post?.isLiked ?? false);
-  const [likeCount, setLikeCount] = useState(post?.likeCount ?? 0);
-  const [myId, setMyId] = useState(null);
+  const [isFavorite, setIsFavorite] = useState(post.isLiked);
+  const [likeCount, setLikeCount] = useState(post.likeCount);
+  const [myId, setMyId] = useState<number | null>(null);
   const router = useRouter();
 
   useEffect(() => {
-    getMe().then((me) => setMyId(me?.id)).catch(() => {});
+    getMe()
+      .then((me) => setMyId(me?.id ?? null))
+      .catch(() => {});
   }, []);
 
-  const isOwner = myId && post?.owner?.id === myId;
-
-  if (!post) return null;
+  const isOwner = myId && post.owner?.id === myId;
 
   const handleDelete = async () => {
     await deleteArticle(post.id);
@@ -49,7 +50,7 @@ export default function PostDetail({ post }) {
         setIsFavorite(true);
         setLikeCount((prev) => prev + 1);
       }
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
     }
   };
@@ -96,12 +97,8 @@ export default function PostDetail({ post }) {
             className="rounded-full object-cover"
             unoptimized
           />
-          <span className="text-md text-gray-600">
-            {post.owner?.nickname ?? "판다"}
-          </span>
-          <span className="text-xs text-gray-400">
-            {formatDate(post.createdAt)}
-          </span>
+          <span className="text-md text-gray-600">{post.owner?.nickname ?? "판다"}</span>
+          <span className="text-xs text-gray-400">{formatDate(post.createdAt)}</span>
           <span className="text-xs text-gray-300">|</span>
           <button
             onClick={handleLikeToggle}
@@ -119,17 +116,11 @@ export default function PostDetail({ post }) {
 
       <div className="flex flex-col gap-4">
         <p className="text-lg text-gray-800">{post.content}</p>
-        {post.images?.length > 0 && (
+        {post.images.length > 0 && (
           <div className="flex flex-wrap gap-4">
             {post.images.map((src, i) => (
               <div key={i} className="relative h-[168px] w-[168px] lg:h-[282px] lg:w-[282px]">
-                <Image
-                  src={src}
-                  alt={`이미지-${i + 1}`}
-                  fill
-                  className="rounded-xl object-cover"
-                  unoptimized
-                />
+                <Image src={src} alt={`이미지-${i + 1}`} fill className="rounded-xl object-cover" unoptimized />
               </div>
             ))}
           </div>

@@ -1,27 +1,30 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import type { ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { fetchInstance } from "@/lib/fetchInstance";
+import { createArticle } from "@/api/articles";
+import { uploadImage } from "@/api/upload";
+import { getAccessToken } from "@/lib/authStorage";
 
 const MAX_IMAGES = 3;
 
 export default function WritePost() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [images, setImages] = useState([]);
-  const [previews, setPreviews] = useState([]);
-  const fileInputRef = useRef(null);
+  const [images, setImages] = useState<string[]>([]);
+  const [previews, setPreviews] = useState<string[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
   useEffect(() => {
-    if (!localStorage.getItem("accessToken")) router.push("/signin");
+    if (!getAccessToken()) router.push("/signin");
   }, []);
 
   const isValid = title.trim() && content.trim();
 
-  const handleImageChange = async (e) => {
-    const files = Array.from(e.target.files);
+  const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []);
     if (!files.length) return;
 
     const remaining = MAX_IMAGES - images.length;
@@ -30,37 +33,20 @@ export default function WritePost() {
     const newPreviews = selected.map((f) => URL.createObjectURL(f));
     setPreviews((prev) => [...prev, ...newPreviews]);
 
-    const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-    const token = localStorage.getItem("accessToken");
-    const uploaded = await Promise.all(
-      selected.map(async (file) => {
-        const formData = new FormData();
-        formData.append("image", file);
-        const res = await fetch(`${BASE_URL}/images/upload`, {
-          method: "POST",
-          headers: token ? { Authorization: `Bearer ${token}` } : {},
-          body: formData,
-        });
-        const data = await res.json();
-        return data.url;
-      })
-    );
+    const uploaded = await Promise.all(selected.map((file) => uploadImage(file).then((res) => res.url)));
 
     setImages((prev) => [...prev, ...uploaded]);
     e.target.value = "";
   };
 
-  const removeImage = (index) => {
+  const removeImage = (index: number) => {
     URL.revokeObjectURL(previews[index]);
     setPreviews((prev) => prev.filter((_, i) => i !== index));
     setImages((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleSubmit = async () => {
-    const data = await fetchInstance("/articles", {
-      method: "POST",
-      body: JSON.stringify({ title, content, images }),
-    });
+    const data = await createArticle({ title, content, images });
     router.push(`/freeboard/${data.id}`);
   };
 
@@ -113,13 +99,7 @@ export default function WritePost() {
           )}
           {previews.map((src, i) => (
             <div key={i} className="relative h-[168px] w-[168px] lg:h-[282px] lg:w-[282px]">
-              <Image
-                src={src}
-                alt={`preview-${i}`}
-                fill
-                className="rounded-xl object-cover"
-                unoptimized
-              />
+              <Image src={src} alt={`preview-${i}`} fill className="rounded-xl object-cover" unoptimized />
               <button
                 onClick={() => removeImage(i)}
                 className="absolute top-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-gray-800 text-white"

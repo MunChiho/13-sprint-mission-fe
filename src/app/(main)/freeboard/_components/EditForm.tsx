@@ -1,27 +1,37 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import type { ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { fetchInstance } from "@/lib/fetchInstance";
+import { updateArticle } from "@/api/articles";
+import { uploadImage } from "@/api/upload";
+import { getAccessToken } from "@/lib/authStorage";
 
 const MAX_IMAGES = 3;
 
-export default function EditForm({ id, initialTitle, initialContent, initialImages = [] }) {
+interface EditFormProps {
+  id: string;
+  initialTitle: string;
+  initialContent: string;
+  initialImages?: string[];
+}
+
+export default function EditForm({ id, initialTitle, initialContent, initialImages = [] }: EditFormProps) {
   const [title, setTitle] = useState(initialTitle);
   const [content, setContent] = useState(initialContent);
-  const [images, setImages] = useState(initialImages);
-  const [previews, setPreviews] = useState(initialImages);
-  const fileInputRef = useRef(null);
+  const [images, setImages] = useState<string[]>(initialImages);
+  const [previews, setPreviews] = useState<string[]>(initialImages);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
   useEffect(() => {
-    if (!localStorage.getItem("accessToken")) router.push("/signin");
+    if (!getAccessToken()) router.push("/signin");
   }, []);
 
-  const isValid = title?.trim() && content.trim();
+  const isValid = title.trim() && content.trim();
 
-  const handleImageChange = async (e) => {
-    const files = Array.from(e.target.files);
+  const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []);
     if (!files.length) return;
 
     const remaining = MAX_IMAGES - images.length;
@@ -30,27 +40,13 @@ export default function EditForm({ id, initialTitle, initialContent, initialImag
     const newPreviews = selected.map((f) => URL.createObjectURL(f));
     setPreviews((prev) => [...prev, ...newPreviews]);
 
-    const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-    const token = localStorage.getItem("accessToken");
-    const uploaded = await Promise.all(
-      selected.map(async (file) => {
-        const formData = new FormData();
-        formData.append("image", file);
-        const res = await fetch(`${BASE_URL}/images/upload`, {
-          method: "POST",
-          headers: token ? { Authorization: `Bearer ${token}` } : {},
-          body: formData,
-        });
-        const data = await res.json();
-        return data.url;
-      })
-    );
+    const uploaded = await Promise.all(selected.map((file) => uploadImage(file).then((res) => res.url)));
 
     setImages((prev) => [...prev, ...uploaded]);
     e.target.value = "";
   };
 
-  const removeImage = (index) => {
+  const removeImage = (index: number) => {
     if (!initialImages.includes(previews[index])) {
       URL.revokeObjectURL(previews[index]);
     }
@@ -59,10 +55,7 @@ export default function EditForm({ id, initialTitle, initialContent, initialImag
   };
 
   const handleSubmit = async () => {
-    const data = await fetchInstance(`/articles/${id}`, {
-      method: "PATCH",
-      body: JSON.stringify({ title, content, images }),
-    });
+    const data = await updateArticle(id, { title, content, images });
     router.push(`/freeboard/${data.id}`);
   };
 
@@ -70,18 +63,12 @@ export default function EditForm({ id, initialTitle, initialContent, initialImag
     <div>
       <div className="mb-6 flex justify-between">
         <h2 className="text-xl font-bold text-gray-800">게시물 수정</h2>
-        <button
-          onClick={handleSubmit}
-          disabled={!isValid}
-          className="btn_small_40"
-        >
+        <button onClick={handleSubmit} disabled={!isValid} className="btn_small_40">
           수정
         </button>
       </div>
       <div className="mb-4 flex flex-col">
-        <label className="text-md font-bold text-gray-800 md:text-2lg">
-          *제목
-        </label>
+        <label className="text-md font-bold text-gray-800 md:text-2lg">*제목</label>
         <input
           type="text"
           placeholder="제목을 입력해주세요"
@@ -91,9 +78,7 @@ export default function EditForm({ id, initialTitle, initialContent, initialImag
         />
       </div>
       <div className="mb-4">
-        <label className="text-md font-bold text-gray-800 md:text-2lg">
-          *내용
-        </label>
+        <label className="text-md font-bold text-gray-800 md:text-2lg">*내용</label>
         <textarea
           placeholder="내용을 입력해주세요"
           value={content}
@@ -116,13 +101,7 @@ export default function EditForm({ id, initialTitle, initialContent, initialImag
           )}
           {previews.map((src, i) => (
             <div key={i} className="relative h-[168px] w-[168px] lg:h-[282px] lg:w-[282px]">
-              <Image
-                src={src}
-                alt={`preview-${i}`}
-                fill
-                className="rounded-xl object-cover"
-                unoptimized
-              />
+              <Image src={src} alt={`preview-${i}`} fill className="rounded-xl object-cover" unoptimized />
               <button
                 onClick={() => removeImage(i)}
                 className="absolute top-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-gray-800 text-white"
